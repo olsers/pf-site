@@ -1,19 +1,211 @@
-:root {
-    --colour-white: #ffffff;
-    --colour-jazzy-void: #181925;
-    --colour-jazzy-nebula: #312b52;
-    --colour-jazzy-zest: #46edac;
-    --colour-jazzy-solar: #fdc602;
-    --colour-jazzy-funk: #d951d8;
-    --colour-jazzy-voltage: #6503fd;
-    --colour-sensible-forest: #237365;
-    --colour-sensible-gray5: #f9f9f9;
-    --colour-sensible-gray10: #f5f5f5;
-    --icons-vectormax: 24px;
-    --icons-framesize: 32px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    --typography-text-default: var(--colour-jazzy-zest);
-    --typography-text-emphasis: var(--colour-jazzy-funk);
-    --typography-text-accent: var(--colour-jazzy-solar);
-    --typography-text-subtle: var(--colour-jazzy-nebula);
+body {
+    font-family: 'Roboto Mono', monospace;
+    background: #181925;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 227px;
+    background: #181925;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid #2a3f5f;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #46EDAC;
+    margin-bottom: 60px;
+    letter-spacing: 2px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-end;
+    flex: 1;
+}
+
+.nav a {
+    color: #46EDAC;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: 2px solid #46EDAC;
+    padding-bottom: 2px;
+    transition: opacity 0.3s;
+}
+
+.nav a:hover {
+    opacity: 0.7;
+}
+
+.nav a.disabled {
+    color: #4a5f7f;
+    border-bottom-color: #4a5f7f;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.nav a.disabled:hover {
+    opacity: 0.5;
+}
+
+.sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.linkedin-link {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s;
+    cursor: pointer;
+    padding: 0;
+    color: #181925;
+}
+
+.linkedin-link:hover {
+    opacity: 0.7;
+}
+
+.linkedin-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linkedin-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Main Content */
+.main {
+    flex: 1;
+    padding: 60px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.pixel-art {
+    position: absolute;
+    top: 70px;
+    right: 80px;
+    width: 160px;
+    height: 160px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160"><rect x="120" y="0" width="40" height="40" fill="%23c0c0c0"/><rect x="80" y="40" width="80" height="40" fill="%238a8a8a"/><rect x="80" y="80" width="40" height="40" fill="%236a7a8a"/><rect x="120" y="80" width="40" height="40" fill="%234a5a6a"/><rect x="40" y="120" width="80" height="40" fill="%236a7a8a"/></svg>') no-repeat center;
+    background-size: contain;
+}
+
+.content {
+    max-width: 900px;
+}
+
+.greeting {
+    font-size: 48px;
+    color: #D951D8;
+    margin-bottom: 30px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+}
+
+.question {
+    font-size: 36px;
+    color: #FDC602;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.description {
+    font-size: 16px;
+    color: #46EDAC;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 700px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #6a7a3a;
+    color: #2a3a0a;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: 'Roboto Mono', monospace;
+    border: 1px solid #7a8a4a;
+    cursor: not-allowed;
+    opacity: 0.5;
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        border-right: none;
+        border-bottom: 1px solid #2a3f5f;
+    }
+
+    .nav {
+        flex-direction: row;
+        gap: 15px;
+        font-size: 12px;
+    }
+
+    .main {
+        padding: 40px 20px;
+    }
+
+    .greeting {
+        font-size: 28px;
+    }
+
+    .question {
+        font-size: 20px;
+    }
+
+    .pixel-art {
+        width: 100px;
+        height: 100px;
+        top: 40px;
+        right: 20px;
+    }
 }
