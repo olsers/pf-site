@@ -15,13 +15,13 @@ body {
 }
 
 
-/*General text styles*/
+/* Text styles */
 
 
 .header-lg {
     font-size: 64px;
     font-weight: bold;
-    color: var(--voltage);
+    color: var(--funk);
     text-decoration: none;
 }
 .header-md {
@@ -30,33 +30,33 @@ body {
     color: var(--funk);
     text-decoration: none;
 }
+.logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--zest);
+    text-decoration: none;
+}
 .header-sm {
     font-size: 24px;
     font-weight: bold;
     color: var(--solar);
     text-decoration: none;
 }
-.body-md-reg {
+.body {
     font-size: 14px;
     font-weight: regular;
     color: var(--zest);
     text-decoration: none;
 }
-.body-md-bold {
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--zest);
-    text-decoration: none;
-}
-.body-alt-md-reg {
-    font-size: 14px;
+.caption {
+    font-size: 12px;
     font-weight: regular;
     color: var(--funk);
     text-decoration: none;
 }
 
 
-/*Spacers*/
+/* Spacers */
 
 
 .spacer-16 {
@@ -86,18 +86,15 @@ body {
 
 
 .sidebar {
-    min-width: 240px;
+    min-width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
     background: var(--void);
     padding: 32px 32px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-right: 1px solid var(--white-20);
-}
-.logo {
-    font-size: 40px;
-    font-weight: bold;
-    color: var(--zest);
+    border-right: 1px solid var(--nebula);
 }
 .nav-container {
     display: flex;
@@ -154,45 +151,103 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 48px;
+    margin-left: var(--sidebar-width);
 }
 .content-projects {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
+    margin-left: var(--sidebar-width);
 }
-.project-header {
+.page-title {
     padding: 32px 32px;
-    border-bottom: 1px solid var(--white-20);
+    border-bottom: 1px solid var(--nebula);
+/*    position: sticky;
+    top: 0;
+    background: var(--void);
+    z-index: 10;*/
 }
 
 
-/*Project list item stuff*/
+/* About me stuff */
+
+.lore {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 128px;
+    gap: 64px;
+}
+.lore img {
+    width: 50%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+.lore p {
+    width: 50%;
+}
+
+
+/* Project list item stuff */
+
+
 .pli {
     padding: 32px 32px;
     display: flex;
     flex-direction: row;
     gap: 32px;
-    border-bottom: 1px solid var(--white-20);
+    align-items: center;
+    border-bottom: 1px solid var(--nebula);
 }
 .pli:hover {
-    background: var(--white-20);
+    background: var(--nebula);
     transition: all 0.2s;
+}
+.pli img {
+    width: 45%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    flex-shrink: 0;
 }
 .pli-desc {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     gap: 16px;
+    width: 55%;
 }
-.pli img {
-    width: 216px;
-    height: 144px;
+.pli-desc p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
-
+.attribute-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    gap: 16px;
+}
 
 
 /* Responsive */
+
+
+@media (max-width: 1024px) {
+    .pli {
+        flex-direction: column;
+        gap: 16px;
+    }
+    .pli img {
+        width: 100%;
+    }
+    .pli-desc {
+        width: 100%;
+    }
+}
 
 
 @media (max-width: 768px) {
@@ -202,32 +257,36 @@ body {
 
     .sidebar {
         width: 100%;
+        height: auto;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        padding: 20px;
+        padding: 16px;
         border-right: none;
-        border-bottom: 1px solid #2a3f5f;
+        border-bottom: 1px solid var(--nebula);
     }
-
-    .nav {
-        flex-direction: row;
-        gap: 15px;
-        font-size: 12px;
-    }
-
     .logo {
         font-size: 24px;
     }
-
+    .nav {
+        flex-direction: row;
+        gap: 16px;
+    }
     .icon-button img {
         width: 20px;
         height: 20px;
     }
 
-    .main {
-        padding: 24px 24px;
+    .content-homepage {
+        margin-left: 0px;
+        margin-top: 65px;
     }
+    .content-projects {
+        margin-left: 0px;
+        margin-top: 65px;
+    }
+
+
 
     .h1 {
         font-size: 32px;
@@ -239,12 +298,5 @@ body {
 
     .h3 {
         font-size: 16px;
-    }
-
-    .pixel-art {
-        width: 100px;
-        height: 100px;
-        top: 40px;
-        right: 20px;
     }
 }
