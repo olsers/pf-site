@@ -1,1 +1,190 @@
+@import url("styleguide.css");
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto Mono', monospace;
+    background: var(--void);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    width: 240px;
+    background: var(--void);
+    padding: 32px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--white-20);
+}
+
+.logo {
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--zest);
+}
+.nav-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    justify-content: center;
+    align-items: flex-end;
+    flex: 1;
+}
+
+.nav a {
+    color: var(--zest);
+    font-size: 14px;
+    transition: opacity 0.3s;
+    border-bottom: 3px solid transparent;
+    padding-bottom: 2px;
+}
+
+.nav a.active {
+    border-bottom: 3px solid var(--solar);
+    padding-bottom: 2px;
+}
+
+.nav a:hover {
+    opacity: 0.7;
+}
+
+.nav a.disabled {
+    color: var(--white-20);
+    cursor: not-allowed;
+}
+
+.icon-buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 16px;
+}
+
+.icon-button {
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.icon-button img {
+    width: 32px;
+    height: 32px;
+}
+
+.icon-button:hover {
+    opacity: 0.7;
+}
+
+/* Main Content */
+.main {
+    flex: 1;
+    padding: 64px 64px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.pixel-art {
+    position: absolute;
+    top: 70px;
+    right: 80px;
+    width: 160px;
+    height: 160px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160"><rect x="120" y="0" width="40" height="40" fill="%23c0c0c0"/><rect x="80" y="40" width="80" height="40" fill="%238a8a8a"/><rect x="80" y="80" width="40" height="40" fill="%236a7a8a"/><rect x="120" y="80" width="40" height="40" fill="%234a5a6a"/><rect x="40" y="120" width="80" height="40" fill="%236a7a8a"/></svg>') no-repeat center;
+    background-size: contain;
+}
+
+.content {
+    max-width: 1200px;
+}
+
+.h1 {
+    font-size: 64px;
+    color: var(--funk);
+    margin-bottom: 30px;
+    line-height: 1.4;
+    letter-spacing: 1px;
+}
+
+.h2 {
+    font-size: 40px;
+    color: var(--solar);
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.h3 {
+    font-size: 24px;
+    color: var(--zest);
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        border-right: none;
+        border-bottom: 1px solid #2a3f5f;
+    }
+
+    .nav {
+        flex-direction: row;
+        gap: 15px;
+        font-size: 12px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .icon-button img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .main {
+        padding: 24px 24px;
+    }
+
+    .h1 {
+        font-size: 32px;
+    }
+
+    .h2 {
+        font-size: 24px;
+    }
+
+    .h3 {
+        font-size: 16px;
+    }
+
+    .pixel-art {
+        width: 100px;
+        height: 100px;
+        top: 40px;
+        right: 20px;
+    }
+}
