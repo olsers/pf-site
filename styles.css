@@ -15,7 +15,7 @@ body {
 }
 
 
-/* Text styles */
+/* Text styles ---------------------------------------*/
 
 
 .header-lg {
@@ -68,7 +68,7 @@ body {
 }
 
 
-/* Spacers */
+/* Spacers ----------------------------------------- */
 
 
 .spacer-16 {
@@ -94,7 +94,7 @@ body {
 
 
 
-/* Sidebar Navigation */
+/* Sidebar Navigation ------------------------------*/
 
 
 .sidebar {
@@ -154,7 +154,7 @@ body {
 }
 
 
-/* Main Content */
+/* Main Content -------------------------------------*/
 
 
 .content-homepage {
@@ -182,7 +182,7 @@ body {
 }
 
 
-/* About me stuff */
+/* About me stuff ---------------------------------*/
 
 .lore {
     display: flex;
@@ -208,7 +208,7 @@ body {
 }
 
 
-/* Project list item stuff */
+/* Project list item stuff -------------------------*/
 
 
 .pli {
@@ -252,7 +252,7 @@ body {
 }
 
 
-/* Responsive */
+/* Responsive -------------------------------------*/
 
 
 @media (max-width: 1280px) {
