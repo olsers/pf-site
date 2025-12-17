@@ -48,6 +48,18 @@ body {
     color: var(--zest);
     text-decoration: none;
 }
+.body-emph {
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--funk);
+    text-decoration: none;
+}
+.body-yeet {
+    font-size: 14px;
+    font-weight: regular;
+    color: var(--zest);
+    text-decoration: line-through var(--funk) 3px;
+}
 .caption {
     font-size: 12px;
     font-weight: regular;
@@ -280,6 +292,9 @@ body {
     }
     .logo {
         font-size: 24px;
+        width: 1ch;
+        overflow: hidden;
+        white-space: nowrap;
     }
     .nav {
         flex-direction: row;
