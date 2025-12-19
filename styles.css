@@ -109,7 +109,7 @@ body {
     justify-content: space-between;
     border-right: 1px solid var(--nebula);
 }
-.nav-container {
+.nav-items-container {
     display: flex;
     flex-direction: column;
 }
@@ -260,9 +260,6 @@ body {
     .lore {
         flex-direction: column;
     }
-}
-
-@media (max-width: 1024px) {
     .pli {
         flex-direction: column;
         gap: 16px;
@@ -275,8 +272,7 @@ body {
     }
 }
 
-
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     body {
         flex-direction: column;
     }
