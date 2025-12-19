@@ -12,6 +12,7 @@ body {
     color: var(--white);
     min-height: 100vh;
     display: flex;
+    
 }
 
 
@@ -58,7 +59,7 @@ body {
     font-size: 14px;
     font-weight: regular;
     color: var(--zest);
-    text-decoration: line-through var(--funk) 3px;
+    text-decoration: line-through var(--funk) 2px;
 }
 .caption {
     font-size: 12px;
