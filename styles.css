@@ -69,7 +69,7 @@ body {
   font-weight: bold;
   color: var(--solar);
   text-decoration: none;
-  transform: rotate(-45deg);
+  /* transform: rotate(-45deg); */
 }
 .tldr-body {
   font-size: 12px;
@@ -184,6 +184,21 @@ body {
   gap: 16px;
   justify-content: flex-start;
 }
+.homepage-button {
+    display: block;
+    width: fit-content;
+    padding: 12px 24px;
+    background: var(--solar);
+    color: var(--void);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.homepage-button:hover {
+    opacity: 0.8;
+}
+
 
 /* About me stuff ---------------------------------*/
 
@@ -267,35 +282,64 @@ body {
 }
 
 .toc {
-  position: fixed;
-  top: 32px;
-  right: 32px;
-  width: 200px;
-  background: var(--nebula);
-  padding: 16px;
-  border: 1px solid var(--white-20);
-  z-index: 100;
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    width: 200px;
+    background: var(--nebula);
+    padding: 16px;
+    border: 1px solid var(--white-20);
+    z-index: 100;
+    border-radius: 8px;
 }
 
-.toc h3 {
-  margin-bottom: 16px;
+.toc summary {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 24px;
+    color: var(--solar);
+}
+
+.toc summary:hover {
+    opacity: 0.7;
 }
 
 .toc ul {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0 0 0;
+    gap: 8px;
 }
 
 .toc a {
-  color: var(--zest);
-  text-decoration: none;
-  font-size: 12px;
+    color: var(--zest);
+    text-decoration: none;
+    font-size: 14px;
 }
 
 .toc a:hover {
+    opacity: 0.7;
+}
+
+.icon-button-sm {
+  display: inline-block;
+}
+.icon-button-sm img {
+  width: 24px;
+  height: 24px;
+}
+.icon-button-sm:hover {
   opacity: 0.7;
+  transition: all 0.2s;
+}
+
+.next-prev-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 16px 0 0 0;
+  /* padding: 0px 16px 0px 16px; */
 }
 
 .sub-section-row {
@@ -390,6 +434,9 @@ body {
   }
   .page-title {
     padding: 16px 16px;
+  }
+  .toc {
+    display: none;
   }
   .header-lg {
     font-size: 36px;
