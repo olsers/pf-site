@@ -191,6 +191,47 @@ body {
   gap: 16px;
 }
 
+/* ToC ---------------------------------------------*/
+
+.toc {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    width: 200px;
+    background: var(--nebula);
+    padding: 16px;
+    border: 1px solid var(--white-20);
+    z-index: 100;
+    border-radius: 8px;
+}
+.toc summary {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--solar);
+}
+.toc summary:hover {
+    opacity: 0.7;
+}
+.toc div{
+  padding: 0px 16px;
+}
+.toc ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 0 0 0;
+    gap: 8px;
+}
+.toc a {
+    color: var(--zest);
+    text-decoration: none;
+    font-size: 14px;
+}
+.toc a:hover {
+    opacity: 0.7;
+}
+
 /* Main Content -------------------------------------*/
 
 .content-homepage {
@@ -201,22 +242,43 @@ body {
   gap: 48px;
   margin-left: 240px;
 }
-.content-general {
+.main {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: stretch;
   margin-left: 240px;
 }
-.page-title-container {
+.page-title {
   padding: 32px 32px;
   border-bottom: 1px solid var(--nebula);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 16px;
   justify-content: flex-start;
+  align-content: center;
 }
-
+.content {
+  padding: 64px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 32px;
+}
+.section-row {
+  /* padding: 32px 32px 0 32px; */
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  justify-content: flex-start;
+}
+.section-col {
+  /* padding: 32px 32px 0 32px; */
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  justify-content: flex-start;
+}
 
 
 /* About me stuff ---------------------------------*/
@@ -272,7 +334,7 @@ body {
   justify-content: flex-start;
   gap: 16px;
   width: 55%;
-  max-width: 800px;
+  /* max-width: 800px; */
 }
 .pli-desc p {
   display: -webkit-box;
@@ -288,94 +350,12 @@ body {
   gap: 16px;
 }
 
+
+
 /* Project page stuff ------------------------------*/
 
-.back-button {
-  display: inline-block;
-  margin: 32px;
-  color: var(--zest);
-  font-size: 14px;
-  text-decoration: none;
-  border-bottom: 3px solid transparent;
-  padding-bottom: 2px;
-}
 
-.toc {
-    position: fixed;
-    top: 32px;
-    right: 32px;
-    width: 200px;
-    background: var(--nebula);
-    padding: 16px;
-    border: 1px solid var(--white-20);
-    z-index: 100;
-    border-radius: 8px;
-}
 
-.toc summary {
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 24px;
-    color: var(--solar);
-}
-
-.toc summary:hover {
-    opacity: 0.7;
-}
-
-.toc ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    padding: 16px 0 0 0;
-    gap: 8px;
-}
-
-.toc a {
-    color: var(--zest);
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.toc a:hover {
-    opacity: 0.7;
-}
-
-.icon-button-sm {
-  display: inline-block;
-}
-.icon-button-sm img {
-  width: 24px;
-  height: 24px;
-}
-.icon-button-sm:hover {
-  opacity: 0.7;
-  transition: all 0.2s;
-}
-
-.arrow-buttons-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  padding: 16px 0 0 0;
-  /* padding: 0px 16px 0px 16px; */
-}
-
-.sub-section-row {
-  padding: 32px 32px 0 32px;
-  display: flex;
-  flex-direction: row;
-  gap: 32px;
-  justify-content: flex-start;
-}
-
-.sub-section-col {
-  padding: 32px 32px 0 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  justify-content: flex-start;
-}
 
 .tldr {
   display: flex;
@@ -384,7 +364,6 @@ body {
   justify-content: flex-start;
   padding: 32px;
   border: var(--nebula) 1px solid;
-  /* background-color: var(--voltage); */
   align-content: center;
 }
 

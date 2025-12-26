@@ -24,7 +24,7 @@ function generateTocItems() {
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.href = `#${h2.id}`;
-        a.textContent = `• ${h2.textContent}`;
+        a.textContent = `${h2.textContent}`;
 
         li.appendChild(a);
         tocList.appendChild(li);

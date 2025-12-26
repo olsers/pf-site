@@ -2,14 +2,28 @@ async function loadNav() {
     const response = await fetch('components/nav.html');
     const html = await response.text();
     document.getElementById('nav').innerHTML = html;
-    setActiveNav(); // Run this AFTER the HTML is loaded
+    setActiveNav();
 }
 
 function setActiveNav() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav a');
+
     navLinks.forEach(link => {
-        if (link.getAttribute('href') === currentPage) {
+        const href = link.getAttribute('href');
+        let isActive = false;
+
+        // Exact match
+        if (href === currentPage) {
+            isActive = true;
+        }
+
+        // If on a project page, highlight "Projects"
+        if (href === 'projects.html' && currentPage.startsWith('project-')) {
+            isActive = true;
+        }
+
+        if (isActive) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
