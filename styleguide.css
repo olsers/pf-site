@@ -1,10 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* Colours - Primatives */
 :root {
-    --void: #181925;
-    --nebula: #312B52;
-    --zest: #46EDAC;
-    --solar: #FDC602;
-    --funk: #D951D8;
-    --voltage: #6503FD;
-    --white: #ffffff;
-    --white-20: #ffffff20;
+	--void: #181925;
+	--nebula: #312B52;
+	--zest: #46EDAC;
+	--solar: #FDC602;
+	--funk: #D951D8;
+	--voltage: #6503FD;
+	--white: #ffffff;
+}
+
+/* Colours - Semantics */
+:root {
+	--colour-surface-background: var(--void);
+	--colour-surface-subtle: var(--nebula);
+	--colour-text-h1: var(--funk);
+	--colour-text-h2: var(--solar);
+	--colour-text-h3: var(--funk);
+	--colour-text-body: var(--zest);
+	--colour-text-body-alt: var(--funk);
+}
+
+/* Typography - Primatives */
+:root {
+	/* --font-size-h0: 64px;    */
+	--font-size-h1: 40px;
+	--font-size-h2: 24px;
+	--font-size-h3: 18px;
+	--font-size-body-md: 14px;
+	--font-size-body-sm: 12px;
+	--font-weight-bold: 700;
+	--font-weight-regular: 400;
+}
+
+/* Typography - Semantics */
+h1 {
+	font-size: var(--font-size-h1);
+	font-weight: var(--font-weight-bold);
+	text-decoration: none;
+	color: var(--colour-text-h1);
+}
+
+h2 {
+	font-size: var(--font-size-h2);
+	font-weight: var(--font-weight-bold);
+	text-decoration: none;
+	color: var(--colour-text-h2);
+}
+
+h3 {
+	font-size: var(--font-size-h3);
+	font-weight: var(--font-weight-bold);
+	text-decoration: none;
+	color: var(--colour-text-h3);
+}
+
+p {
+	font-size: var(--font-size-body-md);
+	font-weight: var(--font-weight-regular);
+	text-decoration: none;
+	color: var(--colour-text-body);
+}
+
+/* .body-sm {
+    font-size: var(--font-size-body-sm);
+    font-weight: var(--font-weight-regular);
+    text-decoration: none;
+    color: var(--colour-text-body-alt);
+} */
+
+/* Useful reusables */
+:root {
+	--hover-opacity: 0.7;
+	--hover-transition: all 0.2s;
+	--nav-width: 240px;
+	--max-content-width: 1500px;
 }

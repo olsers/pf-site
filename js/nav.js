@@ -7,7 +7,7 @@ async function loadNav() {
 
 function setActiveNav() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav a');
+    const navLinks = document.querySelectorAll('.nav-list a');
 
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
