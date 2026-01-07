@@ -15,19 +15,17 @@
 :root {
 	--colour-surface-background: var(--void);
 	--colour-surface-subtle: var(--nebula);
-	--colour-text-h1: var(--funk);
-	--colour-text-h2: var(--solar);
-	--colour-text-h3: var(--funk);
-	--colour-text-body: var(--zest);
-	--colour-text-body-alt: var(--funk);
+	--colour-primary: var(--funk);
+	--colour-secondary: var(--solar);
+	--colour-tertiary: var(--zest);
 }
 
 /* Typography - Primatives */
 :root {
-	/* --font-size-h0: 64px;    */
-	--font-size-h1: 40px;
-	--font-size-h2: 24px;
-	--font-size-h3: 18px;
+	--font-size-header-xl: 64px;
+	--font-size-header-lg: 40px;
+	--font-size-header-md: 24px;
+	--font-size-header-sm: 18px;
 	--font-size-body-md: 14px;
 	--font-size-body-sm: 12px;
 	--font-weight-bold: 700;
@@ -36,39 +34,32 @@
 
 /* Typography - Semantics */
 h1 {
-	font-size: var(--font-size-h1);
+	font-size: var(--font-size-header-lg);
 	font-weight: var(--font-weight-bold);
 	text-decoration: none;
-	color: var(--colour-text-h1);
+	color: var(--colour-primary);
 }
 
 h2 {
-	font-size: var(--font-size-h2);
+	font-size: var(--font-size-header-md);
 	font-weight: var(--font-weight-bold);
 	text-decoration: none;
-	color: var(--colour-text-h2);
+	color: var(--colour-secondary);
 }
 
 h3 {
-	font-size: var(--font-size-h3);
+	font-size: var(--font-size-header-sm);
 	font-weight: var(--font-weight-bold);
 	text-decoration: none;
-	color: var(--colour-text-h3);
+	color: var(--colour-primary);
 }
 
 p {
 	font-size: var(--font-size-body-md);
 	font-weight: var(--font-weight-regular);
 	text-decoration: none;
-	color: var(--colour-text-body);
+	color: var(--colour-tertiary);
 }
-
-/* .body-sm {
-    font-size: var(--font-size-body-sm);
-    font-weight: var(--font-weight-regular);
-    text-decoration: none;
-    color: var(--colour-text-body-alt);
-} */
 
 /* Useful reusables */
 :root {

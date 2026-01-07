@@ -15,28 +15,8 @@ body {
 
 /* Buttons ----------------------------------------*/
 
-.button-text {
-	display: block;
-	width: fit-content;
-	padding: 12px 24px;
-	background: var(--solar);
-	color: var(--void);
-	font-size: 14px;
-	font-weight: bold;
-	border-radius: 4px;
-	text-decoration: none;
-	cursor: pointer;
-	transition: all 0.2s;
-}
-
-.button-text:hover {
-	opacity: 0.7;
-	transition: all 0.2s;
-}
-
 .button {
 	display: inline-block;
-	color: var(--zest);
 	align-content: center;
 }
 
@@ -45,15 +25,32 @@ body {
 	transition: var(--hover-transition);
 }
 
-.icon-md svg {
+.button.md svg {
 	width: 32px;
 	height: 32px;
 }
 
-.icon-sm svg {
+.button.sm svg {
 	width: 24px;
 	height: 24px;
 }
+
+.button.primary {
+	color: var(--colour-primary);
+	fill: var(--colour-primary);
+}
+
+.button.secondary {
+	color: var(--colour-secondary);
+	fill: var(--colour-secondary);
+}
+
+.button.tertiary {
+	color: var(--colour-tertiary);
+	fill: var(--colour-tertiary);
+}
+
+
 
 /* Nav ------------------------------*/
 
@@ -65,13 +62,13 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	border-right: 1px solid var(--nebula);
+	border-right: 1px solid var(--colour-surface-subtle);
 }
 
 .whole-nav h3 {
-	font-size: var(--font-size-h1);
+	font-size: var(--font-size-header-lg);
 	font-weight: var(--font-weight-bold);
-	color: var(--zest);
+	color: var(--colour-tertiary);
 }
 
 .nav-list {
@@ -82,19 +79,19 @@ body {
 }
 
 .nav-list a {
-	color: var(--colour-text-body);
+	color: var(--colour-tertiary);
 	font-size: var(--font-size-body-md);
 	text-decoration: none;
 	border-bottom: 3px solid transparent;
 }
 
 .nav-list a:hover {
-	opacity: 0.7;
-	transition: all 0.2s;
+	opacity: var(--hover-opacity);
+	transition: var(--hover-transition);
 }
 
 .nav-list a.active {
-	border-bottom: 3px solid var(--solar);
+	border-bottom: 3px solid var(--colour-secondary);
 }
 
 .social-buttons-container {
@@ -102,6 +99,7 @@ body {
 	flex-direction: row;
 	justify-content: flex-start;
 	gap: 16px;
+	width: fit-content;
 }
 
 /* ToC ---------------------------------------------*/
@@ -130,7 +128,7 @@ body {
 	cursor: pointer;
 	font-weight: bold;
 	font-size: 18px;
-	color: var(--colour-text-h2);
+	color: var(--colour-secondary);
 	list-style: none;
 	display: flex;
 	align-items: center;
@@ -140,6 +138,12 @@ body {
 .toc summary:hover {
 	opacity: var(--hover-opacity);
 	transition: var(--hover-transition);
+}
+
+.toc summary svg {
+	width: 20px;
+	height: 20px;
+	fill: var(--colour-secondary);
 }
 
 .toc div {
@@ -155,7 +159,7 @@ body {
 }
 
 .toc a {
-	color: var(--colour-text-body);
+	color: var(--colour-tertiary);
 	text-decoration: none;
 	font-size: var(--font-size-body-md);
 }
@@ -178,7 +182,19 @@ body {
 }
 
 .content-homepage h1 {
-	font-size: 64px;
+	font-size: var(--font-size-header-xl);
+}
+
+.button.text {
+	width: fit-content;
+	padding: 12px 24px;
+	background: var(--colour-secondary);
+	color: var(--void);
+	font-size: var(--font-size-body-md);
+	font-weight: var(--font-weight-bold);
+	border-radius: 8px;
+	text-decoration: none;
+	cursor: pointer;
 }
 
 /* Universal page things ------------------------*/
@@ -193,7 +209,7 @@ body {
 
 .page-title-box {
 	padding: 32px 32px;
-	border-bottom: 1px solid var(--nebula);
+	border-bottom: 1px solid var(--colour-surface-subtle);
 	display: flex;
 	flex-direction: row;
 	gap: 16px;
@@ -216,6 +232,7 @@ body {
 .pli:hover {
 	background: var(--colour-surface-subtle);
 	transition: var(--hover-transition);
+	opacity: 100%;
 }
 
 .pli img {
@@ -226,7 +243,7 @@ body {
 	max-width: 640px;
 }
 
-.pli-text-box {
+.pli-text-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -267,29 +284,24 @@ body {
 	max-width: 500px;
 }
 
-.lore-text {
+.lore-text-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	gap: 16px;
 }
 
-.lore span {
+.lore-text-container span {
 	text-decoration: line-through var(--funk) 2px;
 }
 
-.lore a {
+.lore-text-container a {
 	color: var(--funk);
 	font-weight: var(--font-weight-bold);
 	text-decoration: none;
 }
 
-.lore a:hover {
-	opacity: var(--hover-opacity);
-	transition: var(--hover-transition);
-}
-
-.lore a:visited {
+.lore-text-container a:visited {
 	color: var(--funk);
 }
 
