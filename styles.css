@@ -317,8 +317,27 @@ body {
 	align-content: center;
 }
 
+.tldr-title-box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.tldr-title-box h2 {
+	transform: rotate(-45deg);
+	white-space: nowrap;
+	margin: 0;
+}
+
 .tldr p {
 	color: var(--solar);
+}
+
+.sub-header {
+	color: var(--colour-primary);
+	font-size: var(--font-size-body-md);
+	font-weight: var(--font-weight-bold);
 }
 
 .titleandtext {
