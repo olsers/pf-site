@@ -151,7 +151,8 @@ body {
 }
 
 .toc ul {
-	list-style: none;
+	list-style: decimal;
+	margin-left: 16px;
 	display: flex;
 	flex-direction: column;
 	padding: 8px 0 0 0;
