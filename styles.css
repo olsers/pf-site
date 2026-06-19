@@ -216,6 +216,10 @@ body {
 	gap: 16px;
 	justify-content: flex-start;
 	align-content: center;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background: var(--colour-surface-background);
 }
 
 /* Projects page -------------------------*/
@@ -335,6 +339,17 @@ body {
 	color: var(--solar);
 }
 
+.glance-stats {
+	display: flex;
+	flex-direction: row;
+	gap: 32px;
+	justify-content: flex-start;
+}
+
+.glance-stats ul {
+	list-style: none;
+}
+
 .sub-header {
 	color: var(--colour-primary);
 	font-size: var(--font-size-body-md);
@@ -363,6 +378,8 @@ body {
 	flex-direction: row;
 	gap: 32px;
 	justify-content: flex-start;
+	height: auto;
+	width: 100%;
 }
 
 .section-col {

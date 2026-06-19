@@ -24,7 +24,7 @@
                     <use href="assets/icons.svg#arrow-left" />
                 </svg>
             </a>
-            <h1>MSc Thesis: Comics reading app</h1>
+            <h1>MSc Dissertation: Comics reading app</h1>
         </div>
 
         <div id="toc"></div>
@@ -35,62 +35,97 @@
                 <div class="tldr-title-box">
                     <h2>TL;DR</h2>
                 </div>
-                <p>
-                    Most digital comic platforms solve the wrong problem. The panel-by-panel reading mode fixes the zoom
-                    issue by destroying the page which is exactly the thing that makes comics work. For my MSc
-                    dissertation, I researched why digital comic reading is broken and designed ZAP!, a tablet-first app
-                    that keeps the page intact and solves navigation differently. The centrepiece: a visual scrubber
-                    inspired by video editing timelines. End-to-end UCD process, from literature review to SUPR-Q
-                    evaluated prototype. <br><br>
-                    Outcome: MSc in Human-Computer Interaction Design, distinction. <br>
-                    Role: Solo (reasearcher, IA, interaction, and visual designer). <br>
-                    Timeline: 12 months, submitted Oct 2021. <br>
-                    Deliverables: High-fidelity prototype, personas, IA, design requirements, SUPR-Q evaluation. <br>
-                </p>
+                <div>
+                    <p>
+                        Most digital comic platforms solve the wrong problem. The panel-by-panel reading mode fixes the
+                        zoom
+                        issue by destroying the page which is exactly the thing that makes comics work. For my MSc
+                        dissertation, I researched why digital comic reading is broken and designed ZAP!, a tablet-first
+                        app
+                        that keeps the page intact and solves navigation differently. The centrepiece: a visual scrubber
+                        inspired by video editing timelines. The following case study outlines the End-to-end UCD
+                        process, from literature review to SUPR-Q
+                        evaluated prototype.
+                    </p>
+                    <br>
+                    <div class="glance-stats">
+                        <p>Outcome<br>
+                            MSc in Human-Computer Interaction Design (distinction)</p>
+                        <p>Role<br>
+                            Solo designer and researcher</p>
+                        <p>Time<br>
+                            12 months, submitted Oct 2021</p>
+                        <p>Deliverables<br>
+                            High-fidelity prototype, personas, IA, design requirements, SUPR-Q evaluation</p>
+                    </div>
+                </div>
             </div>
 
             <h2>The problem in plain sight</h2>
             <p>Anyone who reads comics digitally knows the frustration, even if they've never put it into words. Your
                 collection is split across multiple platforms, your phone isn't the right shape, and the panel-by-panel
                 reading
-                mode that's supposed to help strips away exactly the peripheral context that makes a comic page work.
+                mode that's supposed to help, strips away exactly the peripheral context that makes a comic page work.
             </p>
-            <p>This isn't a niche complaint. It's a structural problem with how the industry moved online — and one that
+            <p>This isn't a niche complaint. It's a structural problem with how the industry moved online and one that
                 had been almost entirely overlooked in HCI research relative to e-reading more broadly. That gap was the
                 starting point for my MSc dissertation.</p>
             <p>My research question was straightforward: why is reading comics digitally such a frustrating experience,
                 and what would a better one actually look like?</p>
 
             <h2>Understanding the space</h2>
-            <p>Before I could design anything, I needed to understand the landscape — both academically and practically.
-            </p>
-            <p>I started with a literature review spanning comics theory, the history of digital publishing, e-reader
-                usability research, and the specific challenges of translating comics to screen. Scott McCloud's work on
-                the grammar of comics sat alongside academic usability studies and industry post-mortems. The reading UI
-                problem isn't just a UX problem — it's a problem rooted in what comics are as a medium.</p>
-            <p>From there I built a comparative platform analysis: a matrix of around 18 services, scored across
-                download numbers, ratings, library size, and payment model. I then chose the three strongest performers
-                — ComiXology, MangaToon, and WebToon — for a deep-dive walkthrough of their core user journeys. What
-                emerged was a consistent picture: each platform had optimised for its own ecosystem at the expense of
-                the reader.</p>
+
+            <div class="section-row">
+                <div height="fit-content">
+                    <p>Before I could design anything, I needed to understand the landscape — both academically and
+                        practically.</p><br>
+                    <p>I started with a literature review spanning comics theory, the history of digital publishing,
+                        e-reader
+                        usability research, and the specific challenges of translating comics to screen. Scott McCloud's
+                        work on
+                        the grammar of comics sat alongside academic usability studies and industry post-mortems. The
+                        reading UI
+                        problem isn't just a UX problem — it's a problem rooted in what comics are as a medium.</p><br>
+                    <p>From there I built a comparative platform analysis: a matrix of around 18 services, scored across
+                        download numbers, ratings, library size, and payment model. I then chose the three strongest
+                        performers
+                        (ComiXology, MangaToon, and WebToon) for a deep-dive walkthrough of their core user journeys.
+                        What
+                        emerged was a consistent picture: each platform had optimised for its own ecosystem at the
+                        expense of
+                        the reader.</p>
+                </div>
+
+                <!-- PLACEHOLDER: a sexy mockup of the matrix. -->
+                <img src="assets/placeholder-box.png" alt="placeholder-box" height="auto" />
+            </div>
 
             <h2>Listening to users</h2>
+
             <p>The platform analysis told me what was broken. Six semi-structured interviews told me why it mattered.
             </p>
-            <p>I recruited dedicated digital comic readers — people with established habits and real collections — and
+            <p>I recruited dedicated comic readers — people with established habits and real collections — and
                 ran a pre-screener questionnaire to identify the right participants. The interviews were thematically
                 analysed to surface patterns, and those patterns were distilled into two personas:</p>
-            <ul>
-                <li>Paul is in his late 40s, a committed superfan managing a large, multi-platform collection. He cares
+
+            <div class="section-row">
+                <!-- PLACEHOLDER: Paul avatar. -->
+                <img src="assets/placeholder-box.png" alt="placeholder-box" width="100px" height="100px" />
+                <p>Paul is in his late 40s, a committed superfan managing a large, multi-platform collection. He cares
                     deeply about organisation, ownership, and being able to find what he wants. The friction in his life
-                    is administrative as much as it's about reading itself.</li>
-                <li>Mark is a time-poor new dad who just wants a reliable, flexible reading experience he can dip in and
-                    out of. He's not managing a collection — he's trying to carve out twenty minutes where he can.</li>
-            </ul>
+                    is administrative as much as it's about reading itself.</p>
+                <!-- PLACEHOLDER: Mark avatar. -->
+                <img src="assets/placeholder-box.png" alt="placeholder-box" width="100px" height="100px" />
+                <p>Mark is a time-poor new dad who just wants a reliable, flexible reading experience he can dip in and
+                    out of. He's not managing a collection — he's trying to carve out twenty minutes where he can.</p>
+            </div>
+
             <p>These two people have different problems, but they share a common frustration: no single platform serves
                 them well enough to make digital comics feel like a natural choice over physical ones.</p>
             <p>From the interviews, I developed ten prioritised design requirements — the constraints ZAP! would be
                 built against.</p>
+
+
 
             <h2>The design process</h2>
             <h3>Information architecture</h3>
