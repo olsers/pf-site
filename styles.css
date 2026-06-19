@@ -356,13 +356,15 @@ body {
 
 .glance-stats {
 	display: flex;
-	flex-direction: row;
 	gap: 32px;
-	justify-content: flex-start;
+	width: 100%;
+	padding-left: 0px;
 }
 
-.glance-stats ul {
+.glance-stats li {
 	list-style: none;
+	flex: 1;
+	color: var(--colour-secondary);
 }
 
 .sub-header {
@@ -393,7 +395,7 @@ body {
 	flex-direction: row;
 	gap: 32px;
 	justify-content: flex-start;
-	height: auto;
+	height: fit-content;
 	width: 100%;
 }
 
@@ -403,6 +405,23 @@ body {
 	gap: 32px;
 	justify-content: flex-start;
 }
+
+.equal-list {
+	display: flex;
+	/* Lines up items horizontally */
+	width: 100%;
+	/* Uses all the available width */
+	gap: 48px;
+	/* Adds equal spacing between items */
+	padding-left: 40px;
+	/* Keeps room for the first number */
+}
+
+.equal-list li {
+	flex: 1;
+}
+
+
 
 /* Responsive -------------------------------------*/
 

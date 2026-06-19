@@ -47,17 +47,26 @@
                         process, from literature review to SUPR-Q
                         evaluated prototype.
                     </p>
+
                     <br>
-                    <div class="glance-stats">
-                        <p>Outcome<br>
-                            MSc in Human-Computer Interaction Design (distinction)</p>
-                        <p>Role<br>
-                            Solo designer and researcher</p>
-                        <p>Time<br>
-                            12 months, submitted Oct 2021</p>
-                        <p>Deliverables<br>
-                            High-fidelity prototype, personas, IA, design requirements, SUPR-Q evaluation</p>
-                    </div>
+                    <ul class="glance-stats">
+                        <li>
+                            Outcome: <br>
+                            MSc in Human-Computer Interaction Design (distinction)
+                        </li>
+                        <li>
+                            Role:<br>
+                            Solo designer and researcher
+                        </li>
+                        <li>
+                            Time:<br>
+                            12 months, submitted Oct 2021
+                        </li>
+                        <li>
+                            Deliverables<br>
+                            High-fidelity prototype, personas, IA, design requirements, SUPR-Q evaluation
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -65,75 +74,85 @@
             <p>Anyone who reads comics digitally knows the frustration, even if they've never put it into words. Your
                 collection is split across multiple platforms, your phone isn't the right shape, and the panel-by-panel
                 reading
-                mode that's supposed to help, strips away exactly the peripheral context that makes a comic page work.
-            </p>
-            <p>This isn't a niche complaint. It's a structural problem with how the industry moved online and one that
+                mode that's supposed to help, strips away exactly the peripheral context that makes a comic page
+                work.<br><br>
+                This isn't a niche complaint. It's a structural problem with how the industry moved online and one that
                 had been almost entirely overlooked in HCI research relative to e-reading more broadly. That gap was the
-                starting point for my MSc dissertation.</p>
-            <p>My research question was straightforward: why is reading comics digitally such a frustrating experience,
+                starting point for my MSc dissertation.<br><br>
+                My research question was straightforward: why is reading comics digitally such a frustrating experience,
                 and what would a better one actually look like?</p>
 
             <h2>Understanding the space</h2>
 
             <div class="section-row">
-                <div height="fit-content">
-                    <p>Before I could design anything, I needed to understand the landscape — both academically and
-                        practically.</p><br>
-                    <p>I started with a literature review spanning comics theory, the history of digital publishing,
-                        e-reader
-                        usability research, and the specific challenges of translating comics to screen. Scott McCloud's
-                        work on
-                        the grammar of comics sat alongside academic usability studies and industry post-mortems. The
-                        reading UI
-                        problem isn't just a UX problem — it's a problem rooted in what comics are as a medium.</p><br>
-                    <p>From there I built a comparative platform analysis: a matrix of around 18 services, scored across
-                        download numbers, ratings, library size, and payment model. I then chose the three strongest
-                        performers
-                        (ComiXology, MangaToon, and WebToon) for a deep-dive walkthrough of their core user journeys.
-                        What
-                        emerged was a consistent picture: each platform had optimised for its own ecosystem at the
-                        expense of
-                        the reader.</p>
-                </div>
-
+                <p>Before I could design anything, I needed to understand the landscape — both academically
+                    and
+                    practically.<br><br>
+                    I started with a literature review spanning comics theory, the history of digital publishing,
+                    e-reader
+                    usability research, and the specific challenges of translating comics to screen. Scott McCloud's
+                    work on
+                    the grammar of comics sat alongside academic usability studies and industry post-mortems. The
+                    reading UI
+                    problem isn't just a UX problem — it's a problem rooted in what comics are as a medium.<br><br>
+                    From there I built a comparative platform analysis: a matrix of around 18 services, scored
+                    across
+                    download numbers, ratings, library size, and payment model. I then chose the three strongest
+                    performers
+                    (ComiXology, MangaToon, and WebToon) for a deep-dive walkthrough of their core user journeys.
+                    What
+                    emerged was a consistent picture: each platform had optimised for its own ecosystem at the
+                    expense of
+                    the reader.</p>
                 <!-- PLACEHOLDER: a sexy mockup of the matrix. -->
-                <img src="assets/placeholder-box.png" alt="placeholder-box" height="auto" />
+                <img src="assets/placeholder-box.png" alt="placeholder-box" height="350px" />
             </div>
 
             <h2>Listening to users</h2>
 
-            <p>The platform analysis told me what was broken. Six semi-structured interviews told me why it mattered.
-            </p>
-            <p>I recruited dedicated comic readers — people with established habits and real collections — and
+            <p>The platform analysis told me what was broken. Six semi-structured interviews told me why it
+                mattered.<br><br>
+                I recruited dedicated comic readers — people with established habits and real collections — and
                 ran a pre-screener questionnaire to identify the right participants. The interviews were thematically
                 analysed to surface patterns, and those patterns were distilled into two personas:</p>
 
             <div class="section-row">
                 <!-- PLACEHOLDER: Paul avatar. -->
-                <img src="assets/placeholder-box.png" alt="placeholder-box" width="100px" height="100px" />
+                <img src="assets/placeholder-box.png" alt="placeholder-box" width="150px" height="150px" />
                 <p>Paul is in his late 40s, a committed superfan managing a large, multi-platform collection. He cares
                     deeply about organisation, ownership, and being able to find what he wants. The friction in his life
                     is administrative as much as it's about reading itself.</p>
                 <!-- PLACEHOLDER: Mark avatar. -->
-                <img src="assets/placeholder-box.png" alt="placeholder-box" width="100px" height="100px" />
+                <img src="assets/placeholder-box.png" alt="placeholder-box" width="150px" height="150px" />
                 <p>Mark is a time-poor new dad who just wants a reliable, flexible reading experience he can dip in and
                     out of. He's not managing a collection — he's trying to carve out twenty minutes where he can.</p>
             </div>
 
             <p>These two people have different problems, but they share a common frustration: no single platform serves
-                them well enough to make digital comics feel like a natural choice over physical ones.</p>
-            <p>From the interviews, I developed ten prioritised design requirements — the constraints ZAP! would be
+                them well enough to make digital comics feel like a natural choice over physical ones.<br><br>
+                From the interviews, I developed ten prioritised design requirements — the constraints ZAP! would be
                 built against.</p>
 
 
 
             <h2>The design process</h2>
             <h3>Information architecture</h3>
-            <p>With requirements in hand, I sketched out information architecture options and ran a remote card sort to
+
+            <p>With requirements in hand, I sketched out information architecture options and ran a remote card sort
+                to
                 validate the structure with real users. The results were instructive: "Store"
                 won out as the label for the discovery section — and "Serendipity" got an honourable mention, which
                 neatly confirmed that discovery as an experience was a genuine user need, not just a functional
                 requirement.</p>
+
+            <div class="section-row">
+                <!-- PLACEHOLDER: Image of the IA sketches. -->
+                <img src="assets/placeholder-box.png" alt="placeholder-box" width="33%" height="300px" />
+                <!-- PLACEHOLDER: Image of the site map. -->
+                <img src="assets/placeholder-box.png" alt="placeholder-box" width="33%" height="300px" />
+                <!-- PLACEHOLDER: Collage of sharpie sketches. -->
+                <img src="assets/placeholder-box.png" alt="placeholder-box" width="33%" height="300px" />
+            </div>
 
             <h3>From sketches to prototypes</h3>
             <p>The design work moved through concept sketches on paper, then low-fidelity wireframes, and
@@ -151,13 +170,16 @@
                 <li>Reading UI — the most considered part of the design</li>
             </ul>
 
+            <!-- PLACEHOLDER: A carousel of images, first 1 image of the onboarding flow, then library, store, comics listing. -->
+            <img src="assets/placeholder-box.png" alt="placeholder-box" width="100%" height="600px" />
+
             <h3>The reading UI</h3>
             <p>The reading UI is where ZAP! makes its clearest design argument. Panel-by-panel mode — the standard
                 approach across most platforms — was consistently criticised in the research. Readers don't
                 experience a comic as a sequence of isolated panels; they experience a page, with peripheral context
                 that informs how they read each panel. Stripping that away might solve the zoom problem, but it
-                creates a different, arguably worse one.</p>
-            <p>ZAP! keeps the full page view as the default and solves navigation differently. The visual scrubber —
+                creates a different, arguably worse one.<br><br>
+                ZAP! keeps the full page view as the default and solves navigation differently. The visual scrubber —
                 inspired by video editing timelines — sits at the bottom of the reading UI, giving readers a
                 filmstrip-style overview of the issue that lets them jump and orient without ever losing their place.
                 It's an original interaction concept that directly addresses a gap I'd identified in the platform
@@ -166,8 +188,8 @@
             <h3>The aggregation question</h3>
             <p>An early ambition for ZAP! was true cross-platform aggregation — one place to access ComiXology, Dark
                 Horse, and your local library all at once. That hit a wall quickly: most comic platforms have closed
-                ecosystems with no open APIs.</p>
-            <p>Rather than abandon the concept, I made a deliberate call to design for the ideal future state anyway.
+                ecosystems with no open APIs.<br><br>
+                Rather than abandon the concept, I made a deliberate call to design for the ideal future state anyway.
                 The aggregation model is architecturally present in ZAP!, and the research clearly establishes it as a
                 genuine user need. Whether it's technically realisable today is a separate question. Designing to the
                 need rather than to the current technical constraints felt like the intellectually honest move — and
@@ -175,34 +197,41 @@
 
             <h2>Evaluation</h2>
             <p>The high-fidelity prototype was evaluated through three moderated remote user tests (plus a pilot
-                session), with a SUPR-Q questionnaire at the end of each.</p>
-            <p>The overall reception was positive. Participants found the visual design clean, the information hierarchy
-                logical, and SUPR-Q scores were strong on comfort, aesthetics, and willingness to recommend.</p>
-            <p>The issues that surfaced were as useful as the praise:</p>
-            <ul>
-                <li>Search dominated every session. Every participant went to the search bar first for everything — and
-                    the prototype didn't fully support that behaviour. That's a clear priority for a next iteration.
+                session), with a SUPR-Q questionnaire at the end of each.<br><br>
+                The overall reception was positive. Participants found the visual design clean, the information
+                hierarchy
+                logical, and SUPR-Q scores were strong on comfort, aesthetics, and willingness to recommend.<br><br>
+                The issues that surfaced were as useful as the praise:</p>
+
+
+            <ol class="equal-list">
+                <li>Search dominated every session. Every participant went to the search bar first for everything —
+                    and
+                    the prototype didn't fully support that behaviour.
                 </li>
                 <li>Iconography in the reading UI caused confusion, particularly in the navigation controls.</li>
-                <li>Custom group management didn't match users' mental models. The interaction design needed more work.
-                </li>
-                <li>Horizontal scroll affordances weren't obvious enough in a mouse-based remote testing environment —
-                    though this may partly be a testing artefact rather than a real design flaw.</li>
-            </ul>
+                <li>Custom group management didn't match users' mental models. The interaction design needed more
+                    work.</li>
+                <li>Horizontal scroll affordances weren't obvious enough in a mouse-based remote testing environment
+                    —
+                    a testing issue rather than a real design flaw.</li>
+            </ol>
+
+
 
             <h2>Reflection</h2>
 
             <p>The thing I'm most proud of isn't any single screen — it's the coherence of the process. Each phase
                 genuinely fed the next. The literature validated what the platform analysis found. The interviews
                 validated both. Every design decision in the prototype is traceable back to a specific requirement. That
-                kind of end-to-end rigour isn't something you can retrofit.</p>
-            <p>If I were doing it again, I'd recruit earlier and more broadly. Six interview participants and three test
+                kind of end-to-end rigour isn't something you can retrofit.<br><br>
+                If I were doing it again, I'd recruit earlier and more broadly. Six interview participants and three
+                test
                 participants — all male, mostly British, mostly in a similar age range — is a real limitation, and the
-                thesis is honest about that. A more diverse sample would have stress-tested the design assumptions
+                dissertation is honest about that. A more diverse sample would have stress-tested the design assumptions
                 considerably harder. I'd also push further on prototype fidelity in the areas that mattered most for
-                testing: search and group management both needed more depth to be properly evaluated. And for a project
-                with this level of interaction complexity, I'd seriously consider Axure or ProtoPie over Figma.</p>
-            <p>But the scrubber still holds up. The aggregation argument still holds up. And the problem — the genuine,
+                testing: search and group management both needed more depth to be properly evaluated.<br><br>
+                But the scrubber still holds up. The aggregation argument still holds up. And the problem — the genuine,
                 frustrating gap in how digital comics are read — absolutely still holds up.</p>
 
 
