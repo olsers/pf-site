@@ -45,7 +45,8 @@
 	--colour-primary: var(--funk);
 	--colour-secondary: var(--solar);
 	--colour-tertiary: var(--zest);
-	--colour-accent: var(--voltage);   /* was defined as a primitive but never given a job — added so it's actually usable */
+	--colour-accent: var(--voltage);
+	/* was defined as a primitive but never given a job — added so it's actually usable */
 }
 
 
@@ -62,6 +63,7 @@
 	--font-size-header-sm: 18px;
 	--font-size-body-md: 14px;
 	--font-size-body-sm: 12px;
+	--font-size-body-xs: 10px;
 
 	--font-weight-bold: 700;
 	--font-weight-regular: 400;
