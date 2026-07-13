@@ -1,0 +1,36 @@
+/* ==================================================================
+   RESET — reset + raw HTML element defaults.
+
+   Nothing in this file is a class. If you're tempted to add a class
+   here, it belongs in components.css or pages.css instead. This
+   file only answers: "what does a bare <body>, <a>, <img> etc. look
+   like before any component touches it?"
+
+   Element-level typography (h1–h3, p, ul, li) already lives in
+   tokens.css next to the type tokens they use — that's the one
+   exception, kept there so type primitives and their application
+   stay in the same place.
+   ================================================================== */
+
+@import url("tokens.css");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: var(--font-family-mono);
+	background: var(--colour-surface-background);
+	min-height: 100vh;
+	display: flex;
+}
+
+@media (max-width: 900px) {
+	/* Side nav collapses to a top bar below — page becomes a
+	   top-to-bottom stack instead of a side-by-side layout. */
+	body {
+		flex-direction: column;
+	}
+}

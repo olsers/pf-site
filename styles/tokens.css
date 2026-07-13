@@ -1,0 +1,180 @@
+/* ==================================================================
+   TOKENS — the design system's single source of truth.
+
+   Think of this file like your Figma variables panel:
+
+   PRIMITIVE  = the raw value ("this hex", "this pixel number").
+                Never used directly in components/pages.
+   SEMANTIC   = a primitive given a *job* ("this is what I use for
+                a primary color / body spacing"). Components and
+                pages should only ever reference semantic tokens.
+
+   If you find yourself writing a hex code, a raw pixel number, or
+   var(--void)/var(--funk)/etc. inside reset.css, components.css or
+   pages.css — stop. Add or reuse a semantic token here instead.
+   That's the rule that keeps this file the ONE place you edit to
+   restyle the whole site.
+   ================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+
+/* ------------------------------------------------------------------
+   COLOUR — Primitives
+   Raw palette values. Named for what they look like, not what
+   they're for (same idea as a Figma "Colors" collection).
+   ------------------------------------------------------------------ */
+:root {
+	--void: #181925;
+	--nebula: #312B52;
+	--zest: #46EDAC;
+	--solar: #FDC602;
+	--funk: #D951D8;
+	--voltage: #6503FD;
+	--white: #ffffff;
+}
+
+/* ------------------------------------------------------------------
+   COLOUR — Semantics
+   What each primitive is *for*. Components/pages use these, never
+   the primitives above directly.
+   ------------------------------------------------------------------ */
+:root {
+	--colour-surface-background: var(--void);
+	--colour-surface-subtle: var(--nebula);
+	--colour-primary: var(--funk);
+	--colour-secondary: var(--solar);
+	--colour-tertiary: var(--zest);
+	--colour-accent: var(--voltage);   /* was defined as a primitive but never given a job — added so it's actually usable */
+}
+
+
+/* ------------------------------------------------------------------
+   TYPOGRAPHY — Primitives
+   Raw type scale + weights + font stack.
+   ------------------------------------------------------------------ */
+:root {
+	--font-family-mono: "JetBrains Mono", monospace;
+
+	--font-size-header-xl: 64px;
+	--font-size-header-lg: 40px;
+	--font-size-header-md: 24px;
+	--font-size-header-sm: 18px;
+	--font-size-body-md: 14px;
+	--font-size-body-sm: 12px;
+
+	--font-weight-bold: 700;
+	--font-weight-regular: 400;
+}
+
+/* ------------------------------------------------------------------
+   TYPOGRAPHY — Semantics
+   Base HTML elements styled directly, so any page automatically
+   gets on-brand type with zero classes. Page/component CSS can
+   still override font-size etc. per-context (see .content-homepage
+   h1 in pages.css for an example) — that's expected and fine.
+   ------------------------------------------------------------------ */
+h1 {
+	font-size: var(--font-size-header-lg);
+	font-weight: var(--font-weight-bold);
+	text-decoration: none;
+	color: var(--colour-primary);
+}
+
+h2 {
+	font-size: var(--font-size-header-md);
+	font-weight: var(--font-weight-bold);
+	text-decoration: none;
+	color: var(--colour-secondary);
+}
+
+h3 {
+	font-size: var(--font-size-header-sm);
+	font-weight: var(--font-weight-bold);
+	text-decoration: none;
+	color: var(--colour-primary);
+}
+
+p {
+	font-size: var(--font-size-body-md);
+	font-weight: var(--font-weight-regular);
+	text-decoration: none;
+	color: var(--colour-tertiary);
+}
+
+ul {
+	list-style-position: outside;
+	padding-inline-start: 40px;
+}
+
+li {
+	font-size: var(--font-size-body-md);
+	font-weight: var(--font-weight-regular);
+	text-decoration: none;
+	color: var(--colour-tertiary);
+	text-align: match-parent;
+}
+
+
+/* ------------------------------------------------------------------
+   SPACING — Primitives
+   One scale, used everywhere. Every padding/gap/margin in
+   components.css and pages.css should trace back to one of these
+   instead of a one-off pixel number. If a design genuinely needs a
+   value that isn't on this scale, add a rung to the scale rather
+   than writing a raw number inline — that keeps spacing consistent
+   across the whole site the way a Figma spacing scale does.
+   ------------------------------------------------------------------ */
+:root {
+	--space-3xs: 4px;
+	--space-2xs: 8px;
+	--space-xs: 12px;
+	--space-sm: 16px;
+	--space-md: 24px;
+	--space-lg: 32px;
+	--space-xl: 48px;
+	--space-2xl: 64px;
+}
+
+/* ------------------------------------------------------------------
+   RADIUS — Primitives
+   ------------------------------------------------------------------ */
+:root {
+	--radius-sm: 8px;
+	--radius-md: 16px;
+}
+
+
+/* ------------------------------------------------------------------
+   OTHER SEMANTIC / UTILITY TOKENS
+   Small cross-cutting values that don't fit neatly under color,
+   type, or spacing, but are still "the one place to change it."
+   ------------------------------------------------------------------ */
+:root {
+	--hover-opacity: 0.7;
+	--hover-transition: all 0.2s;
+	--nav-width: 240px;
+	--max-content-width: 1500px;
+}
+
+
+/* ------------------------------------------------------------------
+   Responsive type scale
+   The header sizes above shrink on smaller screens. Kept here,
+   next to the tokens they override, rather than scattered in
+   whichever component file happened to need a media query.
+   ------------------------------------------------------------------ */
+@media (max-width: 600px) {
+	:root {
+		--font-size-header-lg: 28px;
+		--font-size-header-md: 20px;
+		--font-size-header-sm: 16px;
+	}
+}
+
+@media (max-width: 400px) {
+	:root {
+		--font-size-header-lg: 24px;
+		--font-size-header-md: 18px;
+	}
+}

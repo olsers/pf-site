@@ -1,0 +1,665 @@
+/* ==================================================================
+   COMPONENTS — reusable UI patterns.
+
+   Rule of thumb for "does this belong here or in pages.css?":
+   if you could imagine using this class on more than one page (even
+   if today it only appears on one), it's a component. If it only
+   makes sense in the context of one specific page's content, it's a
+   page style.
+
+   Every value below should trace back to a token in tokens.css.
+   No hex codes, no raw pixel numbers outside the spacing/radius
+   scale. That's what makes this file safe to skim without re-reading
+   the whole thing every time.
+   ================================================================== */
+
+@import url("tokens.css");
+
+
+/* ------------------------------------------------------------------
+   Layout shell
+   The wrapper every "inner page" (as opposed to the homepage) sits
+   inside: the scrollable area next to the side nav, plus the sticky
+   title bar at its top.
+   ------------------------------------------------------------------ */
+
+.content-general {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	margin-left: var(--nav-width);
+}
+
+.content {
+	padding: var(--space-2xl);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: var(--space-lg);
+	max-width: var(--max-content-width);
+}
+
+.page-title-box {
+	padding: var(--space-lg);
+	border-bottom: 1px solid var(--colour-surface-subtle);
+	display: flex;
+	flex-direction: row;
+	gap: var(--space-sm);
+	justify-content: flex-start;
+	align-content: center;
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background: var(--colour-surface-background);
+}
+
+@media (max-width: 900px) {
+	.content-general {
+		margin-left: 0;
+	}
+
+	.content {
+		padding: var(--space-lg);
+	}
+}
+
+@media (max-width: 600px) {
+	.content {
+		padding: var(--space-md);
+		gap: var(--space-md);
+	}
+
+	.page-title-box {
+		padding: var(--space-sm) var(--space-md);
+	}
+}
+
+@media (max-width: 400px) {
+	.content {
+		padding: var(--space-sm);
+	}
+
+	.page-title-box {
+		padding: var(--space-xs) var(--space-sm);
+	}
+}
+
+
+/* ------------------------------------------------------------------
+   Buttons
+   Usage: <a class="button primary md">…</a>
+   - colour variant: primary | secondary | tertiary
+   - size variant (icon buttons): md | sm
+   - state: disabled
+   - .button.text is the filled, text-label CTA style (e.g. "View
+     project" on the homepage) — same family, different look.
+   ------------------------------------------------------------------ */
+
+.button {
+	display: inline-block;
+	align-content: center;
+	transition: var(--hover-transition);
+}
+
+.button:hover {
+	opacity: var(--hover-opacity);
+}
+
+.button.md svg {
+	width: 32px;
+	height: 32px;
+}
+
+.button.sm svg {
+	width: 24px;
+	height: 24px;
+}
+
+.button.primary {
+	color: var(--colour-primary);
+	fill: var(--colour-primary);
+}
+
+.button.secondary {
+	color: var(--colour-secondary);
+	fill: var(--colour-secondary);
+}
+
+.button.tertiary {
+	color: var(--colour-tertiary);
+	fill: var(--colour-tertiary);
+}
+
+.button.disabled {
+	opacity: 0.5;
+	pointer-events: none;
+	cursor: not-allowed;
+}
+
+.button.text {
+	width: fit-content;
+	padding: var(--space-xs) var(--space-md);
+	background: var(--colour-secondary);
+	color: var(--colour-surface-background);
+	font-size: var(--font-size-body-md);
+	font-weight: var(--font-weight-bold);
+	border-radius: var(--radius-sm);
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.button-row {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+
+/* ------------------------------------------------------------------
+   Nav (desktop side nav)
+   ------------------------------------------------------------------ */
+
+.whole-nav {
+	min-width: var(--nav-width);
+	height: 100vh;
+	position: fixed;
+	padding: var(--space-lg);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border-right: 1px solid var(--colour-surface-subtle);
+}
+
+.whole-nav h3 {
+	font-size: var(--font-size-header-lg);
+	font-weight: var(--font-weight-bold);
+	color: var(--colour-tertiary);
+}
+
+.nav-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-lg);
+	align-items: flex-end;
+}
+
+.nav-list a {
+	color: var(--colour-tertiary);
+	font-size: var(--font-size-body-md);
+	text-decoration: none;
+	border-bottom: 3px solid transparent;
+	transition: var(--hover-transition);
+}
+
+.nav-list a:hover {
+	opacity: var(--hover-opacity);
+}
+
+.nav-list a.active {
+	border-bottom: 3px solid var(--colour-secondary);
+}
+
+.social-buttons-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	gap: var(--space-sm);
+	width: fit-content;
+}
+
+@media (max-width: 900px) {
+	.whole-nav {
+		width: 100%;
+		min-width: unset;
+		height: auto;
+		position: sticky;
+		top: 0;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: var(--space-sm);
+		border-right: none;
+		border-bottom: 1px solid var(--colour-surface-subtle);
+		z-index: 200;
+	}
+
+	/* Nav links move into the mobile drawer below 900px —
+	   the burger button opens them instead. */
+	.whole-nav .nav-list,
+	.whole-nav .social-buttons-container {
+		display: none;
+	}
+
+	.burger-button {
+		display: inline-block;
+	}
+}
+
+
+/* ------------------------------------------------------------------
+   Mobile drawer (nav, <900px)
+   Usage: .burger-button toggles .open on .drawer-overlay and
+   .mobile-drawer. Duplicates the desktop nav-list styling because
+   it renders larger, bolder link text intentionally (touch target) —
+   not an accidental fork.
+   ------------------------------------------------------------------ */
+
+.burger-button {
+	display: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+}
+
+.drawer-overlay {
+	display: none;
+	position: fixed;
+	inset: 0;
+	background: rgba(24, 25, 37, 0.7);
+	z-index: 300;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.drawer-overlay.open {
+	opacity: 1;
+}
+
+.mobile-drawer {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 280px;
+	height: 100vh;
+	background: var(--colour-surface-background);
+	border-left: 1px solid var(--colour-surface-subtle);
+	padding: var(--space-xl) var(--space-lg);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	z-index: 400;
+	transform: translateX(100%);
+	transition: transform 0.3s ease;
+}
+
+.mobile-drawer.open {
+	transform: translateX(0);
+}
+
+.drawer-nav-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-lg);
+	align-items: flex-start;
+}
+
+.drawer-nav-list a {
+	color: var(--colour-tertiary);
+	font-size: var(--font-size-header-md);
+	font-weight: var(--font-weight-bold);
+	text-decoration: none;
+	border-bottom: 3px solid transparent;
+	transition: var(--hover-transition);
+	font-family: var(--font-family-mono);
+}
+
+.drawer-nav-list a:hover {
+	opacity: var(--hover-opacity);
+}
+
+.drawer-nav-list a.active {
+	border-bottom: 3px solid var(--colour-secondary);
+}
+
+.drawer-social {
+	display: flex;
+	flex-direction: row;
+	gap: var(--space-sm);
+}
+
+
+/* ------------------------------------------------------------------
+   Table of contents (toc)
+   A <details>/<summary> element that expands on hover.
+   ------------------------------------------------------------------ */
+
+.toc {
+	position: fixed;
+	top: var(--space-lg);
+	right: var(--space-lg);
+	width: 160px;
+	overflow: hidden;
+	background: var(--colour-surface-subtle);
+	padding: var(--space-sm) var(--space-md);
+	z-index: 100;
+	border-radius: var(--radius-md);
+	transition: var(--hover-transition);
+}
+
+.toc:hover {
+	width: 300px;
+}
+
+.toc[open] .chevron {
+	transform: rotate(90deg);
+}
+
+.chevron {
+	fill: var(--colour-secondary);
+	transition: var(--hover-transition);
+}
+
+.toc summary {
+	cursor: pointer;
+	font-weight: bold;
+	font-size: var(--font-size-header-sm);
+	color: var(--colour-secondary);
+	list-style: none;
+	display: flex;
+	align-items: center;
+	gap: var(--space-2xs);
+	transition: var(--hover-transition);
+}
+
+.toc summary:hover {
+	opacity: var(--hover-opacity);
+}
+
+.toc summary svg {
+	width: 20px;
+	height: 20px;
+	fill: var(--colour-secondary);
+}
+
+.toc .content {
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	transition: var(--hover-transition);
+}
+
+.toc:hover .content {
+	max-height: 1000px;
+	opacity: 1;
+	transition-delay: 0.25s, 0.25s;
+}
+
+.toc div {
+	padding: 0 var(--space-sm);
+}
+
+.toc ul {
+	list-style: decimal;
+	margin-left: var(--space-sm);
+	display: flex;
+	flex-direction: column;
+	padding: var(--space-2xs) 0 0 0;
+	gap: var(--space-2xs);
+}
+
+.toc a {
+	color: var(--colour-tertiary);
+	text-decoration: none;
+	font-size: var(--font-size-body-md);
+	transition: var(--hover-transition);
+}
+
+.toc a:hover {
+	opacity: var(--hover-opacity);
+}
+
+@media (max-width: 900px) {
+	/* No room for a floating toc once the nav is a top bar. */
+	.toc {
+		display: none;
+	}
+}
+
+
+/* ------------------------------------------------------------------
+   Table
+   Usage: plain <table>/<tr>/<td>/<th> — no class needed.
+   (Merged in from the old styles-page-specific.css, which only
+   existed to hold this.)
+   ------------------------------------------------------------------ */
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	color: var(--colour-secondary);
+	border: 1px solid var(--colour-surface-subtle);
+}
+
+td {
+	border: 1px solid var(--colour-surface-subtle);
+	padding: var(--space-2xs);
+	text-align: left;
+}
+
+th {
+	border: 1px solid var(--colour-surface-subtle);
+	padding: var(--space-2xs);
+	text-align: left;
+	background-color: var(--colour-surface-subtle);
+}
+
+.comp-matrix {
+	width: 100%;
+}
+
+
+/* ------------------------------------------------------------------
+   List item / "picture row" pattern (.pli)
+   Usage:
+     <a class="pli">
+       <img src="…">
+       <div class="pli-text-container">…</div>
+     </a>
+   An image-plus-text row that stacks on mobile. Currently used for
+   the projects list, but it's generic enough to reuse anywhere you
+   need a clickable image + text row.
+   ------------------------------------------------------------------ */
+
+.pli {
+	padding: var(--space-lg);
+	display: flex;
+	flex-direction: row;
+	gap: var(--space-lg);
+	align-items: center;
+	border-bottom: 1px solid var(--colour-surface-subtle);
+	text-decoration: none;
+	transition: var(--hover-transition);
+}
+
+.pli:hover {
+	background: var(--colour-surface-subtle);
+	opacity: 100%;
+}
+
+.pli img {
+	width: 45%;
+	aspect-ratio: 16/9;
+	object-fit: cover;
+	flex-shrink: 0;
+	max-width: 640px;
+}
+
+.pli-text-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: var(--space-sm);
+	width: 55%;
+	max-width: 764px;
+}
+
+@media (max-width: 900px) {
+	.pli {
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+
+	.pli img {
+		width: 100%;
+		max-width: none;
+	}
+
+	.pli-text-container {
+		width: 100%;
+	}
+}
+
+@media (max-width: 600px) {
+	.pli {
+		padding: var(--space-md);
+	}
+}
+
+@media (max-width: 400px) {
+	.pli {
+		padding: var(--space-sm);
+		gap: var(--space-xs);
+	}
+}
+
+
+/* ------------------------------------------------------------------
+   Attribute list (tag pills — e.g. "Figma", "UX research")
+   Usage: <ul class="attribute-list"><li><p>Tag</p></li>…
+   ------------------------------------------------------------------ */
+
+.attribute-list {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: flex-start;
+	gap: var(--space-sm);
+}
+
+.attribute-list p {
+	color: var(--colour-primary);
+	font-size: var(--font-size-body-sm);
+}
+
+
+/* ------------------------------------------------------------------
+   TL;DR box (project page summary callout)
+   ------------------------------------------------------------------ */
+
+.tldr {
+	display: flex;
+	flex-direction: row;
+	gap: var(--space-lg);
+	justify-content: flex-start;
+	padding: var(--space-lg);
+	border: var(--colour-surface-subtle) 1px solid;
+	align-content: center;
+}
+
+.tldr-title-box {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+
+.tldr-title-box h2 {
+	transform: rotate(-45deg);
+	white-space: nowrap;
+	margin: 0;
+}
+
+.tldr p {
+	color: var(--colour-secondary);
+}
+
+@media (max-width: 900px) {
+	.tldr {
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+
+	.tldr-title-box h2 {
+		transform: none;
+	}
+}
+
+
+/* ------------------------------------------------------------------
+   Glance stats (project page "at a glance" numbers)
+   ------------------------------------------------------------------ */
+
+.glance-stats {
+	display: flex;
+	gap: var(--space-lg);
+	width: 100%;
+	padding-left: 0;
+}
+
+.glance-stats li {
+	list-style: none;
+	flex: 1;
+	color: var(--colour-secondary);
+}
+
+.sub-header {
+	color: var(--colour-primary);
+	font-size: var(--font-size-body-md);
+	font-weight: var(--font-weight-bold);
+}
+
+@media (max-width: 900px) {
+	.glance-stats {
+		flex-direction: column;
+		gap: var(--space-sm);
+	}
+}
+
+
+/* ------------------------------------------------------------------
+   Generic layout helpers
+   Low-level building blocks for stacking content — reach for these
+   before writing a one-off flex wrapper.
+   ------------------------------------------------------------------ */
+
+.titleandtext {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2xs);
+	justify-content: stretch;
+	width: 100%;
+}
+
+.section-row {
+	display: flex;
+	flex-direction: row;
+	gap: var(--space-lg);
+	justify-content: flex-start;
+	height: fit-content;
+	width: 100%;
+}
+
+.section-col {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-lg);
+	justify-content: flex-start;
+}
+
+.equal-list {
+	display: flex; /* lines items up horizontally */
+	width: 100%;
+	gap: var(--space-xl); /* equal spacing between items */
+	padding-left: 40px; /* keeps room for the first number */
+}
+
+.equal-list li {
+	flex: 1;
+}
+
+@media (max-width: 900px) {
+	.section-row {
+		flex-direction: column;
+	}
+}

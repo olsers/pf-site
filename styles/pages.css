@@ -1,0 +1,117 @@
+/* ==================================================================
+   PAGES — one-off styles that only make sense on a specific page.
+
+   If a rule here starts getting used on a second page, promote it
+   to components.css instead of copy-pasting it.
+   ================================================================== */
+
+@import url("tokens.css");
+
+
+/* ------------------------------------------------------------------
+   Homepage
+   ------------------------------------------------------------------ */
+
+.content-homepage {
+	padding: var(--space-2xl);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: var(--space-xl);
+	margin-left: var(--nav-width);
+	max-width: var(--max-content-width);
+}
+
+.content-homepage h1 {
+	font-size: var(--font-size-header-xl);
+}
+
+@media (max-width: 900px) {
+	.content-homepage {
+		margin-left: 0;
+		padding: var(--space-xl) var(--space-lg);
+	}
+}
+
+@media (max-width: 600px) {
+	.content-homepage {
+		padding: var(--space-lg) var(--space-md);
+		gap: var(--space-lg);
+	}
+}
+
+@media (max-width: 400px) {
+	.content-homepage {
+		padding: var(--space-md) var(--space-sm);
+	}
+}
+
+
+/* ------------------------------------------------------------------
+   About page ("lore" section — image + bio text)
+   ------------------------------------------------------------------ */
+
+.lore {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: var(--space-2xl);
+	gap: var(--space-2xl);
+	max-width: var(--max-content-width);
+}
+
+.lore img {
+	width: 50%;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	flex-shrink: 0;
+	max-width: 500px;
+}
+
+.lore-text-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: var(--space-sm);
+}
+
+.lore-text-container span {
+	text-decoration: line-through var(--colour-primary) 2px;
+}
+
+.lore-text-container a {
+	color: var(--colour-primary);
+	font-weight: var(--font-weight-bold);
+	text-decoration: none;
+}
+
+.lore-text-container a:visited {
+	color: var(--colour-primary);
+}
+
+@media (max-width: 900px) {
+	.lore {
+		flex-direction: column;
+		padding: var(--space-lg);
+		gap: var(--space-lg);
+	}
+
+	.lore img {
+		width: 100%;
+		max-width: none;
+	}
+}
+
+@media (max-width: 600px) {
+	.lore {
+		padding: var(--space-md);
+		gap: var(--space-md);
+	}
+}
+
+@media (max-width: 400px) {
+	.lore {
+		padding: var(--space-sm);
+	}
+}

@@ -1,0 +1,15 @@
+/* ==================================================================
+   MAIN ENTRY POINT — imports the whole system in cascade order.
+   This is the only file your HTML pages need to <link>:
+
+     <link rel="stylesheet" href="main.css">
+
+   Layer order matters: tokens define the vocabulary, reset applies
+   it to raw HTML, components build reusable patterns on top, and
+   pages get the final say for anything page-specific.
+   ================================================================== */
+
+@import url("tokens.css");       /* primitives + semantics */
+@import url("reset.css");        /* reset + raw element defaults */
+@import url("components.css");   /* reusable UI patterns */
+@import url("pages.css");        /* page-specific one-offs */

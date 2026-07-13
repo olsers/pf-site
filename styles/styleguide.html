@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Living Styleguide</title>
+<link rel="stylesheet" href="main.css">
+<style>
+	/* Styles for THIS reference page only — not part of the design
+	   system, so they live inline here rather than in the shared
+	   CSS files. */
+	body { display: block; }
+	.ref-wrap { max-width: 1100px; margin: 0 auto; padding: var(--space-2xl) var(--space-lg); }
+	.ref-nav { position: sticky; top: 0; background: var(--colour-surface-background); padding: var(--space-sm) 0; margin-bottom: var(--space-xl); display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--colour-surface-subtle); z-index: 10; }
+	.ref-nav a { color: var(--colour-tertiary); font-size: var(--font-size-body-sm); text-decoration: none; }
+	.ref-nav a:hover { color: var(--colour-secondary); }
+	.ref-section { margin-bottom: var(--space-2xl); padding-top: var(--space-lg); border-top: 1px solid var(--colour-surface-subtle); }
+	.ref-section:first-of-type { border-top: none; }
+	.ref-label { font-family: var(--font-family-mono); font-size: var(--font-size-body-sm); color: var(--colour-tertiary); opacity: 0.7; margin-top: var(--space-2xs); display: block; }
+	.ref-row { display: flex; flex-wrap: wrap; gap: var(--space-lg); align-items: flex-end; margin-bottom: var(--space-md); }
+	.ref-item { display: flex; flex-direction: column; gap: var(--space-2xs); }
+	.swatch { width: 96px; height: 64px; border-radius: var(--radius-sm); border: 1px solid var(--colour-surface-subtle); }
+	.space-demo { background: var(--colour-primary); height: 24px; }
+	.space-row { display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-2xs); }
+	.space-row span:last-child { font-family: var(--font-family-mono); font-size: var(--font-size-body-sm); color: var(--colour-tertiary); }
+	.placeholder-img { width: 45%; max-width: 280px; aspect-ratio: 16/9; background: repeating-linear-gradient(45deg, var(--colour-surface-subtle), var(--colour-surface-subtle) 10px, var(--void) 10px, var(--void) 20px); flex-shrink: 0; }
+	.ref-note { color: var(--colour-tertiary); font-size: var(--font-size-body-sm); max-width: 640px; margin-bottom: var(--space-md); opacity: 0.85; }
+</style>
+</head>
+<body>
+<div class="ref-wrap">
+
+	<h1>Design system reference</h1>
+	<p class="ref-note">Every color, size, and pattern used on the site, rendered live from main.css — reopen this page any time you forget a class name. This file isn't linked from the real site; it's just for you.</p>
+
+	<nav class="ref-nav">
+		<a href="#colour">Colour</a>
+		<a href="#type">Typography</a>
+		<a href="#space">Spacing</a>
+		<a href="#buttons">Buttons</a>
+		<a href="#nav">Nav link</a>
+		<a href="#pli">Picture row</a>
+		<a href="#tags">Tags</a>
+		<a href="#tldr">TL;DR box</a>
+		<a href="#table">Table</a>
+	</nav>
+
+	<!-- COLOUR -->
+	<section class="ref-section" id="colour">
+		<h2>Colour</h2>
+		<p class="ref-note">Primitives are the raw palette. Semantics are what each one is <em>for</em> — always reach for a semantic token in components/pages.</p>
+
+		<h3>Primitives</h3>
+		<div class="ref-row">
+			<div class="ref-item"><div class="swatch" style="background:var(--void)"></div><span class="ref-label">--void</span></div>
+			<div class="ref-item"><div class="swatch" style="background:var(--nebula)"></div><span class="ref-label">--nebula</span></div>
+			<div class="ref-item"><div class="swatch" style="background:var(--zest)"></div><span class="ref-label">--zest</span></div>
+			<div class="ref-item"><div class="swatch" style="background:var(--solar)"></div><span class="ref-label">--solar</span></div>
+			<div class="ref-item"><div class="swatch" style="background:var(--funk)"></div><span class="ref-label">--funk</span></div>
+			<div class="ref-item"><div class="swatch" style="background:var(--voltage)"></div><span class="ref-label">--voltage</span></div>
+			<div class="ref-item"><div class="swatch" style="background:var(--white)"></div><span class="ref-label">--white</span></div>
+		</div>
+
+		<h3>Semantics</h3>
+		<div class="ref-row">
+			<div class="ref-item"><div class="swatch" style="background:var(--colour-surface-background)"></div><span class="ref-label">--colour-surface-background</span></div>
+			<div class="ref-item"><div class="swatch" style="background:var(--colour-surface-subtle)"></div><span class="ref-label">--colour-surface-subtle</span></div>
+			<div class="ref-item"><div class="swatch" style="background:var(--colour-primary)"></div><span class="ref-label">--colour-primary</span></div>
+			<div class="ref-item"><div class="swatch" style="background:var(--colour-secondary)"></div><span class="ref-label">--colour-secondary</span></div>
+			<div class="ref-item"><div class="swatch" style="background:var(--colour-tertiary)"></div><span class="ref-label">--colour-tertiary</span></div>
+			<div class="ref-item"><div class="swatch" style="background:var(--colour-accent)"></div><span class="ref-label">--colour-accent</span></div>
+		</div>
+	</section>
+
+	<!-- TYPE -->
+	<section class="ref-section" id="type">
+		<h2>Typography</h2>
+		<p class="ref-note">Applied directly to h1–h3, p and li — no classes needed for basic text.</p>
+		<h1>Header XL / H1 — 40px bold</h1>
+		<h2>Header LG / H2 — 24px bold</h2>
+		<h3>Header SM / H3 — 18px bold</h3>
+		<p>Body MD / p — 14px regular. This is the default paragraph style, used for all body copy.</p>
+		<p style="font-size:var(--font-size-body-sm)">Body SM — 12px, used for captions and tags (e.g. .attribute-list).</p>
+		<span class="ref-label">--font-size-header-xl is used manually on .content-homepage h1 only — every other h1 uses --font-size-header-lg.</span>
+	</section>
+
+	<!-- SPACING -->
+	<section class="ref-section" id="space">
+		<h2>Spacing scale</h2>
+		<p class="ref-note">Use these for every padding/gap/margin instead of a raw pixel number.</p>
+		<div class="space-row"><div class="space-demo" style="width:var(--space-3xs)"></div><span>--space-3xs · 4px</span></div>
+		<div class="space-row"><div class="space-demo" style="width:var(--space-2xs)"></div><span>--space-2xs · 8px</span></div>
+		<div class="space-row"><div class="space-demo" style="width:var(--space-xs)"></div><span>--space-xs · 12px</span></div>
+		<div class="space-row"><div class="space-demo" style="width:var(--space-sm)"></div><span>--space-sm · 16px</span></div>
+		<div class="space-row"><div class="space-demo" style="width:var(--space-md)"></div><span>--space-md · 24px</span></div>
+		<div class="space-row"><div class="space-demo" style="width:var(--space-lg)"></div><span>--space-lg · 32px</span></div>
+		<div class="space-row"><div class="space-demo" style="width:var(--space-xl)"></div><span>--space-xl · 48px</span></div>
+		<div class="space-row"><div class="space-demo" style="width:var(--space-2xl)"></div><span>--space-2xl · 64px</span></div>
+	</section>
+
+	<!-- BUTTONS -->
+	<section class="ref-section" id="buttons">
+		<h2>Buttons</h2>
+		<div class="ref-row">
+			<div class="ref-item">
+				<a class="button text" href="#">View project</a>
+				<span class="ref-label">.button.text</span>
+			</div>
+		</div>
+		<div class="ref-row">
+			<div class="ref-item"><span class="button primary" style="font-size:24px">●</span><span class="ref-label">.button.primary</span></div>
+			<div class="ref-item"><span class="button secondary" style="font-size:24px">●</span><span class="ref-label">.button.secondary</span></div>
+			<div class="ref-item"><span class="button tertiary" style="font-size:24px">●</span><span class="ref-label">.button.tertiary</span></div>
+			<div class="ref-item"><span class="button primary disabled" style="font-size:24px">●</span><span class="ref-label">.button.disabled</span></div>
+		</div>
+		<p class="ref-note">Icon buttons also take a size: .md (32px svg) or .sm (24px svg).</p>
+	</section>
+
+	<!-- NAV LINK -->
+	<section class="ref-section" id="nav">
+		<h2>Nav link</h2>
+		<div class="nav-list" style="align-items:flex-start">
+			<a href="#" class="active">Home (active)</a>
+			<a href="#">Projects</a>
+			<a href="#">About</a>
+		</div>
+		<span class="ref-label">.nav-list a / .nav-list a.active — same pattern used inside .drawer-nav-list on mobile, just larger.</span>
+	</section>
+
+	<!-- PICTURE ROW -->
+	<section class="ref-section" id="pli">
+		<h2>Picture row (.pli)</h2>
+		<p class="ref-note">Image + text row that stacks on mobile. This is the pattern you asked about — reuse it any time you need a clickable image/text row, not just the projects list.</p>
+		<a class="pli" href="#" style="border:1px solid var(--colour-surface-subtle)">
+			<div class="placeholder-img"></div>
+			<div class="pli-text-container">
+				<h3>Project title</h3>
+				<p>One or two lines of supporting description text go here.</p>
+				<ul class="attribute-list">
+					<li><p>UX Research</p></li>
+					<li><p>Figma</p></li>
+				</ul>
+			</div>
+		</a>
+		<span class="ref-label">&lt;a class="pli"&gt;&lt;img&gt;&lt;div class="pli-text-container"&gt;…&lt;/div&gt;&lt;/a&gt;</span>
+	</section>
+
+	<!-- TAGS -->
+	<section class="ref-section" id="tags">
+		<h2>Tags (.attribute-list)</h2>
+		<ul class="attribute-list">
+			<li><p>Product design</p></li>
+			<li><p>User testing</p></li>
+			<li><p>Prototyping</p></li>
+		</ul>
+	</section>
+
+	<!-- TLDR -->
+	<section class="ref-section" id="tldr">
+		<h2>TL;DR box</h2>
+		<div class="tldr">
+			<div class="tldr-title-box"><h2>TL;DR</h2></div>
+			<p>A short callout summarising the project — used near the top of a case study page.</p>
+		</div>
+	</section>
+
+	<!-- TABLE -->
+	<section class="ref-section" id="table">
+		<h2>Table</h2>
+		<table>
+			<tr><th>Method</th><th>Best for</th></tr>
+			<tr><td>Usability testing</td><td>Validating flows</td></tr>
+			<tr><td>Card sorting</td><td>Information architecture</td></tr>
+		</table>
+	</section>
+
+</div>
+</body>
+</html>
