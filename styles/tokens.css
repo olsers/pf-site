@@ -94,7 +94,7 @@ h3 {
 	font-size: var(--font-size-header-sm);
 	font-weight: var(--font-weight-bold);
 	text-decoration: none;
-	color: var(--colour-primary);
+	color: var(--colour-secondary);
 }
 
 p {
@@ -115,6 +115,12 @@ li {
 	text-decoration: none;
 	color: var(--colour-tertiary);
 	text-align: match-parent;
+}
+
+figcaption {
+	margin-top: var(--space-xs);
+	color: var(--colour-primary);
+	font-size: var(--font-size-body-sm);
 }
 
 
