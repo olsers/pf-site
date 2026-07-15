@@ -40,6 +40,10 @@
 	max-width: var(--max-content-width);
 }
 
+.content h2 {
+	scroll-margin-top: 140px
+}
+
 .page-title-box {
 	padding: var(--space-lg);
 	border-bottom: 1px solid var(--colour-surface-subtle);
@@ -750,26 +754,8 @@ td {
 	border-radius: var(--radius-sm);
 }
 
-.image-label {
-	font-size: var(--font-size-body-md);
-	font-weight: var(--font-weight-bold);
-	color: var(--colour-primary);
-	text-transform: uppercase;
-}
 
 
-
-
-
-.split-image {
-	display: flex;
-	gap: var(--space-lg);
-	margin: var(--space-2xl) 0;
-}
-
-.split-image .image-card {
-	flex: 1;
-}
 
 @media (max-width: 900px) {
 

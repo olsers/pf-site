@@ -118,5 +118,66 @@
 
 
 /* ------------------------------------------------------------------
-   MSc project page
+   DS project page
    ------------------------------------------------------------------ */
+.timeline {
+	padding: var(--space-md);
+}
+
+.timeline-track {
+	list-style: none;
+	display: grid;
+	grid-template-columns: 90px 64px 1fr;
+	/* date | dot+line | label — widen the first value if your dates run longer */
+	row-gap: var(--space-lg);
+}
+
+.timeline-node {
+	/* Lets this <li>'s three children drop straight into the grid's
+	   columns/rows as if the <li> wrapper wasn't there — the DOM
+	   nesting (and screen-reader list semantics) stays intact,
+	   only the box layout is bypassed. */
+	display: contents;
+}
+
+.timeline-date {
+	text-align: right;
+	font-size: var(--font-size-body-md);
+	color: var(--colour-secondary);
+}
+
+.timeline-dot-col {
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+
+.timeline-dot {
+	width: var(--space-sm);
+	height: var(--space-sm);
+	border-radius: 50%;
+	background: var(--colour-secondary);
+	border: 3px solid var(--colour-surface-background);
+	z-index: 1;
+}
+
+.timeline-dot-col::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: calc(-1 * var(--space-md));
+	/* bridges the row-gap down to the next dot */
+	left: 50%;
+	width: 1px;
+	background: var(--colour-accent);
+}
+
+.timeline-node:last-child .timeline-dot-col::before {
+	display: none;
+	/* no trailing line past the final dot */
+}
+
+.timeline-label {
+	font-size: var(--font-size-body-md);
+	color: var(--colour-tertiary);
+}
