@@ -662,6 +662,7 @@ th {
 	background: transparent;
 	max-width: 90vw;
 	max-height: 90vh;
+	outline: none;
 }
 
 .lightbox::backdrop {
@@ -670,8 +671,8 @@ th {
 
 .lightbox img {
 	display: block;
-	width: 100%;
-	height: 100%;
+	width: 90vw;
+	height: 90vh;
 	object-fit: contain;
 	cursor: zoom-out;
 }

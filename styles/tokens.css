@@ -121,6 +121,8 @@ figcaption {
 	margin-top: var(--space-xs);
 	color: var(--colour-primary);
 	font-size: var(--font-size-body-sm);
+	font-style: italic;
+	text-align: center;
 }
 
 

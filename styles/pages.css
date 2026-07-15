@@ -181,3 +181,30 @@
 	font-size: var(--font-size-body-md);
 	color: var(--colour-tertiary);
 }
+
+
+
+
+.image-grid.match-height {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	gap: var(--space-lg);
+	flex-wrap: nowrap;
+	/* was wrap — this is what caused the stack */
+	overflow-x: auto;
+	/* fallback if a future pair is still too wide combined */
+}
+
+.image-grid.match-height .image-card {
+	flex: 0 1 auto;
+	align-items: center;
+}
+
+.image-grid.match-height .image-card img {
+	width: auto;
+	height: 320px;
+	/* was 400px — see note below */
+	max-height: 320px;
+	max-width: 100%;
+}
