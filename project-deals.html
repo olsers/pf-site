@@ -15,7 +15,7 @@
 
 	<div class="content-general">
 
-		<img src="assets/placeholder-box.png" alt="placeholder-box" height="400px" />
+		<img class="hero-mock" src="assets/deals/hero-mock-deals-1.jpeg" alt="Hero mockup for iLEVEL Deals" />
 
 		<div class="page-title-box">
 			<a href="projects.html" class="button md primary" title="Back to projects">
@@ -64,7 +64,7 @@
 						</li>
 						<li>
 							<span class="sub-header">Team:</span><br>
-							2-3 designers, 3 product managers, contracted dev team
+							2-3 designers, 3 product managers, 1 contracted dev team
 						</li>
 						<li>
 							<span class="sub-header">Timeline:</span><br>
@@ -78,8 +78,10 @@
 
 				</div>
 			</div>
-			<div class="section-row">
-				<div>
+
+			<br>
+			<div class="text-grid two-up">
+				<figure class="text-card">
 					<h2>The brief</h2><br>
 					<p>Private market deal tracking is, for most firms, still done in Excel. Deals start as a rumour, an
 						email,
@@ -102,10 +104,9 @@
 						I was brought in specifically as one of the core designers for this project, moved sideways into
 						the Private Markets vertical to provide design muscle for what was
 						clearly
-						going to be a fast-moving, high-stakes build.<br><br>
-				</div>
-				<div>
-
+						going to be a fast-moving, high-stakes build.</p>
+				</figure>
+				<figure class="text-card">
 					<h2>The team</h2><br>
 					<p>The core team was small and unusually well-aligned for a corporate product: three product
 						managers (all
@@ -123,10 +124,11 @@
 						product context, and the team's shared understanding of what we were building meant we could
 						move fast
 						without constantly relitigating fundamentals.</p>
-
-				</div>
+				</figure>
 			</div>
 
+
+			<br>
 			<h2>The early stages: ideation done right</h2>
 			<p>The project opened well. Weeks of structured discussion sessions: requirements gathering, USP
 				definition,
@@ -147,6 +149,7 @@
 				stage
 				was to make ideas discussable, not deliverable.</p>
 
+			<br>
 			<h2>The TCS crunch: designing a product in weeks</h2>
 			<p>Then reality arrived in the form of a contractual requirement we hadn't fully anticipated.<br><br>
 				TCS needed completed design mocks — not sketches, not wireframes, but detailed, considered,
@@ -180,149 +183,169 @@
 				had a silver lining: it accelerated our shared understanding of the product considerably.
 			</p>
 
+			<br>
 			<h2>The design work: what we actually built</h2>
 			<p>Over alpha and beta, the product grew from a core set of features into something genuinely
 				sophisticated.
 				Some of the work I'm most proud of:</p>
 
-			<div class="section-row">
-				<div>
+			<div class="text-grid two-up-asym">
+				<figure class="text-card">
 					<h3>Deal attributes</h3><br>
-					<p>This was the hardest design problem on the project and the one I'm most satisfied with.<br><br>
+					<p>This was the hardest design problem on the project and the one I'm most satisfied with.
 						The challenge was two-sided. First, understanding the underlying data model well enough to
-						design a
-						configuration interface for it — a system where users (not just admins, a distinction user
-						research
-						made
-						clear was critical) could create and customise the data attributes they wanted to track, from
-						EBITDA
-						and
+						design a configuration interface for it — a system where users (not just admins, a distinction
+						user
+						research made clear was critical) could create and customise the data attributes they wanted to
+						track, from EBITDA and
 						close date to entirely bespoke fields. Second, making that configuration feel simple and
 						intuitive
 						rather than like administering a database.<br><br>
 						The solution leaned heavily on progressive disclosure — surfacing just enough complexity at each
 						step
 						while keeping the harder configuration tucked out of immediate sight. The other move that
-						unlocked
-						the
+						unlocked the
 						design was treating the attributes section as primarily a place to configure the detail view.
 						Rather
 						than abstracting the data model from the consumption experience, users could drag attributes
-						onto a
-						mock
-						drawer and see a live preview of exactly what it would look like. The distinction between
-						"setting
-						up my
-						data" and "designing my view" dissolved.<br><br>
+						onto a mock drawer and see a live preview of exactly what it would look like. The distinction
+						between "setting up my data" and "designing my view" dissolved.<br><br>
 						This design, despite being one of the most rushed during the TCS crunch, held up without
 						significant
 						changes across months of subsequent work — which is probably the best measure of whether a
 						design
 						decision was actually sound.</p>
-				</div>
-				<figure class="placeholder-figure">
-					<img src="assets/placeholder-box.png" alt="Deal attributes configuration placeholder" />
-					<figcaption>Deal attributes screen placeholder — configurable attribute builder with live preview.
+				</figure>
+				<figure class="text-card">
+					<br><br>
+					<img class="zoomable" src="assets/deals/deal-attributes-2.jpg"
+						alt="Deal attributes management screen" />
+					<figcaption>Deal attibutes page — manage attributes and the layout of a deal details drawer.
 					</figcaption>
 				</figure>
 			</div>
 
-			<div class="section-row">
-				<div>
+			<div class="text-grid two-up-asym">
+				<figure class="text-card">
 					<h3>Kanban view</h3><br>
-					<p>The deal pipeline Kanban was the product's signature view — the thing you'd see in a demo, the
+					<p>The deal pipeline Kanban was the product's signature view — the thing you'd see in a demo,
+						the
 						thing
 						clients got excited about. The design challenge was folding in a lot of functionality
 						(configurable
-						swimlanes, drag-and-drop deal cards, search, filter, sort, inline stage editing) while keeping
+						swimlanes, drag-and-drop deal cards, search, filter, sort, inline stage editing) while
+						keeping
 						the
 						surface clean enough to be immediately readable.<br><br>
-						The guiding principle was keeping things in context. If you want to rename a stage, you do it
+						The guiding principle was keeping things in context. If you want to rename a stage, you do
+						it
 						directly
 						on
 						the board. If you want to reorder it, you use the ellipsis that appears on hover and move it
 						left or
-						right. Nothing lives in a separate settings panel that you have to navigate to and back from.
+						right. Nothing lives in a separate settings panel that you have to navigate to and back
+						from.
 						The
 						board
 						is the configuration surface.<br><br>
-						I did advocate for draggable lane reordering — it felt like the more natural interaction — but
-						development said no and we found a clean alternative. That kind of pragmatic negotiation was a
+						I did advocate for draggable lane reordering — it felt like the more natural interaction —
+						but
+						development said no and we found a clean alternative. That kind of pragmatic negotiation was
+						a
 						constant
 						rhythm on this project.</p>
-				</div>
-				<figure class="placeholder-figure">
-					<img src="assets/placeholder-box.png" alt="Kanban view placeholder" />
-					<figcaption>Kanban screen placeholder — the product’s signature pipeline interface.</figcaption>
 				</figure>
-			</div>
-
-			<div class="section-row">
-				<div>
-					<h3>AI and email deal enrichment</h3><br>
-					<p>Beta introduced two of the product's most forward-looking features: the ability to upload
-						documents
-						and
-						have AI automatically seed or enrich deals, and the ability to email documents directly into the
-						app
-						for
-						the same purpose.<br><br>
-						These were features my colleagues led on, but I contributed significantly to the thinking around
-						trust
-						and transparency. The core challenge — especially at a time when AI-generated content patterns
-						were
-						less established than they are today — was making sure users never lost visibility of what the
-						AI
-						had
-						touched. We developed a set of "AI has touched this" patterns: clear indicators that flagged any
-						attribute populated by the system rather than a human, with the ability to inspect what the
-						previous
-						value was, what the new value was, where it came from, and the reasoning behind it. Users could
-						bulk
-						review and accept or reject changes.<br><br>
-						We also introduced a degree of urgency tiering: small tweaks could be flagged but auto-accepted,
-						while
-						significant changes — new deals, large batches of updates — pulled the deal into a limbo state
-						requiring
-						explicit human review before anything committed. The goal was trust through transparency, not
-						trust
-						through hiding the machine.</p>
-				</div>
-				<figure class="placeholder-figure">
-					<img src="assets/placeholder-box.png" alt="AI enrichment placeholder" />
-					<figcaption>AI enrichment placeholder — smart deal data prediction and review interface.
+				<figure class="text-card">
+					<br><br>
+					<img class="zoomable" src="assets/deals/kanban-2.jpg" alt="Deal kanban view" />
+					<figcaption>Deal kanban view — a visual representation of the deal pipeline.
 					</figcaption>
 				</figure>
 			</div>
 
-			<div class="placeholder-grid four-up">
-				<figure class="image-card">
-					<img src="assets/placeholder-box.png" alt="Deal pipeline placeholder" />
-					<figcaption class="image-label">Deal pipeline</figcaption>
+			<div class="text-grid two-up-asym">
+				<figure class="text-card">
+					<h3>AI and email deal enrichment</h3><br>
+					<p>Beta introduced two of the product's most forward-looking features: the ability to upload
+						documents
+						and
+						have AI automatically seed or enrich deals, and the ability to email documents directly into
+						the
+						app
+						for
+						the same purpose.<br><br>
+						These were features my colleagues led on, but I contributed significantly to the thinking
+						around
+						trust
+						and transparency. The core challenge — especially at a time when AI-generated content
+						patterns
+						were
+						less established than they are today — was making sure users never lost visibility of what
+						the
+						AI
+						had
+						touched. We developed a set of "AI has touched this" patterns: clear indicators that flagged
+						any
+						attribute populated by the system rather than a human, with the ability to inspect what the
+						previous
+						value was, what the new value was, where it came from, and the reasoning behind it. Users
+						could
+						bulk
+						review and accept or reject changes.<br><br>
+						We also introduced a degree of urgency tiering: small tweaks could be flagged but
+						auto-accepted,
+						while
+						significant changes — new deals, large batches of updates — pulled the deal into a limbo
+						state
+						requiring
+						explicit human review before anything committed. The goal was trust through transparency,
+						not
+						trust
+						through hiding the machine.</p>
 				</figure>
-				<figure class="image-card">
-					<img src="assets/placeholder-box.png" alt="Document library placeholder" />
-					<figcaption class="image-label">Document library</figcaption>
-				</figure>
-				<figure class="image-card">
-					<img src="assets/placeholder-box.png" alt="User management placeholder" />
-					<figcaption class="image-label">User management</figcaption>
-				</figure>
-				<figure class="image-card">
-					<img src="assets/placeholder-box.png" alt="Entity view placeholder" />
-					<figcaption class="image-label">Entity view</figcaption>
+				<figure class="text-card">
+					<br><br>
+					<img class="zoomable" src="assets/deals/ai-enrich-1.jpg" alt="AI enrichment of a deal with AI" />
+					<figcaption>AI enrichment — smart deal data prediction and review interface.
+					</figcaption>
 				</figure>
 			</div>
+
 
 			<h3>The broader pattern language</h3>
 			<ol>
 				<li>Sensible, research-informed defaults that can be changed, but don't have to be.</li>
-				<li>Consistent view and edit patterns. The add experience and the view experience look essentially the
+				<li>Consistent view and edit patterns. The add experience and the view experience look essentially
+					the
 					same — deliberately. Fewer distinct patterns means less to learn.</li>
-				<li>Progressive disclosure. Complexity exists in the product, but it's introduced at the right moment,
+				<li>Progressive disclosure. Complexity exists in the product, but it's introduced at the right
+					moment,
 					not all at once.</li>
 			</ol>
 
+			<div class="image-grid two-up">
+				<figure class="image-card">
+					<img class="zoomable" src="assets/deals/deal-stage-customisation-1.jpg"
+						alt="Customising the deal pipeline stages" />
+					<figcaption class="image-label">Customising the deal pipeline stages</figcaption>
+				</figure>
+				<figure class="image-card">
+					<img class="zoomable" src="assets/deals/doc-library-2.jpg" alt="Document library" />
+					<figcaption class="image-label">Document library</figcaption>
+				</figure>
+				<figure class="image-card">
+					<img class="zoomable" src="assets/deals/user-management-2.jpg" alt="User management" />
+					<figcaption class="image-label">User management</figcaption>
+				</figure>
+				<figure class="image-card">
+					<img class="zoomable" src="assets/deals/entities-companies-4.jpg" alt="Entity view" />
+					<figcaption class="image-label">Entity: Companies view</figcaption>
+				</figure>
+			</div>
+
+
+
+			<br>
 			<h2>Working with TCS: quality as a design responsibility</h2>
 			<p>The development quality issues with TCS became significant enough that we implemented a formal design
 				QA
@@ -339,6 +362,7 @@
 				created
 				friction, was the right call.</p>
 
+			<br>
 			<h2>The ending</h2>
 			<p>Near the end of our involvement, commercial conversations about how to market and sell iLEVEL Deals
 				had
@@ -346,7 +370,8 @@
 				Development was approaching a launchable state.<br><br>
 				Then came a restructure.<br><br>
 				The design team working on iLEVEL Deals was reassigned — moved into a different vertical that needed
-				resource — and two new designers were brought in to take over. We had a week for the transition and used
+				resource — and two new designers were brought in to take over. We had a week for the transition and
+				used
 				it as well as
 				we
 				could: documenting decisions, running knowledge-transfer sessions, leaving the Figma files in the
@@ -360,6 +385,7 @@
 				cancelled.<br><br>
 				iLEVEL Deals never shipped.</p>
 
+			<br>
 			<h2>What I took from it</h2>
 			<p>There's a version of this story that reads as frustrating, and some days it still does. A product
 				that
@@ -382,6 +408,7 @@
 				Deals
 				was one of the best working environments I've been part of. That's worth naming.</p>
 
+			<br>
 			<div class="button-row">
 				<a class="button text disabled">Previous project</a>
 				<a href="project-ds.html" class="button text">Next project</a>
@@ -396,6 +423,7 @@
 
 	<script src="js/nav.js"></script>
 	<script src="js/toc.js"></script>
+	<script src="js/lightbox.js"></script>
 </body>
 
 </html>

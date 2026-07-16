@@ -109,6 +109,11 @@ ul {
 	padding-inline-start: 40px;
 }
 
+ol {
+	list-style-position: outside;
+	padding-inline-start: 40px;
+}
+
 li {
 	font-size: var(--font-size-body-md);
 	font-weight: var(--font-weight-regular);
