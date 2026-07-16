@@ -4,22 +4,23 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ωhm-UX · iLEVEL Deals</title>
+    <title>Ωhm-UX · MSc Dissertation: Comics Reading App</title>
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 </head>
 
 <body>
 
+	<a href="#main-content" class="skip-link">Skip to content</a>
     <div id="nav"></div>
 
-    <div class="content-general">
+    <main id="main-content" class="content-general">
 
         <img class="hero-mock" src="assets/msc/hero-mock-zap.jpeg" alt="Hero mockup for ZAP!, the comics reading app" />
 
         <div class="page-title-box">
-            <a href="projects.html" class="button md primary" title="Back to projects">
-                <svg alt="Back to projects">
+            <a href="projects.html" class="button md primary" aria-label="Back to projects">
+                <svg aria-hidden="true" focusable="false">
                     <use href="assets/icons.svg#arrow-left" />
                 </svg>
             </a>
@@ -530,7 +531,7 @@
 
         </div>
 
-    </div>
+    </main>
 
     <script src="js/nav.js"></script>
     <script src="js/toc.js"></script>

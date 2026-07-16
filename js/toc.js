@@ -5,6 +5,16 @@ async function loadToc() {
 
     // Generate TOC items from h2s
     generateTocItems();
+
+    // Mouse users get the old hover-to-peek convenience, but it's
+    // implemented by toggling the same [open] attribute that keyboard
+    // users control via Enter/Space on the <summary> — so the visual
+    // state and the semantic/AT state can never fall out of sync.
+    const toc = document.querySelector('.toc');
+    if (toc) {
+        toc.addEventListener('mouseenter', () => { toc.open = true; });
+        toc.addEventListener('mouseleave', () => { toc.open = false; });
+    }
 }
 
 function generateTocItems() {
