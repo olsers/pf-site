@@ -4,28 +4,24 @@
 // nothing to wire up per-image.
 
 function initLightbox() {
-	const dialog = document.createElement('dialog');
-	dialog.className = 'lightbox';
-	dialog.innerHTML = '<img src="" alt="">';
-	document.body.appendChild(dialog);
+	let dialog = document.querySelector('dialog.lightbox');
+	let dialogImg;
 
-	const dialogImg = dialog.querySelector('img');
-	// Lets the dialog itself receive focus on open (see openLightbox),
-	// and be a sane fallback focus target if the trigger disappears.
-	dialogImg.tabIndex = -1;
+	if (!dialog) {
+		dialog = document.createElement('dialog');
+		dialog.className = 'lightbox';
+		dialog.innerHTML = '<img src="" alt="">';
+		document.body.appendChild(dialog);
+		dialogImg = dialog.querySelector('img');
+		// Lets the dialog itself receive focus on open (see openLightbox),
+		// and be a sane fallback focus target if the trigger disappears.
+		dialogImg.tabIndex = -1;
 
-	// Click anywhere on the dialog (backdrop or image) closes it.
-	dialog.addEventListener('click', () => dialog.close());
+		// Click anywhere on the dialog (backdrop or image) closes it.
+		dialog.addEventListener('click', () => dialog.close());
+	}
 
-	// Native <dialog> already closes on Escape (fires a 'cancel' event)
-	// and traps focus inside itself while open — no extra work needed
-	// for either of those.
-	dialog.addEventListener('close', () => {
-		if (lastTrigger) {
-			lastTrigger.focus();
-			lastTrigger = null;
-		}
-	});
+	dialogImg = dialog.querySelector('img');
 
 	let lastTrigger = null;
 
@@ -40,7 +36,19 @@ function initLightbox() {
 		dialogImg.focus();
 	}
 
+	// Native <dialog> already closes on Escape (fires a 'cancel' event)
+	// and traps focus inside itself while open — no extra work needed
+	// for either of those.
+	dialog.addEventListener('close', () => {
+		if (lastTrigger) {
+			lastTrigger.focus();
+			lastTrigger = null;
+		}
+	});
+
 	document.querySelectorAll('img.zoomable').forEach((img) => {
+		if (img.dataset.lightboxBound === 'true') return;
+
 		// Images aren't natively focusable or announced as interactive —
 		// make each one behave like the button it functionally is.
 		img.tabIndex = 0;
@@ -58,7 +66,10 @@ function initLightbox() {
 				openLightbox(img);
 			}
 		});
+
+		img.dataset.lightboxBound = 'true';
 	});
 }
 
+window.initLightbox = initLightbox;
 document.addEventListener('DOMContentLoaded', initLightbox);
