@@ -5,7 +5,8 @@
    to components.css instead of copy-pasting it.
    ================================================================== */
 
-@import url("tokens.css");
+/* tokens.css is intentionally NOT re-imported here — see the note in
+   reset.css. main.css already loads it earlier in the cascade. */
 
 
 /* ------------------------------------------------------------------

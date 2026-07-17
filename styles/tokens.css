@@ -16,7 +16,14 @@
    restyle the whole site.
    ================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+/* JetBrains Mono is loaded via <link rel="preconnect"> + <link
+   rel="stylesheet"> in each page's <head>, not an @import here.
+   @import is sequential/render-blocking — the browser couldn't even
+   start fetching the font until it had fetched and parsed this file
+   (which, before this fix, wasn't first in line either — reset.css,
+   components.css, and pages.css all imported tokens.css a second
+   time, each adding another hop). A <link> in <head> lets the font
+   request start immediately, in parallel with everything else. */
 
 
 /* ------------------------------------------------------------------

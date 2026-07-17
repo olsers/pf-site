@@ -12,12 +12,27 @@
    stay in the same place.
    ================================================================== */
 
-@import url("tokens.css");
+/* tokens.css is intentionally NOT re-imported here: main.css already
+   loads it before this file in the cascade (tokens -> reset ->
+   components -> pages), so every custom property below is already
+   available. Re-importing here just added an extra hop to the CSS
+   import chain for no benefit. */
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	/* Baseline safety net so no image can ever render wider than its
+	   container or override a component's aspect-ratio-based sizing
+	   (e.g. .pli, .lore) just because it has HTML width/height
+	   attributes. Anything that needs a different, explicit size
+	   (.hero-mock, .lightbox img, .image-card img) sets its own
+	   width/height and wins on specificity as normal. */
 }
 
 body {

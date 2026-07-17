@@ -13,7 +13,8 @@
    the whole thing every time.
    ================================================================== */
 
-@import url("tokens.css");
+/* tokens.css is intentionally NOT re-imported here — see the note in
+   reset.css. main.css already loads it earlier in the cascade. */
 
 
 /* ------------------------------------------------------------------
@@ -459,6 +460,79 @@
 	/* No room for a floating toc once the nav is a top bar. */
 	.toc {
 		display: none;
+	}
+}
+
+
+/* ------------------------------------------------------------------
+   Masonry wall
+   Usage:
+     <div class="masonry-wall">
+       <figure class="masonry-item">
+         <img class="zoomable" src="…" alt="…">
+         <figcaption>…</figcaption>  (optional — omit for no caption)
+       </figure>
+       …
+     </div>
+
+   A CSS-columns masonry — no JS layout engine, no fixed row heights,
+   so portrait and landscape images sit together at their natural
+   aspect ratio and the wall just reflows as images are added or
+   removed. Pairs with the existing .zoomable/lightbox setup: add
+   class="zoomable" to any image in the wall and it opens full-size
+   on click, exactly like every other project-page screenshot.
+
+   One trade-off of the pure-CSS approach, worth knowing about: fill
+   order is column-first (top-to-bottom, then wraps to the next
+   column) rather than strict left-to-right reading order. That's the
+   right call here — there's no narrative order to a wall of shots —
+   but it's not what you'd want for step-by-step content.
+   ------------------------------------------------------------------ */
+
+.masonry-wall {
+	column-count: 3;
+	column-gap: var(--space-lg);
+	width: 100%;
+}
+
+.masonry-item {
+	break-inside: avoid;
+	margin-bottom: var(--space-lg);
+}
+
+.masonry-item img {
+	display: block;
+	width: 100%;
+	border-radius: var(--radius-sm);
+}
+
+.masonry-item figcaption {
+	/* figcaption's primary-colour italic look already comes from
+	   tokens.css — just tightening the spacing here so it reads as
+	   part of the tile rather than a full section caption. */
+	margin-top: var(--space-2xs);
+}
+
+@media (max-width: 900px) {
+	.masonry-wall {
+		column-count: 3;
+	}
+}
+
+@media (max-width: 600px) {
+	.masonry-wall {
+		column-count: 2;
+		column-gap: var(--space-md);
+	}
+
+	.masonry-item {
+		margin-bottom: var(--space-md);
+	}
+}
+
+@media (max-width: 400px) {
+	.masonry-wall {
+		column-count: 1;
 	}
 }
 
