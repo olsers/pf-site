@@ -466,10 +466,39 @@
 
 /* ------------------------------------------------------------------
    Masonry wall
+   Usage:
+     <section class="masonry-section">
+       <h2>Section title</h2>
+       <div class="masonry-wall">
+         <figure class="masonry-item">
+           <img class="zoomable" src="…" alt="…">
+           <figcaption>…</figcaption>  (optional — omit for no caption)
+         </figure>
+         …
+       </div>
+     </section>
+
+   A CSS-columns masonry — no JS layout engine, no fixed row heights,
+   so portrait and landscape images sit together at their natural
+   aspect ratio and the wall just reflows as images are added or
+   removed. Pairs with the existing .zoomable/lightbox setup: add
+   class="zoomable" to any image in the wall and it opens full-size
+   on click, exactly like every other project-page screenshot.
+
+   One trade-off of the pure-CSS approach, worth knowing about: fill
+   order is column-first (top-to-bottom, then wraps to the next
+   column) rather than strict left-to-right reading order. That's the
+   right call here — there's no narrative order to a wall of shots —
+   but it's not what you'd want for step-by-step content.
    ------------------------------------------------------------------ */
 
+.masonry-section h2 {
+	margin-top: calc(2 * var(--space-lg));
+	margin-bottom: var(--space-md);
+}
+
 .masonry-wall {
-	column-count: 3;
+	column-count: 4;
 	column-gap: var(--space-lg);
 	width: 100%;
 }
@@ -492,46 +521,26 @@
 	margin-top: var(--space-2xs);
 }
 
-.masonry-section h2 {
-	margin-top: calc(2 * var(--space-lg));
-	margin-bottom: var(--space-md);
-}
-
-.masonry-wall {
-	display: flex;
-	gap: var(--space-lg);
-	align-items: flex-start;
-}
-
-.masonry-column {
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-lg);
-	flex: 1 1 0;
-}
-
-.masonry-item {
-	margin-bottom: 0;
-}
-
 @media (max-width: 900px) {
 	.masonry-wall {
-		gap: var(--space-md);
-	}
-
-	.masonry-column {
-		gap: var(--space-md);
+		column-count: 3;
 	}
 }
 
 @media (max-width: 600px) {
 	.masonry-wall {
-		flex-direction: column;
-		gap: var(--space-md);
+		column-count: 2;
+		column-gap: var(--space-md);
 	}
 
-	.masonry-column {
-		gap: var(--space-md);
+	.masonry-item {
+		margin-bottom: var(--space-md);
+	}
+}
+
+@media (max-width: 400px) {
+	.masonry-wall {
+		column-count: 1;
 	}
 }
 
