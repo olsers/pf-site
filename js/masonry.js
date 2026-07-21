@@ -157,7 +157,32 @@
 					src: 'assets/id/invenire-1.jpg',
 					alt: 'Replace with a description of this image',
 					// caption: 'Caption goes here'
-				}
+				},
+				{
+					src: 'assets/id/invenire-11.jpg',
+					alt: 'Replace with a description of this image',
+					// caption: 'Caption goes here'
+				},
+				{
+					src: 'assets/id/invenire-12.jpg',
+					alt: 'Replace with a description of this image',
+					// caption: 'Caption goes here'
+				},
+				{
+					src: 'assets/id/invenire-2.jpg',
+					alt: 'Replace with a description of this image',
+					// caption: 'Caption goes here'
+				},
+				{
+					src: 'assets/id/invenire-3.jpg',
+					alt: 'Replace with a description of this image',
+					// caption: 'Caption goes here'
+				},
+				{
+					src: 'assets/id/invenire-4.jpg',
+					alt: 'Replace with a description of this image',
+					// caption: 'Caption goes here'
+				},
 			]
 		},
 		{
@@ -165,6 +190,26 @@
 			items: [
 				{
 					src: 'assets/id/mylo-1.jpg',
+					alt: 'Replace with a description of this image',
+					// caption: 'Caption goes here'
+				},
+				{
+					src: 'assets/id/mylo-2.jpg',
+					alt: 'Replace with a description of this image',
+					// caption: 'Caption goes here'
+				},
+				{
+					src: 'assets/id/mylo-3.jpg',
+					alt: 'Replace with a description of this image',
+					// caption: 'Caption goes here'
+				},
+				{
+					src: 'assets/id/mylo-4.jpg',
+					alt: 'Replace with a description of this image',
+					// caption: 'Caption goes here'
+				},
+				{
+					src: 'assets/id/mylo-5.jpg',
 					alt: 'Replace with a description of this image',
 					// caption: 'Caption goes here'
 				}
@@ -175,17 +220,17 @@
 			items: [
 				{
 					src: 'assets/id/kitchen-1-1.jpg',
-					alt: 'Replace with a description of this image',
+					alt: 'Photo of a green shaker style kitchen with a large island, brass accents, and a copper worktop. ',
 					// caption: 'Caption goes here'
 				},
 				{
 					src: 'assets/id/kitchen-1-2.jpg',
-					alt: 'Replace with a description of this image'
+					alt: 'Photo of the open island side from the neighboring room.'
                     // caption: 'Caption goes here'
 				},
 				{
 					src: 'assets/id/kitchen-1-3.jpg',
-					alt: 'Replace with a description of this image',
+					alt: 'Close-up photo of one of the alcoves next to the cooker showcasing the reeded glass in the cabinet above as well as a tall marble splashback',
 					// caption: 'Caption goes here'
 
 				},
@@ -301,7 +346,22 @@
 			items: [
 				{
 					src: 'assets/id/packaging-1.jpg',
-					alt: 'Replace with a description of this image',
+					alt: 'Artful photo of airline oven meals surrounded by fresh ingredients, with a focus on the packaging design',
+					// caption: 'Caption goes here'
+				},
+				{
+					src: 'assets/id/packaging-2.jpg',
+					alt: 'Photo of a cracker and cheese snack package on an airline table with a glass of wine in the background.',
+					// caption: 'Caption goes here'
+				},
+				{
+					src: 'assets/id/packaging-3.jpg',
+					alt: 'Photo of a snackbox with its contents laid out infront of it.',
+					// caption: 'Caption goes here'
+				},
+				{
+					src: 'assets/id/packaging-4.jpg',
+					alt: 'Concept render of a beauty products display for a first class bathroom.',
 					// caption: 'Caption goes here'
 				}
 			]
