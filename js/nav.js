@@ -1,7 +1,21 @@
 async function loadNav() {
-    const response = await fetch('components/nav.html');
-    const html = await response.text();
-    document.getElementById('nav').innerHTML = html;
+    try {
+        const response = await fetch('components/nav.html');
+        if (!response.ok) {
+            throw new Error(`components/nav.html responded with ${response.status}`);
+        }
+        const html = await response.text();
+        document.getElementById('nav').innerHTML = html;
+    } catch (err) {
+        // Nav is fetched at runtime with no server-side fallback, so a
+        // failed request (offline, hosting hiccup, wrong path after a
+        // deploy) would otherwise leave the page with no visible nav
+        // and no error anywhere to explain why. Surface it clearly;
+        // the rest of this file already guards against a missing nav
+        // (setActiveNav/initDrawer no-op safely if their elements
+        // aren't there), so the rest of the page still works.
+        console.error('Failed to load nav:', err);
+    }
 }
 
 function setActiveNav() {

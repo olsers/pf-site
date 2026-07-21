@@ -2,559 +2,560 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ΩHM-UX · MSc Dissertation: Comics Reading App</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" />
-    <link rel="stylesheet" href="styles/main.css" />
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="An MSc dissertation project researching and designing ZAP!, a tablet-first comics reading app, from user research through to usability testing." />
+	<title>ΩHM-UX · MSc Dissertation: Comics Reading App</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" />
+	<link rel="stylesheet" href="styles/main.css" />
+	<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 </head>
 
 <body>
 
-    <a href="#main-content" class="skip-link">Skip to content</a>
-    <div id="nav"></div>
+	<a href="#main-content" class="skip-link">Skip to content</a>
+	<div id="nav"></div>
 
-    <main id="main-content" class="content-general">
+	<main id="main-content" class="content-general">
 
-        <img loading="eager" fetchpriority="high" class="hero-mock" src="assets/msc/hero-mock-zap.jpeg" width="2400"
-            height="1567" alt="Hero mockup for ZAP!, the comics reading app" />
+		<img loading="eager" fetchpriority="high" class="hero-mock" src="assets/msc/hero-mock-zap.jpeg" width="2400"
+			height="1567" alt="Hero mockup for ZAP!, the comics reading app" />
 
-        <div class="page-title-box">
-            <a href="projects.html" class="button md primary" aria-label="Back to projects">
-                <svg aria-hidden="true" focusable="false">
-                    <use href="assets/icons.svg#arrow-left" />
-                </svg>
-            </a>
-            <h1>MSc Dissertation: Comics reading app</h1>
-        </div>
+		<div class="page-title-box">
+			<a href="projects.html" class="button md primary" aria-label="Back to projects">
+				<svg aria-hidden="true" focusable="false">
+					<use href="assets/icons.svg#arrow-left" />
+				</svg>
+			</a>
+			<h1>MSc Dissertation: Comics reading app</h1>
+		</div>
 
-        <div id="toc"></div>
+		<div id="toc"></div>
 
-        <div class="content">
+		<div class="content">
 
-            <div class="tldr">
-                <div class="tldr-title-box">
-                    <h2>TL;DR</h2>
-                </div>
-                <div>
-                    <p>
-                        Most digital comic platforms solve the wrong problem. The panel-by-panel reading mode fixes the
-                        zoom
-                        issue by destroying the page which is exactly the thing that makes comics work. For my MSc
-                        dissertation, I researched why digital comic reading is broken and designed ZAP!, a tablet-first
-                        app
-                        that keeps the page intact and solves navigation differently. The centrepiece: a visual scrubber
-                        inspired by video editing timelines. The following case study outlines the End-to-end UCD
-                        process, from literature review to SUPR-Q
-                        evaluated prototype.
-                    </p>
+			<div class="tldr">
+				<div class="tldr-title-box">
+					<h2>TL;DR</h2>
+				</div>
+				<div>
+					<p>
+						Most digital comic platforms solve the wrong problem. The panel-by-panel reading mode fixes the
+						zoom
+						issue by destroying the page which is exactly the thing that makes comics work. For my MSc
+						dissertation, I researched why digital comic reading is broken and designed ZAP!, a tablet-first
+						app
+						that keeps the page intact and solves navigation differently. The centrepiece: a visual scrubber
+						inspired by video editing timelines. The following case study outlines the End-to-end UCD
+						process, from literature review to SUPR-Q
+						evaluated prototype.
+					</p>
 
-                    <br>
-                    <ul class="glance-stats">
-                        <li>
-                            <span class="sub-header">outcome:</span><br>
-                            MSc in Human-Computer Interaction Design (distinction)
-                        </li>
-                        <li>
-                            <span class="sub-header">role:</span><br>
-                            Solo designer and researcher
-                        </li>
-                        <li>
-                            <span class="sub-header">timeline:</span><br>
-                            12 months, submitted Oct 2021
-                        </li>
-                        <li>
-                            <span class="sub-header">deliverables:</span><br>
-                            HiFi prototype, personas, IA, design requirements, SUPR-Q evaluation
-                        </li>
-                    </ul>
-                </div>
-            </div>
+					<br>
+					<ul class="glance-stats">
+						<li>
+							<span class="sub-header">outcome:</span><br>
+							MSc in Human-Computer Interaction Design (distinction)
+						</li>
+						<li>
+							<span class="sub-header">role:</span><br>
+							Solo designer and researcher
+						</li>
+						<li>
+							<span class="sub-header">timeline:</span><br>
+							12 months, submitted Oct 2021
+						</li>
+						<li>
+							<span class="sub-header">deliverables:</span><br>
+							HiFi prototype, personas, IA, design requirements, SUPR-Q evaluation
+						</li>
+					</ul>
+				</div>
+			</div>
 
-            <br>
+			<br>
 
-            <h2>The problem in plain sight</h2>
+			<h2>The problem in plain sight</h2>
 
-            <p>Anyone who reads comics digitally knows the frustration, even if they've never put it into words. Your
-                collection is split across multiple platforms, your phone isn't the right shape, and the panel-by-panel
-                reading
-                mode that's supposed to help, strips away exactly the peripheral context that makes a comic page
-                work.<br><br>
-                This isn't a niche complaint. It's a structural problem with how the industry moved online and one that
-                had been almost entirely overlooked in HCI research relative to e-reading more broadly. That gap was the
-                starting point for my MSc dissertation.<br><br>
-                My research question was straightforward: why is reading comics digitally such a frustrating experience,
-                and what would a better one actually look like?</p>
+			<p>Anyone who reads comics digitally knows the frustration, even if they've never put it into words. Your
+				collection is split across multiple platforms, your phone isn't the right shape, and the panel-by-panel
+				reading
+				mode that's supposed to help, strips away exactly the peripheral context that makes a comic page
+				work.<br><br>
+				This isn't a niche complaint. It's a structural problem with how the industry moved online and one that
+				had been almost entirely overlooked in HCI research relative to e-reading more broadly. That gap was the
+				starting point for my MSc dissertation.<br><br>
+				My research question was straightforward: why is reading comics digitally such a frustrating experience,
+				and what would a better one actually look like?</p>
 
-            <br>
+			<br>
 
-            <h2>Understanding the space</h2>
+			<h2>Understanding the space</h2>
 
-            <div class="section-row">
-                <p>Before I could design anything, I needed to understand the landscape — both academically
-                    and
-                    practically.<br><br>
-                    I started with a literature review spanning comics theory, the history of digital publishing,
-                    e-reader
-                    usability research, and the specific challenges of translating comics to screen. Scott McCloud's
-                    work on
-                    the grammar of comics sat alongside academic usability studies and industry post-mortems. The
-                    reading UI
-                    problem isn't just a UX problem — it's a problem rooted in what comics are as a medium.<br><br>
-                    From there I built a comparative platform analysis: a matrix of around 18 services, scored
-                    across
-                    download numbers, ratings, library size, and payment model. I then chose the three strongest
-                    performers
-                    (ComiXology, MangaToon, and WebToon) for a deep-dive walkthrough of their core user journeys.
-                    What
-                    emerged was a consistent picture: each platform had optimised for its own ecosystem at the
-                    expense of
-                    the reader.</p>
-            </div>
-
-
-            <figure>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Platform</th>
-                            <th>Library Size</th>
-                            <th>Device Support</th>
-                            <th>Downloads (Android) ↓</th>
-                            <th>Rating (Android)</th>
-                            <th># of Reviews (Android)</th>
-                            <th>Rating (iOS)</th>
-                            <th># of Reviews (iOS)</th>
-                            <th>Payment Model</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>WebToons</td>
-                            <td>/</td>
-                            <td>Android, iOS, Web</td>
-                            <td>50,000,000</td>
-                            <td>★★★★★</td>
-                            <td>1,758,748</td>
-                            <td>★★★★</td>
-                            <td>47,600</td>
-                            <td>Free</td>
-                        </tr>
-                        <tr>
-                            <td>ComiXology</td>
-                            <td>100,000</td>
-                            <td>Android, Kindle, iOS, Web</td>
-                            <td>10,000,000</td>
-                            <td>★★★★</td>
-                            <td>59,879</td>
-                            <td>★★★</td>
-                            <td>185</td>
-                            <td>Per comic</td>
-                        </tr>
-                        <tr>
-                            <td>MangaToons</td>
-                            <td>/</td>
-                            <td>Android, iOS, Web</td>
-                            <td>10,000,000</td>
-                            <td>★★★★</td>
-                            <td>496,413</td>
-                            <td>★★★★★</td>
-                            <td>3,300</td>
-                            <td>Free, Own currency</td>
-                        </tr>
-                        <tr>
-                            <td>WebComics</td>
-                            <td>/</td>
-                            <td>Android, iOS</td>
-                            <td>5,000,000</td>
-                            <td>★★★★</td>
-                            <td>201,196</td>
-                            <td>★★★★★</td>
-                            <td>60,900</td>
-                            <td>Free</td>
-                        </tr>
-                        <tr>
-                            <td>Cruchyroll Manga</td>
-                            <td>/</td>
-                            <td>Android, iOS, Web</td>
-                            <td>1,000,000</td>
-                            <td>★★</td>
-                            <td>31,361</td>
-                            <td>★★★</td>
-                            <td>1,300</td>
-                            <td>Subscription</td>
-                        </tr>
-                        <tr>
-                            <td>Dark Horse Comics</td>
-                            <td>3,500</td>
-                            <td>Android, iOS</td>
-                            <td>1,000,000</td>
-                            <td>★★★★</td>
-                            <td>12,600</td>
-                            <td>★★★</td>
-                            <td>45</td>
-                            <td>Per comic</td>
-                        </tr>
-                        <tr>
-                            <td>DC Universe Ultimate</td>
-                            <td>25,000</td>
-                            <td>Android, iOS</td>
-                            <td>1,000,000</td>
-                            <td>★★★</td>
-                            <td>15,648</td>
-                            <td>★★★★★</td>
-                            <td>57,700</td>
-                            <td>Subscription</td>
-                        </tr>
-                        <tr>
-                            <td>Izneo</td>
-                            <td>2,200</td>
-                            <td>Android, iOS</td>
-                            <td>1,000,000</td>
-                            <td>★★★</td>
-                            <td>4,066</td>
-                            <td>★★★★</td>
-                            <td>197</td>
-                            <td>Subscription</td>
-                        </tr>
-                        <tr>
-                            <td>Marvel Unlimited</td>
-                            <td>28,000</td>
-                            <td>Android, iOS, Web</td>
-                            <td>1,000,000</td>
-                            <td>★★★★★</td>
-                            <td>425,538</td>
-                            <td>★★★★★</td>
-                            <td>4,300</td>
-                            <td>Subscription</td>
-                        </tr>
-                        <tr>
-                            <td>Shonen Jump</td>
-                            <td>10,000</td>
-                            <td>Android</td>
-                            <td>1,000,000</td>
-                            <td>★★★★</td>
-                            <td>5,885</td>
-                            <td>★★★★★</td>
-                            <td>85,200</td>
-                            <td>Subscription</td>
-                        </tr>
-                        <tr>
-                            <td>Tapas</td>
-                            <td>92,000</td>
-                            <td>Android, iOS</td>
-                            <td>1,000,000</td>
-                            <td>★★★★★</td>
-                            <td>70,897</td>
-                            <td>★★★★★</td>
-                            <td>25,200</td>
-                            <td>Free</td>
-                        </tr>
-                        <tr>
-                            <td>WeComics</td>
-                            <td>/</td>
-                            <td>Android</td>
-                            <td>1,000,000</td>
-                            <td>★★★★</td>
-                            <td>60,103</td>
-                            <td>★★★★★</td>
-                            <td>1,900</td>
-                            <td>Free</td>
-                        </tr>
-                        <tr>
-                            <td>Manta Comics</td>
-                            <td>/</td>
-                            <td>Android, iOS</td>
-                            <td>500,000</td>
-                            <td>★★★★</td>
-                            <td>6,842</td>
-                            <td>★★★★★</td>
-                            <td>4,300</td>
-                            <td>Free</td>
-                        </tr>
-                        <tr>
-                            <td>VIZ Manga</td>
-                            <td>4,000</td>
-                            <td>Android, iOS</td>
-                            <td>500,000</td>
-                            <td>★★★</td>
-                            <td>2,884</td>
-                            <td>★★★★★</td>
-                            <td>34,300</td>
-                            <td>Free</td>
-                        </tr>
-                        <tr>
-                            <td>INKR Comics</td>
-                            <td>/</td>
-                            <td>Android, iOS</td>
-                            <td>100,000</td>
-                            <td>★★★★</td>
-                            <td>2,382</td>
-                            <td>★★★★</td>
-                            <td>869</td>
-                            <td>Free</td>
-                        </tr>
-                        <tr>
-                            <td>Madefire</td>
-                            <td>/</td>
-                            <td>Android, iOS</td>
-                            <td>100,000</td>
-                            <td>★★★★</td>
-                            <td>3,469</td>
-                            <td>★★★★</td>
-                            <td>245</td>
-                            <td>Per comic</td>
-                        </tr>
-                        <tr>
-                            <td>Bilibili Comics</td>
-                            <td>/</td>
-                            <td>Android, iOS, Web</td>
-                            <td>30,000</td>
-                            <td>★★★★</td>
-                            <td>361</td>
-                            <td>★★★★★</td>
-                            <td>5</td>
-                            <td>Free</td>
-                        </tr>
-                        <tr>
-                            <td>GoComics</td>
-                            <td>/</td>
-                            <td>Web</td>
-                            <td>0</td>
-                            <td>n/a</td>
-                            <td>0</td>
-                            <td>n/a</td>
-                            <td>0</td>
-                            <td>Free, Per comic</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <figcaption>Platform comparison matrix — 18 platforms analysed across key criteria.</figcaption>
-            </figure>
-
-            <br>
-
-            <h2>Listening to users</h2>
-
-            <p>The platform analysis told me what was broken. Six semi-structured interviews told me why it
-                mattered.<br><br>
-                I recruited dedicated comic readers — people with established habits and real collections — and
-                ran a pre-screener questionnaire to identify participant behaviours. The interviews were thematically
-                analysed to surface patterns, and those patterns were distilled into two personas:</p>
-
-            <div class="image-grid two-up">
-                <figure class="image-card">
-                    <img loading="lazy" class="zoomable" src="assets/msc/persona-paul.jpeg" width="1278" height="1746"
-                        alt="Persona illustration for Paul" />
-                    <h3>PERSONA: Paul</h3>
-                    <p>Paul is in his late 40s, a committed superfan managing a large, multi-platform collection. He
-                        cares deeply about organisation, ownership, and being able to find what he wants. The friction
-                        in his life is administrative as much as it's about reading itself.</p>
-                </figure>
-                <figure class="image-card">
-
-                    <img loading="lazy" class="zoomable" src="assets/msc/persona-mark.jpeg" width="1278" height="1746"
-                        alt="Persona illustration for Mark" />
-                    <h3>PERSONA: Mark</h3>
-                    <p>Mark is a time-poor new dad who just wants a reliable, flexible reading experience he can dip in
-                        and out of. He's not managing a collection — he's trying to carve out twenty minutes where he
-                        can.</p>
-                </figure>
-            </div>
+			<div class="section-row">
+				<p>Before I could design anything, I needed to understand the landscape — both academically
+					and
+					practically.<br><br>
+					I started with a literature review spanning comics theory, the history of digital publishing,
+					e-reader
+					usability research, and the specific challenges of translating comics to screen. Scott McCloud's
+					work on
+					the grammar of comics sat alongside academic usability studies and industry post-mortems. The
+					reading UI
+					problem isn't just a UX problem — it's a problem rooted in what comics are as a medium.<br><br>
+					From there I built a comparative platform analysis: a matrix of around 18 services, scored
+					across
+					download numbers, ratings, library size, and payment model. I then chose the three strongest
+					performers
+					(ComiXology, MangaToon, and WebToon) for a deep-dive walkthrough of their core user journeys.
+					What
+					emerged was a consistent picture: each platform had optimised for its own ecosystem at the
+					expense of
+					the reader.</p>
+			</div>
 
 
-            <p>These two people have different problems, but they share a common frustration: no single platform serves
-                them well enough to make digital comics feel like a natural choice over physical ones.<br><br>
-                From the interviews, I developed ten prioritised design requirements — the constraints ZAP! would be
-                built against.</p>
+			<figure>
+				<table>
+					<thead>
+						<tr>
+							<th>Platform</th>
+							<th>Library Size</th>
+							<th>Device Support</th>
+							<th>Downloads (Android) ↓</th>
+							<th>Rating (Android)</th>
+							<th># of Reviews (Android)</th>
+							<th>Rating (iOS)</th>
+							<th># of Reviews (iOS)</th>
+							<th>Payment Model</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>WebToons</td>
+							<td>/</td>
+							<td>Android, iOS, Web</td>
+							<td>50,000,000</td>
+							<td>★★★★★</td>
+							<td>1,758,748</td>
+							<td>★★★★</td>
+							<td>47,600</td>
+							<td>Free</td>
+						</tr>
+						<tr>
+							<td>ComiXology</td>
+							<td>100,000</td>
+							<td>Android, Kindle, iOS, Web</td>
+							<td>10,000,000</td>
+							<td>★★★★</td>
+							<td>59,879</td>
+							<td>★★★</td>
+							<td>185</td>
+							<td>Per comic</td>
+						</tr>
+						<tr>
+							<td>MangaToons</td>
+							<td>/</td>
+							<td>Android, iOS, Web</td>
+							<td>10,000,000</td>
+							<td>★★★★</td>
+							<td>496,413</td>
+							<td>★★★★★</td>
+							<td>3,300</td>
+							<td>Free, Own currency</td>
+						</tr>
+						<tr>
+							<td>WebComics</td>
+							<td>/</td>
+							<td>Android, iOS</td>
+							<td>5,000,000</td>
+							<td>★★★★</td>
+							<td>201,196</td>
+							<td>★★★★★</td>
+							<td>60,900</td>
+							<td>Free</td>
+						</tr>
+						<tr>
+							<td>Cruchyroll Manga</td>
+							<td>/</td>
+							<td>Android, iOS, Web</td>
+							<td>1,000,000</td>
+							<td>★★</td>
+							<td>31,361</td>
+							<td>★★★</td>
+							<td>1,300</td>
+							<td>Subscription</td>
+						</tr>
+						<tr>
+							<td>Dark Horse Comics</td>
+							<td>3,500</td>
+							<td>Android, iOS</td>
+							<td>1,000,000</td>
+							<td>★★★★</td>
+							<td>12,600</td>
+							<td>★★★</td>
+							<td>45</td>
+							<td>Per comic</td>
+						</tr>
+						<tr>
+							<td>DC Universe Ultimate</td>
+							<td>25,000</td>
+							<td>Android, iOS</td>
+							<td>1,000,000</td>
+							<td>★★★</td>
+							<td>15,648</td>
+							<td>★★★★★</td>
+							<td>57,700</td>
+							<td>Subscription</td>
+						</tr>
+						<tr>
+							<td>Izneo</td>
+							<td>2,200</td>
+							<td>Android, iOS</td>
+							<td>1,000,000</td>
+							<td>★★★</td>
+							<td>4,066</td>
+							<td>★★★★</td>
+							<td>197</td>
+							<td>Subscription</td>
+						</tr>
+						<tr>
+							<td>Marvel Unlimited</td>
+							<td>28,000</td>
+							<td>Android, iOS, Web</td>
+							<td>1,000,000</td>
+							<td>★★★★★</td>
+							<td>425,538</td>
+							<td>★★★★★</td>
+							<td>4,300</td>
+							<td>Subscription</td>
+						</tr>
+						<tr>
+							<td>Shonen Jump</td>
+							<td>10,000</td>
+							<td>Android</td>
+							<td>1,000,000</td>
+							<td>★★★★</td>
+							<td>5,885</td>
+							<td>★★★★★</td>
+							<td>85,200</td>
+							<td>Subscription</td>
+						</tr>
+						<tr>
+							<td>Tapas</td>
+							<td>92,000</td>
+							<td>Android, iOS</td>
+							<td>1,000,000</td>
+							<td>★★★★★</td>
+							<td>70,897</td>
+							<td>★★★★★</td>
+							<td>25,200</td>
+							<td>Free</td>
+						</tr>
+						<tr>
+							<td>WeComics</td>
+							<td>/</td>
+							<td>Android</td>
+							<td>1,000,000</td>
+							<td>★★★★</td>
+							<td>60,103</td>
+							<td>★★★★★</td>
+							<td>1,900</td>
+							<td>Free</td>
+						</tr>
+						<tr>
+							<td>Manta Comics</td>
+							<td>/</td>
+							<td>Android, iOS</td>
+							<td>500,000</td>
+							<td>★★★★</td>
+							<td>6,842</td>
+							<td>★★★★★</td>
+							<td>4,300</td>
+							<td>Free</td>
+						</tr>
+						<tr>
+							<td>VIZ Manga</td>
+							<td>4,000</td>
+							<td>Android, iOS</td>
+							<td>500,000</td>
+							<td>★★★</td>
+							<td>2,884</td>
+							<td>★★★★★</td>
+							<td>34,300</td>
+							<td>Free</td>
+						</tr>
+						<tr>
+							<td>INKR Comics</td>
+							<td>/</td>
+							<td>Android, iOS</td>
+							<td>100,000</td>
+							<td>★★★★</td>
+							<td>2,382</td>
+							<td>★★★★</td>
+							<td>869</td>
+							<td>Free</td>
+						</tr>
+						<tr>
+							<td>Madefire</td>
+							<td>/</td>
+							<td>Android, iOS</td>
+							<td>100,000</td>
+							<td>★★★★</td>
+							<td>3,469</td>
+							<td>★★★★</td>
+							<td>245</td>
+							<td>Per comic</td>
+						</tr>
+						<tr>
+							<td>Bilibili Comics</td>
+							<td>/</td>
+							<td>Android, iOS, Web</td>
+							<td>30,000</td>
+							<td>★★★★</td>
+							<td>361</td>
+							<td>★★★★★</td>
+							<td>5</td>
+							<td>Free</td>
+						</tr>
+						<tr>
+							<td>GoComics</td>
+							<td>/</td>
+							<td>Web</td>
+							<td>0</td>
+							<td>n/a</td>
+							<td>0</td>
+							<td>n/a</td>
+							<td>0</td>
+							<td>Free, Per comic</td>
+						</tr>
+					</tbody>
+				</table>
+				<figcaption>Platform comparison matrix — 18 platforms analysed across key criteria.</figcaption>
+			</figure>
+
+			<br>
+
+			<h2>Listening to users</h2>
+
+			<p>The platform analysis told me what was broken. Six semi-structured interviews told me why it
+				mattered.<br><br>
+				I recruited dedicated comic readers — people with established habits and real collections — and
+				ran a pre-screener questionnaire to identify participant behaviours. The interviews were thematically
+				analysed to surface patterns, and those patterns were distilled into two personas:</p>
+
+			<div class="image-grid two-up">
+				<figure class="image-card">
+					<img loading="lazy" class="zoomable" src="assets/msc/persona-paul.jpeg" width="1278" height="1746"
+						alt="Persona illustration for Paul" />
+					<h3>PERSONA: Paul</h3>
+					<p>Paul is in his late 40s, a committed superfan managing a large, multi-platform collection. He
+						cares deeply about organisation, ownership, and being able to find what he wants. The friction
+						in his life is administrative as much as it's about reading itself.</p>
+				</figure>
+				<figure class="image-card">
+
+					<img loading="lazy" class="zoomable" src="assets/msc/persona-mark.jpeg" width="1278" height="1746"
+						alt="Persona illustration for Mark" />
+					<h3>PERSONA: Mark</h3>
+					<p>Mark is a time-poor new dad who just wants a reliable, flexible reading experience he can dip in
+						and out of. He's not managing a collection — he's trying to carve out twenty minutes where he
+						can.</p>
+				</figure>
+			</div>
 
 
-            <br>
-            <h2>The design process</h2>
-            <h3>Information architecture</h3>
-
-            <p>With requirements in hand, I sketched out information architecture options and ran a remote card sort
-                to
-                validate the structure with real users. The results were instructive: "Store"
-                won out as the label for the discovery section — and "Serendipity" got an honourable mention, which
-                neatly confirmed that discovery as an experience was a genuine user need, not just a functional
-                requirement.</p>
-
-            <div class="image-grid three-up">
-                <figure class="image-card">
-                    <img loading="lazy" class="zoomable" src="assets/msc/ia.jpg" width="751" height="1060"
-                        alt="IA sketches" />
-                    <figcaption>IA sketches</figcaption>
-                </figure>
-                <figure class="image-card">
-                    <img loading="lazy" class="zoomable" src="assets/msc/site-map.jpg" width="750" height="1060"
-                        alt="Site map" />
-                    <figcaption>Site map</figcaption>
-                </figure>
-                <figure class="image-card">
-                    <img loading="lazy" class="zoomable" src="assets/msc/card-sort.jpg" width="750" height="1060"
-                        alt="Card sort findings" />
-                    <figcaption>Card sort / IA findings</figcaption>
-                </figure>
-            </div>
-
-            <h3>From sketches to prototypes</h3>
-            <p>The design work moved through concept sketches on paper, then low-fidelity wireframes, and
-                finally a high-fidelity interactive prototype. The app is tablet-first — a deliberate choice based on
-                the research, which confirmed that phone reading meant constant zooming while tablets more closely match
-                the proportions of a comic page.</p>
-
-            <div class="image-grid three-up">
-                <figure class="image-card">
-                    <img loading="lazy" class="zoomable" src="assets/msc/sketch.jpg" width="790" height="1090"
-                        alt="Concept sketch" />
-                    <figcaption>Concept sketch</figcaption>
-                </figure>
-                <figure class="image-card">
-                    <img loading="lazy" class="zoomable" src="assets/msc/lofi.png" width="790" height="1090"
-                        alt="Low-fidelity wireframe" />
-                    <figcaption>Lo-fi wireframe</figcaption>
-                </figure>
-                <figure class="image-card">
-                    <img loading="lazy" class="zoomable" src="assets/msc/hifi.png" width="790" height="1093"
-                        alt="High-fidelity prototype" />
-                    <figcaption>Hi-fi prototype</figcaption>
-                </figure>
-            </div>
-
-            <p>The key screens covered:</p>
-            <ul>
-                <li>Onboarding and setup flow — connecting existing accounts and importing a library</li>
-                <li>Library view — with a filter panel for managing a large collection across series, publishers, and
-                    format</li>
-                <li>Store / recommendations view — built around discovery as a first-class experience, not an
-                    afterthought</li>
-                <li>Comic listing page — issue-level information and reading continuity</li>
-                <li>Reading UI — the most considered part of the design</li>
-            </ul>
-
-            <div class="image-grid four-up">
-                <figure class="image-card">
-                    <img loading="lazy" class="zoomable" src="assets/msc/onboarding.png" width="790" height="1090"
-                        alt="Onboarding flow" />
-                    <figcaption>Onboarding</figcaption>
-                </figure>
-                <figure class="image-card">
-                    <img loading="lazy" class="zoomable" src="assets/msc/library.png" width="790" height="1090"
-                        alt="Library view" />
-                    <figcaption>Library</figcaption>
-                </figure>
-                <figure class="image-card">
-                    <img loading="lazy" class="zoomable" src="assets/msc/store.png" width="790" height="1090"
-                        alt="Store view" />
-                    <figcaption>Store</figcaption>
-                </figure>
-                <figure class="image-card">
-                    <img loading="lazy" class="zoomable" src="assets/msc/listing.png" width="790" height="1090"
-                        alt="Comic listing" />
-                    <figcaption>Comic listing</figcaption>
-                </figure>
-            </div>
-
-            <h3>The reading UI</h3>
-            <p>The reading UI is where ZAP! made its clearest design argument. Panel-by-panel mode — the standard
-                approach across most platforms — was consistently criticised in the research. Readers don't
-                experience a comic as a sequence of isolated panels; they experience a page, with peripheral context
-                that informs how they read each panel. Stripping that away might solve the zoom problem, but it
-                creates a different, arguably worse one.<br><br>
-                ZAP! kept the full page view as the default and solved navigation differently. The visual scrubber —
-                inspired by video editing timelines — sits at the bottom of the reading UI, giving readers a
-                filmstrip-style overview of the issue that lets them jump and orient without ever losing their place.
-                It was an original interaction concept that directly addresses a gap I'd identified in the platform
-                comparison: not one of the three major platforms had solved issue navigation in a satisfying way.</p>
-
-            <div class="image-grid one-up">
-                <figure class="image-card">
-                    <img loading="lazy" class="zoomable" src="assets/msc/reading.png" width="790" height="1090"
-                        alt="Reading UI scrubber" />
-                    <figcaption>Reading UI — scrubber interaction inspired by video editing timelines.</figcaption>
-                </figure>
-            </div>
-            <h3>The aggregation question</h3>
-            <p>An early ambition for ZAP! was true cross-platform aggregation — one place to access ComiXology, Dark
-                Horse, and your local library all at once. That hit a wall quickly: most comic platforms have closed
-                ecosystems with no open APIs.<br><br>
-                Rather than abandon the concept, I made a deliberate call to design for the ideal future state anyway.
-                The aggregation model is architecturally present in ZAP!, and the research clearly establishes it as a
-                genuine user need. Whether it's technically realisable today is a separate question. Designing to the
-                need rather than to the current technical constraints felt like the intellectually honest move — and
-                it's a stronger design for it.</p>
+			<p>These two people have different problems, but they share a common frustration: no single platform serves
+				them well enough to make digital comics feel like a natural choice over physical ones.<br><br>
+				From the interviews, I developed ten prioritised design requirements — the constraints ZAP! would be
+				built against.</p>
 
 
-            <br>
-            <h2>Evaluation</h2>
-            <p>The high-fidelity prototype was evaluated through three moderated remote user tests (plus a pilot
-                session), with a SUPR-Q questionnaire at the end of each.<br><br>
-                The overall reception was positive. Participants found the visual design clean, the information
-                hierarchy
-                logical, and SUPR-Q scores were strong on comfort, aesthetics, and willingness to recommend.<br><br>
-                The issues that surfaced were as useful as the praise:</p>
+			<br>
+			<h2>The design process</h2>
+			<h3>Information architecture</h3>
 
-            <ol class="equal-list">
-                <li>Search dominated every session. Every participant went to the search bar first for everything —
-                    and
-                    the prototype didn't fully support that behaviour.
-                </li>
-                <li>Iconography in the reading UI caused confusion, particularly in the navigation controls.</li>
-                <li>Custom group management didn't match users' mental models. The interaction design needed more
-                    work.</li>
-                <li>Horizontal scroll affordances weren't obvious enough in a mouse-based remote testing environment
-                    —
-                    a testing issue rather than a real design flaw.</li>
-            </ol>
+			<p>With requirements in hand, I sketched out information architecture options and ran a remote card sort
+				to
+				validate the structure with real users. The results were instructive: "Store"
+				won out as the label for the discovery section — and "Serendipity" got an honourable mention, which
+				neatly confirmed that discovery as an experience was a genuine user need, not just a functional
+				requirement.</p>
+
+			<div class="image-grid three-up">
+				<figure class="image-card">
+					<img loading="lazy" class="zoomable" src="assets/msc/ia.jpg" width="751" height="1060"
+						alt="IA sketches" />
+					<figcaption>IA sketches</figcaption>
+				</figure>
+				<figure class="image-card">
+					<img loading="lazy" class="zoomable" src="assets/msc/site-map.jpg" width="750" height="1060"
+						alt="Site map" />
+					<figcaption>Site map</figcaption>
+				</figure>
+				<figure class="image-card">
+					<img loading="lazy" class="zoomable" src="assets/msc/card-sort.jpg" width="750" height="1060"
+						alt="Card sort findings" />
+					<figcaption>Card sort / IA findings</figcaption>
+				</figure>
+			</div>
+
+			<h3>From sketches to prototypes</h3>
+			<p>The design work moved through concept sketches on paper, then low-fidelity wireframes, and
+				finally a high-fidelity interactive prototype. The app is tablet-first — a deliberate choice based on
+				the research, which confirmed that phone reading meant constant zooming while tablets more closely match
+				the proportions of a comic page.</p>
+
+			<div class="image-grid three-up">
+				<figure class="image-card">
+					<img loading="lazy" class="zoomable" src="assets/msc/sketch.jpg" width="790" height="1090"
+						alt="Concept sketch" />
+					<figcaption>Concept sketch</figcaption>
+				</figure>
+				<figure class="image-card">
+					<img loading="lazy" class="zoomable" src="assets/msc/lofi.png" width="790" height="1090"
+						alt="Low-fidelity wireframe" />
+					<figcaption>Lo-fi wireframe</figcaption>
+				</figure>
+				<figure class="image-card">
+					<img loading="lazy" class="zoomable" src="assets/msc/hifi.png" width="790" height="1093"
+						alt="High-fidelity prototype" />
+					<figcaption>Hi-fi prototype</figcaption>
+				</figure>
+			</div>
+
+			<p>The key screens covered:</p>
+			<ul>
+				<li>Onboarding and setup flow — connecting existing accounts and importing a library</li>
+				<li>Library view — with a filter panel for managing a large collection across series, publishers, and
+					format</li>
+				<li>Store / recommendations view — built around discovery as a first-class experience, not an
+					afterthought</li>
+				<li>Comic listing page — issue-level information and reading continuity</li>
+				<li>Reading UI — the most considered part of the design</li>
+			</ul>
+
+			<div class="image-grid four-up">
+				<figure class="image-card">
+					<img loading="lazy" class="zoomable" src="assets/msc/onboarding.png" width="790" height="1090"
+						alt="Onboarding flow" />
+					<figcaption>Onboarding</figcaption>
+				</figure>
+				<figure class="image-card">
+					<img loading="lazy" class="zoomable" src="assets/msc/library.png" width="790" height="1090"
+						alt="Library view" />
+					<figcaption>Library</figcaption>
+				</figure>
+				<figure class="image-card">
+					<img loading="lazy" class="zoomable" src="assets/msc/store.png" width="790" height="1090"
+						alt="Store view" />
+					<figcaption>Store</figcaption>
+				</figure>
+				<figure class="image-card">
+					<img loading="lazy" class="zoomable" src="assets/msc/listing.png" width="790" height="1090"
+						alt="Comic listing" />
+					<figcaption>Comic listing</figcaption>
+				</figure>
+			</div>
+
+			<h3>The reading UI</h3>
+			<p>The reading UI is where ZAP! made its clearest design argument. Panel-by-panel mode — the standard
+				approach across most platforms — was consistently criticised in the research. Readers don't
+				experience a comic as a sequence of isolated panels; they experience a page, with peripheral context
+				that informs how they read each panel. Stripping that away might solve the zoom problem, but it
+				creates a different, arguably worse one.<br><br>
+				ZAP! kept the full page view as the default and solved navigation differently. The visual scrubber —
+				inspired by video editing timelines — sits at the bottom of the reading UI, giving readers a
+				filmstrip-style overview of the issue that lets them jump and orient without ever losing their place.
+				It was an original interaction concept that directly addresses a gap I'd identified in the platform
+				comparison: not one of the three major platforms had solved issue navigation in a satisfying way.</p>
+
+			<div class="image-grid one-up">
+				<figure class="image-card">
+					<img loading="lazy" class="zoomable" src="assets/msc/reading.png" width="790" height="1090"
+						alt="Reading UI scrubber" />
+					<figcaption>Reading UI — scrubber interaction inspired by video editing timelines.</figcaption>
+				</figure>
+			</div>
+			<h3>The aggregation question</h3>
+			<p>An early ambition for ZAP! was true cross-platform aggregation — one place to access ComiXology, Dark
+				Horse, and your local library all at once. That hit a wall quickly: most comic platforms have closed
+				ecosystems with no open APIs.<br><br>
+				Rather than abandon the concept, I made a deliberate call to design for the ideal future state anyway.
+				The aggregation model is architecturally present in ZAP!, and the research clearly establishes it as a
+				genuine user need. Whether it's technically realisable today is a separate question. Designing to the
+				need rather than to the current technical constraints felt like the intellectually honest move — and
+				it's a stronger design for it.</p>
 
 
-            <div class="image-grid one-up">
-                <figure class="image-card">
-                    <img loading="lazy" class="zoomable" src="assets/msc/suprq.jpg" width="2400" height="1003"
-                        alt="SUPR-Q results" />
-                    <figcaption>Evaluation summary — SUPR-Q and user test findings.</figcaption>
-                </figure>
-            </div>
+			<br>
+			<h2>Evaluation</h2>
+			<p>The high-fidelity prototype was evaluated through three moderated remote user tests (plus a pilot
+				session), with a SUPR-Q questionnaire at the end of each.<br><br>
+				The overall reception was positive. Participants found the visual design clean, the information
+				hierarchy
+				logical, and SUPR-Q scores were strong on comfort, aesthetics, and willingness to recommend.<br><br>
+				The issues that surfaced were as useful as the praise:</p>
+
+			<ol class="equal-list">
+				<li>Search dominated every session. Every participant went to the search bar first for everything —
+					and
+					the prototype didn't fully support that behaviour.
+				</li>
+				<li>Iconography in the reading UI caused confusion, particularly in the navigation controls.</li>
+				<li>Custom group management didn't match users' mental models. The interaction design needed more
+					work.</li>
+				<li>Horizontal scroll affordances weren't obvious enough in a mouse-based remote testing environment
+					—
+					a testing issue rather than a real design flaw.</li>
+			</ol>
 
 
+			<div class="image-grid one-up">
+				<figure class="image-card">
+					<img loading="lazy" class="zoomable" src="assets/msc/suprq.jpg" width="2400" height="1003"
+						alt="SUPR-Q results" />
+					<figcaption>Evaluation summary — SUPR-Q and user test findings.</figcaption>
+				</figure>
+			</div>
 
 
 
-            <br>
-            <h2>Reflection</h2>
-
-            <p>The thing I'm most proud of isn't any single screen — it's the coherence of the process. Each phase
-                genuinely fed the next. The literature validated what the platform analysis found. The interviews
-                validated both. Every design decision in the prototype is traceable back to a specific requirement. That
-                kind of end-to-end rigour isn't something you can retrofit.<br><br>
-                If I were doing it again, I'd recruit earlier and more broadly. Six interview participants and three
-                test
-                participants — all male, mostly British, mostly in a similar age range — is a real limitation, and the
-                dissertation is honest about that. A more diverse sample would have stress-tested the design assumptions
-                considerably harder. I'd also push further on prototype fidelity in the areas that mattered most for
-                testing: search and group management both needed more depth to be properly evaluated.<br><br>
-                But the scrubber still holds up. The aggregation argument still holds up. And the problem — the genuine,
-                frustrating gap in how digital comics are read — absolutely still holds up.</p>
-
-            <br>
-            <div class="button-row">
-                <a href="project-ds.html" class="button text">Previous project</a>
-                <a href="project-id.html" class="button text">Next project</a>
-            </div>
 
 
-        </div>
+			<br>
+			<h2>Reflection</h2>
 
-    </main>
+			<p>The thing I'm most proud of isn't any single screen — it's the coherence of the process. Each phase
+				genuinely fed the next. The literature validated what the platform analysis found. The interviews
+				validated both. Every design decision in the prototype is traceable back to a specific requirement. That
+				kind of end-to-end rigour isn't something you can retrofit.<br><br>
+				If I were doing it again, I'd recruit earlier and more broadly. Six interview participants and three
+				test
+				participants — all male, mostly British, mostly in a similar age range — is a real limitation, and the
+				dissertation is honest about that. A more diverse sample would have stress-tested the design assumptions
+				considerably harder. I'd also push further on prototype fidelity in the areas that mattered most for
+				testing: search and group management both needed more depth to be properly evaluated.<br><br>
+				But the scrubber still holds up. The aggregation argument still holds up. And the problem — the genuine,
+				frustrating gap in how digital comics are read — absolutely still holds up.</p>
 
-    <script src="js/nav.js"></script>
-    <script src="js/toc.js"></script>
-    <script src="js/lightbox.js"></script>
+			<br>
+			<div class="button-row">
+				<a href="project-ds.html" class="button text">Previous project</a>
+				<a href="project-id.html" class="button text">Next project</a>
+			</div>
+
+
+		</div>
+
+	</main>
+
+	<script src="js/nav.js"></script>
+	<script src="js/toc.js"></script>
+	<script src="js/lightbox.js"></script>
 </body>
 
 </html>

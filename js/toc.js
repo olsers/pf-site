@@ -1,19 +1,29 @@
 async function loadToc() {
-    const response = await fetch('components/toc.html');
-    const html = await response.text();
-    document.getElementById('toc').innerHTML = html;
+    try {
+        const response = await fetch('components/toc.html');
+        if (!response.ok) {
+            throw new Error(`components/toc.html responded with ${response.status}`);
+        }
+        const html = await response.text();
+        document.getElementById('toc').innerHTML = html;
 
-    // Generate TOC items from h2s
-    generateTocItems();
+        // Generate TOC items from h2s
+        generateTocItems();
 
-    // Mouse users get the old hover-to-peek convenience, but it's
-    // implemented by toggling the same [open] attribute that keyboard
-    // users control via Enter/Space on the <summary> — so the visual
-    // state and the semantic/AT state can never fall out of sync.
-    const toc = document.querySelector('.toc');
-    if (toc) {
-        toc.addEventListener('mouseenter', () => { toc.open = true; });
-        toc.addEventListener('mouseleave', () => { toc.open = false; });
+        // Mouse users get the old hover-to-peek convenience, but it's
+        // implemented by toggling the same [open] attribute that keyboard
+        // users control via Enter/Space on the <summary> — so the visual
+        // state and the semantic/AT state can never fall out of sync.
+        const toc = document.querySelector('.toc');
+        if (toc) {
+            toc.addEventListener('mouseenter', () => { toc.open = true; });
+            toc.addEventListener('mouseleave', () => { toc.open = false; });
+        }
+    } catch (err) {
+        // Same reasoning as nav.js: a failed fetch shouldn't fail
+        // silently. The TOC is a nice-to-have on long pages, so the
+        // rest of the page is fully usable without it either way.
+        console.error('Failed to load table of contents:', err);
     }
 }
 

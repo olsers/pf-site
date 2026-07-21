@@ -151,6 +151,15 @@
 	height: 32px;
 }
 
+/* Icon-only buttons (nav social links, burger, back-to-projects arrow)
+   previously had a 32x32px hit area — exactly the icon's own size,
+   with zero padding. Below the ~44x44px minimum recommended touch
+   target. This keeps the icon's visual size the same and just adds
+   clickable space around it. */
+.button.md {
+	padding: 6px;
+}
+
 .button.sm svg {
 	width: 24px;
 	height: 24px;
@@ -295,7 +304,10 @@
 	background: none;
 	border: none;
 	cursor: pointer;
-	padding: 0;
+	/* padding comes from .button.md (touch-target sizing) — this used
+	   to hard-reset it to 0, which happened to still render fine only
+	   because .button.md's higher specificity won anyway. Removed to
+	   avoid the dead/conflicting declaration. */
 }
 
 .drawer-overlay {
