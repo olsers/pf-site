@@ -111,10 +111,6 @@
 }
 
 .page-title-box h1 {
-	/* Allow the title to shrink and wrap — without this, a long h1
-	   at 40px overflows the page-title-box at mid-range viewport
-	   widths (900–1100px) where the 240px side nav is still active
-	   but hasn't left enough room for the full title on one line. */
 	min-width: 0;
 	word-break: break-word;
 }
@@ -127,6 +123,14 @@
 	.content {
 		padding: var(--space-lg);
 	}
+
+	/* Tighten the title box at tablet — the side nav is gone so
+	   --space-lg (32px) padding is excessive. Also prevent wrapping
+	   so the arrow stays inline with the title at these widths. */
+	.page-title-box {
+		padding: var(--space-sm) var(--space-md);
+		flex-wrap: nowrap;
+	}
 }
 
 @media (max-width: 600px) {
@@ -136,7 +140,7 @@
 	}
 
 	.page-title-box {
-		padding: var(--space-sm) var(--space-md);
+		padding: var(--space-xs) var(--space-md);
 	}
 }
 
@@ -308,13 +312,18 @@
 @media (max-width: 900px) {
 	/* Burger button — fixed to top-right so it's always in the same
 	   position regardless of scroll, and independent of the fetched
-	   nav content. z-index 201 keeps it above the sticky nav bar (200). */
+	   nav content. z-index 201 keeps it above the sticky nav bar (200).
+
+	   The nav bar uses padding: var(--space-xs)=12px top/bottom and
+	   min-height: 56px. The button with 6px padding is 44px tall.
+	   Vertical centre: (56 - 44) / 2 = 6px → top: 6px.
+	   Right offset matches nav's right padding exactly. */
 	.burger-button {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		position: fixed;
-		top: 8px;
+		top: 6px;
 		right: var(--space-sm);
 		z-index: 201;
 	}
@@ -341,6 +350,17 @@
 	.whole-nav .nav-list,
 	.whole-nav .social-buttons-container {
 		display: none;
+	}
+}
+
+@media (max-width: 400px) {
+	/* On very narrow screens the button.md padding (6px each side)
+	   makes the burger slightly oversized relative to the compact nav.
+	   Drop to 4px padding — icon stays 32×32, touch target is still
+	   40px which is acceptable at this size. */
+	.burger-button {
+		padding: 4px;
+		top: 8px;
 	}
 }
 

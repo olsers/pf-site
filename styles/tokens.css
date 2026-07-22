@@ -185,11 +185,30 @@ figcaption {
    The header sizes above shrink on smaller screens. Kept here,
    next to the tokens they override, rather than scattered in
    whichever component file happened to need a media query.
+
+   Breakpoints match the layout breakpoints used in components.css:
+     900px — mobile nav kicks in, side nav collapses to top bar
+     600px — single-column layouts, reduced padding
+     400px — very narrow phones
    ------------------------------------------------------------------ */
+
+/* 600–900px: tablet / large phone in landscape.
+   Side nav is gone so content is wider, but there's more room than
+   a small phone. Titles can be a little smaller than desktop but
+   don't need to collapse as aggressively as they do at <600px. */
+@media (max-width: 900px) {
+	:root {
+		--font-size-header-xl: 52px;
+		--font-size-header-lg: 32px;
+		--font-size-header-md: 22px;
+		--font-size-header-sm: 17px;
+	}
+}
+
 @media (max-width: 600px) {
 	:root {
 		--font-size-header-xl: 42px;
-		--font-size-header-lg: 28px;
+		--font-size-header-lg: 26px;
 		--font-size-header-md: 20px;
 		--font-size-header-sm: 16px;
 	}
@@ -198,7 +217,7 @@ figcaption {
 @media (max-width: 400px) {
 	:root {
 		--font-size-header-xl: 32px;
-		--font-size-header-lg: 24px;
+		--font-size-header-lg: 22px;
 		--font-size-header-md: 18px;
 	}
 }
