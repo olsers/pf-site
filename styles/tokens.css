@@ -188,6 +188,7 @@ figcaption {
    ------------------------------------------------------------------ */
 @media (max-width: 600px) {
 	:root {
+		--font-size-header-xl: 42px;
 		--font-size-header-lg: 28px;
 		--font-size-header-md: 20px;
 		--font-size-header-sm: 16px;
@@ -196,6 +197,7 @@ figcaption {
 
 @media (max-width: 400px) {
 	:root {
+		--font-size-header-xl: 32px;
 		--font-size-header-lg: 24px;
 		--font-size-header-md: 18px;
 	}

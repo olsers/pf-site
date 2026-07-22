@@ -74,10 +74,24 @@
 	justify-content: center;
 	gap: var(--space-lg);
 	max-width: var(--max-content-width);
+	margin: 0 auto;
+	/* Centres the column on wide/ultrawide screens. The side nav
+	   occupies var(--nav-width) on the left; the flex body layout
+	   means this auto-margin distributes the remaining space evenly
+	   on both sides of the content column. */
+	width: 100%;
 }
 
 .content h2 {
-	scroll-margin-top: 140px
+	scroll-margin-top: 140px;
+	/* Sized for the desktop sticky title bar height. Overridden
+	   below for mobile where the top-bar is ~56px. */
+}
+
+@media (max-width: 900px) {
+	.content h2 {
+		scroll-margin-top: 72px;
+	}
 }
 
 .page-title-box {
@@ -85,13 +99,24 @@
 	border-bottom: 1px solid var(--colour-surface-subtle);
 	display: flex;
 	flex-direction: row;
+	flex-wrap: wrap;
 	gap: var(--space-sm);
 	justify-content: flex-start;
-	align-content: center;
+	align-items: center;
 	position: sticky;
 	top: 0;
 	z-index: 10;
 	background: var(--colour-surface-background);
+	overflow: hidden;
+}
+
+.page-title-box h1 {
+	/* Allow the title to shrink and wrap — without this, a long h1
+	   at 40px overflows the page-title-box at mid-range viewport
+	   widths (900–1100px) where the 240px side nav is still active
+	   but hasn't left enough room for the full title on one line. */
+	min-width: 0;
+	word-break: break-word;
 }
 
 @media (max-width: 900px) {
@@ -151,6 +176,12 @@
 	height: 32px;
 }
 
+/* The burger icon uses stroke rather than fill — needs explicit
+   stroke colour so it renders correctly across all browsers. */
+.burger-button svg {
+	stroke: currentColor;
+}
+
 /* Icon-only buttons (nav social links, burger, back-to-projects arrow)
    previously had a 32x32px hit area — exactly the icon's own size,
    with zero padding. Below the ~44x44px minimum recommended touch
@@ -201,7 +232,14 @@
 .button-row {
 	display: flex;
 	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: var(--space-sm);
 	width: 100%;
+}
+
+.button-row .button.text {
+	min-width: 120px;
+	text-align: center;
 }
 
 
@@ -262,20 +300,46 @@
 	text-decoration: none;
 }
 
+/* Hidden at desktop. The @media block below overrides to inline-flex
+   at ≤900px. This MUST come before that block — identical selector
+   specificity means last-in-source wins, so if this were after the
+   media query, display:none would crush the mobile show rule. */
+.burger-button {
+	display: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+@media (max-width: 900px) {
+	.burger-button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		position: fixed;
+		top: 8px;
+		right: var(--space-sm);
+		z-index: 201;
+		/* z-index one above .whole-nav (200) so it's always on top */
+	}
+}
+
 @media (max-width: 900px) {
 	.whole-nav {
 		width: 100%;
 		min-width: unset;
 		height: auto;
+		min-height: 56px;
 		position: sticky;
 		top: 0;
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		padding: var(--space-sm);
+		padding: var(--space-xs) var(--space-sm);
 		border-right: none;
 		border-bottom: 1px solid var(--colour-surface-subtle);
 		z-index: 200;
+		background: var(--colour-surface-background);
 	}
 
 	/* Nav links move into the mobile drawer below 900px —
@@ -284,44 +348,31 @@
 	.whole-nav .social-buttons-container {
 		display: none;
 	}
-
-	.burger-button {
-		display: inline-block;
-	}
 }
 
 
 /* ------------------------------------------------------------------
    Mobile drawer (nav, <900px)
-   Usage: .burger-button toggles .open on .drawer-overlay and
-   .mobile-drawer. Duplicates the desktop nav-list styling because
-   it renders larger, bolder link text intentionally (touch target) —
-   not an accidental fork.
    ------------------------------------------------------------------ */
 
-.burger-button {
-	display: none;
-	background: none;
-	border: none;
-	cursor: pointer;
-	/* padding comes from .button.md (touch-target sizing) — this used
-	   to hard-reset it to 0, which happened to still render fine only
-	   because .button.md's higher specificity won anyway. Removed to
-	   avoid the dead/conflicting declaration. */
-}
-
 .drawer-overlay {
-	display: none;
 	position: fixed;
 	inset: 0;
 	background: rgba(24, 25, 37, 0.7);
 	z-index: 300;
 	opacity: 0;
+	pointer-events: none;
 	transition: opacity 0.3s ease;
 }
 
 .drawer-overlay.open {
 	opacity: 1;
+	pointer-events: auto;
+}
+
+/* Prevent body scroll while drawer is open */
+body.drawer-open {
+	overflow: hidden;
 }
 
 .mobile-drawer {
@@ -507,6 +558,13 @@
 .masonry-section h2 {
 	margin-top: calc(2 * var(--space-lg));
 	margin-bottom: var(--space-md);
+}
+
+@media (max-width: 600px) {
+	.masonry-section h2 {
+		margin-top: var(--space-lg);
+		margin-bottom: var(--space-sm);
+	}
 }
 
 .masonry-wall {
@@ -768,7 +826,7 @@ th {
 @media (max-width: 900px) {
 	.glance-stats {
 		flex-direction: column;
-		gap: var(--space-sm);
+		gap: var(--space-xs);
 	}
 }
 
@@ -820,6 +878,18 @@ th {
 	cursor: zoom-out;
 }
 
+@media (max-width: 600px) {
+	.lightbox {
+		max-width: 96vw;
+		max-height: 80vh;
+	}
+
+	.lightbox img {
+		width: 96vw;
+		height: 80vh;
+	}
+}
+
 
 /* ------------------------------------------------------------------
    Generic layout helpers
@@ -850,6 +920,18 @@ th {
 
 td {
 	color: var(--colour-tertiary);
+}
+
+@media (max-width: 768px) {
+	/* Wide tables (e.g. the MSc platform comparison) can't compress
+	   to fit a phone screen without becoming unreadable. Make them
+	   independently scrollable rather than breaking the page layout. */
+	table {
+		display: block;
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		max-width: 100%;
+	}
 }
 
 
@@ -918,6 +1000,15 @@ td {
 	flex-direction: column;
 }
 
+@media (max-width: 600px) {
+	.text-grid.two-up,
+	.text-grid.two-up-asym {
+		grid-template-columns: 1fr;
+		column-gap: 0;
+		row-gap: var(--space-lg);
+	}
+}
+
 
 
 
@@ -932,6 +1023,22 @@ td {
 	}
 }
 
+@media (max-width: 768px) {
+	.image-grid.four-up {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (max-width: 600px) {
+	.image-grid.four-up {
+		grid-template-columns: 1fr;
+	}
+
+	.image-card {
+		padding: var(--space-sm);
+	}
+}
+
 .section-col {
 	display: flex;
 	flex-direction: column;
@@ -941,20 +1048,26 @@ td {
 
 .equal-list {
 	display: flex;
-	/* lines items up horizontally */
 	width: 100%;
 	gap: var(--space-xl);
-	/* equal spacing between items */
 	padding-left: 40px;
-	/* keeps room for the first number */
 }
 
 .equal-list li {
 	flex: 1;
 }
 
+@media (max-width: 600px) {
+	.equal-list {
+		flex-direction: column;
+		gap: var(--space-md);
+		padding-left: 0;
+	}
+}
+
 @media (max-width: 900px) {
 	.section-row {
 		flex-direction: column;
+		gap: var(--space-lg);
 	}
 }

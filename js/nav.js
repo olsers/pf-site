@@ -53,11 +53,10 @@ function initDrawer() {
 
     function openDrawer() {
         drawer.classList.add('open');
-        overlay.style.display = 'block';
-        requestAnimationFrame(() => overlay.classList.add('open'));
+        overlay.classList.add('open');
         drawer.setAttribute('aria-hidden', 'false');
         burgerBtn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('drawer-open');
     }
 
     function closeDrawer() {
@@ -65,10 +64,7 @@ function initDrawer() {
         overlay.classList.remove('open');
         drawer.setAttribute('aria-hidden', 'true');
         burgerBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-        overlay.addEventListener('transitionend', () => {
-            overlay.style.display = 'none';
-        }, { once: true });
+        document.body.classList.remove('drawer-open');
     }
 
     burgerBtn.addEventListener('click', () => {
@@ -77,6 +73,11 @@ function initDrawer() {
     });
 
     overlay.addEventListener('click', closeDrawer);
+
+    // Close the drawer when any link inside it is tapped
+    drawer.querySelectorAll('a[href]').forEach(link => {
+        link.addEventListener('click', closeDrawer);
+    });
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();

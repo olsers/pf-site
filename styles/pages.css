@@ -96,11 +96,13 @@
 		flex-direction: column;
 		padding: var(--space-lg);
 		gap: var(--space-lg);
+		align-items: flex-start;
 	}
 
 	.lore img {
 		width: 100%;
-		max-width: none;
+		max-width: 280px;
+		align-self: center;
 	}
 }
 
@@ -128,6 +130,12 @@
 	object-position: center;
 }
 
+@media (max-width: 600px) {
+	.hero-mock {
+		height: 220px;
+	}
+}
+
 /* ------------------------------------------------------------------
    DS project page
    ------------------------------------------------------------------ */
@@ -139,8 +147,18 @@
 	list-style: none;
 	display: grid;
 	grid-template-columns: 90px 64px 1fr;
-	/* date | dot+line | label — widen the first value if your dates run longer */
 	row-gap: var(--space-lg);
+}
+
+@media (max-width: 600px) {
+	.timeline-track {
+		grid-template-columns: 60px 40px 1fr;
+		row-gap: var(--space-md);
+	}
+
+	.timeline-date {
+		font-size: var(--font-size-body-xs);
+	}
 }
 
 .timeline-node {
@@ -202,9 +220,7 @@
 	justify-content: center;
 	gap: var(--space-lg);
 	flex-wrap: nowrap;
-	/* was wrap — this is what caused the stack */
 	overflow-x: auto;
-	/* fallback if a future pair is still too wide combined */
 }
 
 .image-grid.match-height .image-card {
@@ -215,7 +231,24 @@
 .image-grid.match-height .image-card img {
 	width: auto;
 	height: 320px;
-	/* was 400px — see note below */
 	max-height: 320px;
 	max-width: 100%;
+}
+
+@media (max-width: 600px) {
+	.image-grid.match-height {
+		flex-direction: column;
+		overflow-x: visible;
+		align-items: stretch;
+	}
+
+	.image-grid.match-height .image-card {
+		flex: none;
+	}
+
+	.image-grid.match-height .image-card img {
+		width: 100%;
+		height: auto;
+		max-height: none;
+	}
 }

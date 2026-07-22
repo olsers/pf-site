@@ -18,6 +18,14 @@
    available. Re-importing here just added an extra hop to the CSS
    import chain for no benefit. */
 
+html {
+	overflow-x: clip;
+	/* clip instead of hidden: prevents horizontal scrollbar from the
+	   off-canvas drawer without creating a scroll container. overflow:hidden
+	   creates a scroll container which clips position:fixed descendants
+	   on some browsers — exactly what was stopping the drawer from appearing. */
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -40,6 +48,7 @@ body {
 	background: var(--colour-surface-background);
 	min-height: 100vh;
 	display: flex;
+	overflow-x: clip;
 }
 
 @media (max-width: 900px) {
