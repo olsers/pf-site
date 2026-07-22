@@ -1,98 +1,80 @@
+// nav.js — loads the shared nav bar and wires up the mobile drawer.
+//
+// Architecture:
+//   - The burger button, drawer, and overlay are static HTML in every page.
+//     They don't depend on this script to exist in the DOM.
+//   - This script wires the drawer behaviour and loads the nav bar content.
+//   - initDrawer() is called both at script parse time AND on DOMContentLoaded
+//     to ensure it runs regardless of when the browser parses the script tag.
+
 async function loadNav() {
     try {
-        const response = await fetch('components/nav.html');
-        if (!response.ok) {
-            throw new Error(`components/nav.html responded with ${response.status}`);
-        }
-        const html = await response.text();
-        document.getElementById('nav').innerHTML = html;
+        const res = await fetch('components/nav.html');
+        if (!res.ok) throw new Error(res.status);
+        document.getElementById('nav').innerHTML = await res.text();
     } catch (err) {
-        // Nav is fetched at runtime with no server-side fallback, so a
-        // failed request (offline, hosting hiccup, wrong path after a
-        // deploy) would otherwise leave the page with no visible nav
-        // and no error anywhere to explain why. Surface it clearly;
-        // the rest of this file already guards against a missing nav
-        // (setActiveNav/initDrawer no-op safely if their elements
-        // aren't there), so the rest of the page still works.
-        console.error('Failed to load nav:', err);
+        console.error('Nav failed to load:', err);
     }
 }
 
 function setActiveNav() {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('.nav-list a');
-
-    navLinks.forEach(link => {
+    const page = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-list a, .drawer-nav-list a').forEach(link => {
         const href = link.getAttribute('href');
-        let isActive = false;
-
-        // Exact match
-        if (href === currentPage) {
-            isActive = true;
-        }
-
-        // If on a project page, highlight "Projects"
-        if (href === 'projects.html' && currentPage.startsWith('project-')) {
-            isActive = true;
-        }
-
-        if (isActive) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
+        const active = href === page || (href === 'projects.html' && page.startsWith('project-'));
+        link.classList.toggle('active', active);
     });
 }
 
-function initDrawer() {
-    const burgerBtn = document.querySelector('.burger-button');
+function openDrawer() {
     const drawer = document.getElementById('mobile-drawer');
     const overlay = document.getElementById('drawer-overlay');
+    const btn = document.querySelector('.burger-button');
+    if (!drawer) return;
+    drawer.classList.add('open');
+    overlay?.classList.add('open');
+    btn?.setAttribute('aria-expanded', 'true');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('drawer-open');
+}
 
-    if (!burgerBtn || !drawer || !overlay) return;
+function closeDrawer() {
+    const drawer = document.getElementById('mobile-drawer');
+    const overlay = document.getElementById('drawer-overlay');
+    const btn = document.querySelector('.burger-button');
+    if (!drawer) return;
+    drawer.classList.remove('open');
+    overlay?.classList.remove('open');
+    btn?.setAttribute('aria-expanded', 'false');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('drawer-open');
+}
 
-    function openDrawer() {
-        drawer.classList.add('open');
-        overlay.classList.add('open');
-        drawer.setAttribute('aria-hidden', 'false');
-        burgerBtn.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('drawer-open');
+// Expose globally so the onclick attribute on the burger can call it directly
+window.toggleDrawer = function() {
+    const drawer = document.getElementById('mobile-drawer');
+    drawer?.classList.contains('open') ? closeDrawer() : openDrawer();
+};
+
+function initDrawer() {
+    const overlay = document.getElementById('drawer-overlay');
+    if (overlay && !overlay.dataset.wired) {
+        overlay.dataset.wired = '1';
+        overlay.addEventListener('click', closeDrawer);
     }
-
-    function closeDrawer() {
-        drawer.classList.remove('open');
-        overlay.classList.remove('open');
-        drawer.setAttribute('aria-hidden', 'true');
-        burgerBtn.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('drawer-open');
-    }
-
-    burgerBtn.addEventListener('click', () => {
-        const isOpen = drawer.classList.contains('open');
-        isOpen ? closeDrawer() : openDrawer();
+    document.querySelectorAll('.drawer-nav-list a[href]').forEach(a => {
+        a.addEventListener('click', closeDrawer);
     });
-
-    overlay.addEventListener('click', closeDrawer);
-
-    // Close the drawer when any link inside it is tapped
-    drawer.querySelectorAll('a[href]').forEach(link => {
-        link.addEventListener('click', closeDrawer);
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeDrawer();
     });
 }
 
-loadNav().then(() => {
-    setActiveNav();
-    // Also mark active links in the drawer
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.drawer-nav-list a').forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPage || (href === 'projects.html' && currentPage.startsWith('project-'))) {
-            link.classList.add('active');
-        }
-    });
-    initDrawer();
-});
+// Wire drawer on script parse (burger button is already in DOM above this script)
+initDrawer();
+
+// Also wire on DOMContentLoaded as a safety net
+document.addEventListener('DOMContentLoaded', initDrawer);
+
+// Load nav content and mark active state
+loadNav().then(setActiveNav);

@@ -176,12 +176,6 @@
 	height: 32px;
 }
 
-/* The burger icon uses stroke rather than fill — needs explicit
-   stroke colour so it renders correctly across all browsers. */
-.burger-button svg {
-	stroke: currentColor;
-}
-
 /* Icon-only buttons (nav social links, burger, back-to-projects arrow)
    previously had a 32x32px hit area — exactly the icon's own size,
    with zero padding. Below the ~44x44px minimum recommended touch
@@ -300,10 +294,10 @@
 	text-decoration: none;
 }
 
-/* Hidden at desktop. The @media block below overrides to inline-flex
-   at ≤900px. This MUST come before that block — identical selector
-   specificity means last-in-source wins, so if this were after the
-   media query, display:none would crush the mobile show rule. */
+/* Hidden at desktop; shown at mobile via the media query below.
+   Base rule must come BEFORE the media query — identical specificity
+   means last-in-source wins, so if it came after, display:none would
+   override the show rule even at mobile widths. */
 .burger-button {
 	display: none;
 	background: none;
@@ -312,6 +306,9 @@
 }
 
 @media (max-width: 900px) {
+	/* Burger button — fixed to top-right so it's always in the same
+	   position regardless of scroll, and independent of the fetched
+	   nav content. z-index 201 keeps it above the sticky nav bar (200). */
 	.burger-button {
 		display: inline-flex;
 		align-items: center;
@@ -320,11 +317,8 @@
 		top: 8px;
 		right: var(--space-sm);
 		z-index: 201;
-		/* z-index one above .whole-nav (200) so it's always on top */
 	}
-}
 
-@media (max-width: 900px) {
 	.whole-nav {
 		width: 100%;
 		min-width: unset;
@@ -342,8 +336,8 @@
 		background: var(--colour-surface-background);
 	}
 
-	/* Nav links move into the mobile drawer below 900px —
-	   the burger button opens them instead. */
+	/* Nav links and social icons are hidden at mobile —
+	   they move into the drawer instead. */
 	.whole-nav .nav-list,
 	.whole-nav .social-buttons-container {
 		display: none;
