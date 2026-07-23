@@ -310,6 +310,7 @@
 }
 
 @media (max-width: 900px) {
+
 	/* Burger button — fixed to top-right so it's always in the same
 	   position regardless of scroll, and independent of the fetched
 	   nav content. z-index 201 keeps it above the sticky nav bar (200). */
@@ -928,6 +929,7 @@ td {
 }
 
 @media (max-width: 768px) {
+
 	/* Wide tables (e.g. the MSc platform comparison) can't compress
 	   to fit a phone screen without becoming unreadable. Make them
 	   independently scrollable rather than breaking the page layout. */
@@ -1006,6 +1008,7 @@ td {
 }
 
 @media (max-width: 600px) {
+
 	.text-grid.two-up,
 	.text-grid.two-up-asym {
 		grid-template-columns: 1fr;
@@ -1075,4 +1078,60 @@ td {
 		flex-direction: column;
 		gap: var(--space-lg);
 	}
+}
+
+
+/* ------------------------------------------------------------------
+   Tooltip
+   Usage: wrap any inline element with .tooltip, add a sibling
+   <span class="tooltip-text">Your text here</span>
+   ------------------------------------------------------------------ */
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+	cursor: help;
+	border-bottom: 1px dashed var(--colour-accent);
+}
+
+.tooltip-text {
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	bottom: calc(100% + 8px);
+	left: 50%;
+	transform: translateX(-50%);
+	background: var(--colour-accent);
+	color: var(--white);
+	font-size: var(--font-size-body-sm);
+	line-height: 1.4;
+	padding: var(--space-2xs) var(--space-xs);
+	border-radius: var(--radius-sm);
+	width: max-content;
+	max-width: 240px;
+	white-space: normal;
+	pointer-events: none;
+	transition: opacity 0.15s ease, visibility 0.15s ease;
+	z-index: 500;
+}
+
+/* Arrow pointing down toward the trigger */
+.tooltip-text::after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 6px solid transparent;
+	border-top-color: var(--colour-accent);
+}
+
+.tooltip:hover .tooltip-text,
+.tooltip:focus-within .tooltip-text {
+	visibility: visible;
+	opacity: 1;
+}
+
+abbr.tooltip {
+	text-decoration: none;
 }
