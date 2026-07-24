@@ -1,8 +1,21 @@
 /* ==================================================================
    MAIN ENTRY POINT — imports the whole system in cascade order.
-   This is the only file your HTML pages need to <link>:
 
-     <link rel="stylesheet" href="main.css">
+   NOTE: the live site pages no longer <link> this file directly.
+   @import is sequential/render-blocking — each import can't even
+   start fetching until the one before it has been fetched AND
+   parsed, adding a hop per file. Every page now links the four
+   files directly instead, in the same cascade order, so the browser
+   fetches them in parallel:
+
+     <link rel="stylesheet" href="styles/tokens.css" />
+     <link rel="stylesheet" href="styles/reset.css" />
+     <link rel="stylesheet" href="styles/components.css" />
+     <link rel="stylesheet" href="styles/pages.css" />
+
+   This file is kept only because styles/styleguide.html (a
+   dev-only reference page, not part of the live site) still links
+   to it for convenience — load performance doesn't matter there.
 
    Layer order matters: tokens define the vocabulary, reset applies
    it to raw HTML, components build reusable patterns on top, and

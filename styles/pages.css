@@ -27,6 +27,12 @@
 	font-size: var(--font-size-header-xl);
 }
 
+.cta-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-sm);
+}
+
 @media (max-width: 900px) {
 	.content-homepage {
 		margin-left: 0;
@@ -119,6 +125,36 @@
 	}
 }
 
+.education-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-lg);
+	width: 100%;
+}
+
+.education-item {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2xs);
+	padding-bottom: var(--space-lg);
+	border-bottom: 1px solid var(--colour-surface-subtle);
+}
+
+.education-item:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
+.education-item a {
+	color: var(--colour-primary);
+	font-weight: var(--font-weight-bold);
+	text-decoration: none;
+}
+
+.education-item a:visited {
+	color: var(--colour-primary);
+}
+
 /* ------------------------------------------------------------------
    ALL PROJECT PAGES
    ------------------------------------------------------------------ */
@@ -209,6 +245,33 @@
 .timeline-label {
 	font-size: var(--font-size-body-md);
 	color: var(--colour-tertiary);
+}
+
+div.timeline-label {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-xs);
+	/* Only div.timeline-label (used for the About page's multi-paragraph/
+	   list CV entries) gets flex-column treatment. span.timeline-label
+	   (used on this page for a single line of flowing text + inline
+	   tooltips) must stay a plain inline box — flexifying it would break
+	   the mixed text/abbr content into separate stacked flex items,
+	   stretching each one's box (and the tooltip's dashed underline)
+	   to the full container width instead of just wrapping the text. */
+}
+
+.timeline-label ul {
+	padding-inline-start: var(--space-md);
+}
+
+.timeline-label a {
+	color: var(--colour-primary);
+	font-weight: var(--font-weight-bold);
+	text-decoration: none;
+}
+
+.timeline-label a:visited {
+	color: var(--colour-primary);
 }
 
 

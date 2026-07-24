@@ -227,6 +227,15 @@
 	cursor: pointer;
 }
 
+/* .button.text.outline — a lower-emphasis sibling to .button.text, for
+   secondary CTAs that shouldn't compete with the filled primary action
+   (e.g. "More about me" next to "Check out my work" on the homepage). */
+.button.text.outline {
+	background: transparent;
+	color: var(--colour-secondary);
+	border: 1px solid var(--colour-secondary);
+}
+
 .button-row {
 	display: flex;
 	justify-content: space-between;
@@ -1127,7 +1136,8 @@ td {
 }
 
 .tooltip:hover .tooltip-text,
-.tooltip:focus-within .tooltip-text {
+.tooltip:focus-within .tooltip-text,
+.tooltip.tooltip-active .tooltip-text {
 	visibility: visible;
 	opacity: 1;
 }

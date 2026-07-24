@@ -43,6 +43,18 @@ img {
 	   width/height and wins on specificity as normal. */
 }
 
+picture {
+	display: contents;
+	/* <picture> is inline by default, which breaks every rule above
+	   and every component rule below that targets `img` directly
+	   (.pli img, .image-card img, .masonry-item img, etc.) — those
+	   were all written assuming the <img> itself is the flex/grid
+	   item. display:contents removes <picture> from the box tree
+	   entirely so the <img> behaves exactly as if it had no wrapper,
+	   while the <source> children (never rendered as boxes anyway)
+	   still do their job of offering the browser a smaller/WebP file. */
+}
+
 body {
 	font-family: var(--font-family-mono);
 	background: var(--colour-surface-background);
