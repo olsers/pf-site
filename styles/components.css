@@ -225,6 +225,7 @@
 	border-radius: var(--radius-sm);
 	text-decoration: none;
 	cursor: pointer;
+	box-shadow: var(--shadow-control);
 }
 
 /* .button.text.outline — a lower-emphasis sibling to .button.text, for
@@ -255,7 +256,7 @@
    ------------------------------------------------------------------ */
 
 .whole-nav {
-	min-width: var(--nav-width);
+	width: var(--nav-width);
 	height: 100vh;
 	position: fixed;
 	padding: var(--space-lg);
@@ -300,6 +301,129 @@
 	justify-content: flex-start;
 	gap: var(--space-sm);
 	width: fit-content;
+}
+
+/* Groups the vibe toggle with the social buttons at the bottom of the
+   nav, so they read as one cluster rather than being spread apart by
+   .whole-nav's justify-content: space-between. Same idea for the
+   mobile drawer's .drawer-footer below, which js/vibe.js builds by
+   wrapping the existing .drawer-social in place. */
+.nav-footer,
+.drawer-footer {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-sm);
+}
+
+.nav-footer {
+	align-items: flex-end;
+}
+
+.drawer-footer {
+	align-items: flex-start;
+}
+
+
+/* ------------------------------------------------------------------
+   Vibe toggle
+   Segmented control that flips the site between the default vibe and
+   a muted "corporate" vibe (see the data-vibe block in tokens.css and
+   js/vibe.js, which drives this markup and persists the choice).
+   Usage: a single fixed markup block, injected by js/vibe.js into
+   both the desktop nav (inside .nav-footer) and the mobile drawer
+   (inside .drawer-footer) — see vibeToggleMarkup() in vibe.js.
+   ------------------------------------------------------------------ */
+
+.vibe-toggle-group {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2xs);
+}
+
+.nav-footer .vibe-toggle-group,
+.drawer-footer .vibe-toggle-group {
+	align-self: stretch;
+	/* Overrides the parent footer's own alignment (flex-end / flex-start,
+	   used for the social icons) so the toggle fills the full width of
+	   the nav instead of shrink-wrapping to its content. */
+}
+
+.vibe-toggle-label {
+	font-family: var(--font-family-body);
+	font-size: var(--font-size-body-md);
+	color: var(--colour-tertiary);
+}
+
+.vibe-toggle {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	background: var(--colour-surface-subtle);
+	border-radius: var(--radius-md);
+	padding: var(--space-3xs);
+	box-shadow: var(--shadow-control);
+}
+
+.vibe-toggle-thumb {
+	position: absolute;
+	left: var(--space-3xs);
+	right: var(--space-3xs);
+	background: var(--colour-secondary);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--shadow-control);
+	/* top/height are set directly by js/vibe.js (positionThumb), not
+	   CSS — at full width and 14px body-text size, "Unhinged
+	   Technicolour" wraps to two lines while "HR Approved" stays on
+	   one, so the two rows are genuinely different heights. A fixed
+	   50%-of-container split (or a transform-based slide, which
+	   assumes equal halves) can't represent that; only measuring the
+	   active row's real box and matching it can. */
+	transition: top 0.2s ease, height 0.2s ease;
+}
+
+/* Corporate gets its own accent for the thumb (and the active nav
+   link, just below) instead of reusing the navy secondary colour —
+   the navy stays the base for headings/body text, this is just the
+   one deliberate spot of colour on top of it. */
+:root[data-vibe="corporate"] .vibe-toggle-thumb {
+	background: var(--colour-accent);
+}
+
+.vibe-toggle-option {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	border: none;
+	background: transparent;
+	padding: var(--space-xs) var(--space-sm);
+	font-family: var(--font-family-body);
+	/* Matches the rest of the nav's body text (.nav-list a, p) instead
+	   of a shrunk-down caption size — now that the pill fills the nav's
+	   full width and wrapping is fine, there's no need to size the text
+	   down just to keep it on one line. */
+	font-size: var(--font-size-body-md);
+	font-weight: var(--font-weight-bold);
+	color: var(--colour-tertiary);
+	cursor: pointer;
+	transition: var(--hover-transition), color 0.2s ease;
+}
+
+
+.vibe-toggle-option:hover {
+	opacity: var(--hover-opacity);
+}
+
+.vibe-toggle-option[aria-pressed="true"] {
+	color: var(--colour-surface-background);
+}
+
+:root[data-vibe="corporate"] .nav-list a.active,
+:root[data-vibe="corporate"] .drawer-nav-list a.active {
+	border-bottom-color: var(--colour-accent);
 }
 
 .whole-nav h3 a {
@@ -350,10 +474,11 @@
 		background: var(--colour-surface-background);
 	}
 
-	/* Nav links and social icons are hidden at mobile —
-	   they move into the drawer instead. */
+	/* Nav links, vibe toggle, and social icons are all hidden at
+	   mobile — they move into the drawer instead (the drawer gets
+	   its own injected copy of the toggle, see js/vibe.js). */
 	.whole-nav .nav-list,
-	.whole-nav .social-buttons-container {
+	.whole-nav .nav-footer {
 		display: none;
 	}
 }
@@ -425,7 +550,7 @@ body.drawer-open {
 	text-decoration: none;
 	border-bottom: 3px solid transparent;
 	transition: var(--hover-transition);
-	font-family: var(--font-family-mono);
+	font-family: var(--font-family-body);
 }
 
 .drawer-nav-list a:hover {

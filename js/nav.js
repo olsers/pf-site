@@ -9,7 +9,19 @@
 
 async function loadNav() {
     try {
-        const res = await fetch('components/nav.html');
+        // Deliberately NOT .html: dev servers with live-reload injection
+        // (e.g. VS Code's Live Server) rewrite the body of every .html
+        // file they serve to insert their reload script — including this
+        // one, even though it's a fragment fetched by JS rather than a
+        // page. That injection landed mid-markup (inside the social
+        // icons' inline <svg>s) and corrupted everything after it,
+        // silently dropping the vibe toggle. A non-.html extension keeps
+        // this file out of that rewriting entirely.
+        // no-cache (not no-store): still lets the browser reuse a cached
+        // response if the server confirms via a conditional request that
+        // it's unchanged, but never serves a stale copy without checking
+        // first.
+        const res = await fetch('components/nav.inc', { cache: 'no-cache' });
         if (!res.ok) throw new Error(res.status);
         document.getElementById('nav').innerHTML = await res.text();
     } catch (err) {
@@ -77,4 +89,8 @@ initDrawer();
 document.addEventListener('DOMContentLoaded', initDrawer);
 
 // Load nav content and mark active state
-loadNav().then(setActiveNav);
+loadNav().then(() => {
+    setActiveNav();
+    // Defined in js/vibe.js, loaded just before this file.
+    initVibeToggles();
+});

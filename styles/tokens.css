@@ -56,6 +56,53 @@
 	/* was defined as a primitive but never given a job — added so it's actually usable */
 }
 
+/* ------------------------------------------------------------------
+   COLOUR / TYPE — "Corporate" vibe override
+   Same semantic tokens, different values — nothing downstream
+   (components.css, pages.css) needs to know this exists. Toggled by
+   setting data-vibe="corporate" on <html> (see js/vibe.js). Swap
+   the hex values below to retune the corporate palette; don't add
+   new token *names* here unless the default vibe gets one too.
+
+   Contrast note: .button.text pairs `background: var(--colour-secondary)`
+   with `color: var(--colour-surface-background)` — it reuses the page
+   background colour as its "light text" colour. That trick only works
+   if --colour-secondary stays dark enough to contrast against a light
+   --colour-surface-background, so keep secondary/primary dark here
+   even though surface-background flips from near-black to near-white.
+   ------------------------------------------------------------------ */
+:root[data-vibe="corporate"] {
+	--colour-surface-background: #F6F7F9;
+	/* First pass at this was #E3E6EB — visually almost the same
+	   lightness as surface-background, so anything using it (the
+	   toggle track, .toc, .skip-link) read as barely-there. This is
+	   still a light neutral grey, just with enough separation from
+	   the page background to actually look like a distinct surface. */
+	--colour-surface-subtle: #D7DCE3;
+	--colour-primary: #101828;
+	--colour-secondary: #1E3A5F;
+	--colour-tertiary: #3B4758;
+	/* Accent is deliberately NOT another shade of navy — the brief was
+	   "keep the muted blue as the base, but it's reading monochrome".
+	   A muted brass/gold pairs with navy without turning "corporate"
+	   into "colourful", and gives the toggle + active nav link (see
+	   components.css) one spot of actual colour instead of four
+	   shades of the same blue-grey. */
+	--colour-accent: #7A5D18;
+
+	--font-family-body: "Roboto", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+
+	--radius-sm: 4px;
+	--radius-md: 8px;
+
+	/* --shadow-control is `none` by default (see the utility tokens
+	   section below) — this is the only vibe that turns it on, giving
+	   a couple of surfaces (the toggle thumb, the primary CTA) a soft
+	   lift instead of the site's usual flat fill. Default vibe is
+	   untouched since it never sets this to anything but none. */
+	--shadow-control: 0 1px 2px rgba(16, 24, 40, 0.08), 0 2px 6px rgba(16, 24, 40, 0.06);
+}
+
 
 /* ------------------------------------------------------------------
    TYPOGRAPHY — Primitives
@@ -63,6 +110,14 @@
    ------------------------------------------------------------------ */
 :root {
 	--font-family-mono: "JetBrains Mono", monospace;
+	/* Indirection, not a duplicate: everywhere the *body* font is
+	   applied (reset.css, .drawer-nav-list) reads --font-family-body
+	   rather than --font-family-mono directly. Default vibe points it
+	   at the mono font; the corporate vibe override below repoints it
+	   at a plain sans stack. --font-family-mono itself is untouched,
+	   in case something later wants "the mono font" specifically
+	   regardless of vibe. */
+	--font-family-body: var(--font-family-mono);
 
 	--font-size-header-xl: 64px;
 	--font-size-header-lg: 40px;
@@ -177,6 +232,9 @@ figcaption {
 	--hover-transition: all 0.2s;
 	--nav-width: 240px;
 	--max-content-width: 1500px;
+	/* `none` in the default vibe; the corporate override above is the
+	   only place that gives this a real value. */
+	--shadow-control: none;
 }
 
 

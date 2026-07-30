@@ -50,13 +50,27 @@ picture {
 	   (.pli img, .image-card img, .masonry-item img, etc.) — those
 	   were all written assuming the <img> itself is the flex/grid
 	   item. display:contents removes <picture> from the box tree
-	   entirely so the <img> behaves exactly as if it had no wrapper,
-	   while the <source> children (never rendered as boxes anyway)
-	   still do their job of offering the browser a smaller/WebP file. */
+	   entirely so the <img> behaves exactly as if it had no wrapper. */
+}
+
+source {
+	display: none;
+	/* <source> isn't meant to generate a box at all — but that's
+	   normally enforced by the browser treating <picture> as a
+	   special "pick one rendered child" element. Once <picture> is
+	   display:contents (above), that special-casing stops applying,
+	   and <source> quietly becomes a real (zero-width) flex/grid item
+	   sitting between the image and whatever follows it — stealing an
+	   extra gap's worth of space for every <source> in the markup.
+	   That's what was making .lore's image read as more than 50%: two
+	   invisible phantom items, each pulling an extra gap out of the
+	   row, all of it absorbed by whichever sibling had flex-shrink
+	   left to give (the text column, since the image is flex-shrink:0).
+	   This one rule fixes it everywhere <picture> is used, not just .lore. */
 }
 
 body {
-	font-family: var(--font-family-mono);
+	font-family: var(--font-family-body);
 	background: var(--colour-surface-background);
 	min-height: 100vh;
 	display: flex;

@@ -66,6 +66,13 @@
 	padding: var(--space-2xl);
 	gap: var(--space-2xl);
 	max-width: var(--max-content-width);
+	width: 100%;
+	margin: 0 auto;
+	/* width + margin: auto matches .content's centring (see
+	   components.css) — without them, this only had a max-width, so
+	   on any viewport wide enough to actually hit that cap, the row
+	   sat flush against the nav instead of centred like every other
+	   page's content column. */
 }
 
 .lore img {
@@ -81,6 +88,15 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	gap: var(--space-sm);
+	width: 50%;
+	max-width: 600px;
+	/* Explicit width + max-width on both sides of the row, mirroring
+	   the existing .pli / .pli-text-container pattern (components.css)
+	   instead of a fixed-width image with the text left to shrink-wrap
+	   to its own content. Note: the *severe* version of "image reads
+	   as more than half" wasn't this — it was the phantom <source>
+	   flex items eating extra gaps, fixed in reset.css. This just
+	   keeps the split as close to 50/50 as plain percentages get. */
 }
 
 .lore-text-container span {
@@ -109,6 +125,10 @@
 		width: 100%;
 		max-width: 280px;
 		align-self: center;
+	}
+
+	.lore-text-container {
+		width: 100%;
 	}
 }
 
